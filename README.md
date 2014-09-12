@@ -13,7 +13,9 @@
 
 Chrome扩展开发
 ---------------
-[Chrome Extension generator](https://github.com/yeoman/generator-chrome-extension)
+- [Chrome Extension generator](https://github.com/yeoman/generator-chrome-extension)
+
+- [360极速浏览器应用开放平台](http://open.chrome.360.cn/extension_dev/overview.html)
 
 
 参考
