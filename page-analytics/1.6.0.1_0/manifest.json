@@ -1,0 +1,87 @@
+/**
+ * 代码翻译：听歌
+ * 电子邮件：505253293@163.com
+ * 新浪微博：http://blog.sina.com.cn/tinggebar
+ * 代码地址：https://chrome.google.com/webstore/detail/page-analytics-by-google/fnbdnhhicmebfgdgglcdacdapkcihcoh?hl=en
+ * 文档地址：https://crxdoc-zh.appspot.com/extensions/manifest
+ * @fileoverview Page Analytics（分析）Chrome扩展代码:清单文件。
+ */
+
+{
+   //后台网页。详见：https://crxdoc-zh.appspot.com/apps/background_pages
+   "background": {
+      "persistent": true, //是否持久存在，是事件页面与后台网页之间的根本区别。该值为false时，为事件页面。
+      "scripts": [ "background-compiled.js" ]
+   },
+
+   //浏览器按钮。详见：https://crxdoc-zh.appspot.com/extensions/browserAction
+   "browser_action": {
+      "default_icon": "resources/icon.png",
+      "default_popup": "popup.html",
+      "default_title": "Page Analytics"
+   },
+
+   //内容脚本。详见：https://crxdoc-zh.appspot.com/extensions/content_scripts
+    "content_scripts": [ {
+      "css": [ "content-styles.css" ],
+      "js": [ "content-compiled.js" ],
+      "matches": [ "https://*/*", "http://*/*", "http://*/" ],
+      "run_at": "document_end"
+   } ],
+
+   //内容安全策略。详见：https://crxdoc-zh.appspot.com/apps/contentSecurityPolicy
+   "content_security_policy": "script-src 'self' https://apis.google.com/ https://accounts.google.com ; object-src 'self'",
+
+   //描述
+   "description": "The Page Analytics Chrome Extension allows you to see how customers interact with your web pages.",
+
+   "icons": {
+      "128": "resources/icon.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoMb/TA4DrMG5oYssGVWe2EI0Ywd1zH7tDyhouB8IH4SKs5Dm72a/9hZ6HYNyodrz0ZSCSyLycGy8BUsIznAh0DSF0xZpvEOmIfU6q1zk6V+8ud9nNkP0QhYsEcPyywVB/V7PI2aGnG0e9meLpw/WAabpT8J57aBD0bBdPNyQJLwQRv4hykN6J8fSc++bCnebeUpbeKXuUEygg+kTvDTwwrZSPxGQ8A7Oc3+g97VdxfH2j1aCMv/Wt/amuSGb9Lapiwd8Vpa5rzIqcB+wcu2MUSQobOQ5m3HYXXYOtOWy7BS2OBS4w5gJu5WV0XOvPDAcFGDXxOdLmZL1OtjTVkJe1QIDAQAB",
+   "manifest_version": 2,
+   "name": "Page Analytics (by Google)",
+
+   //声明权限。详见：https://crxdoc-zh.appspot.com/extensions/declare_permissions
+   "permissions": [
+       "storage",
+       "https://www.googleapis.com/",
+       "tabs",
+       "background",
+       "cookies",
+       "*://*.google.com/*",
+       "webNavigation",
+       "webRequest",
+       "*://*.google-analytics.com/*",
+       "*://stats.g.doubleclick.net/*"
+   ],
+
+   //自动更新。详见：https://crxdoc-zh.appspot.com/extensions/autoupdate
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.6.0.1",
+
+   //可在网页中访问的资源。详见：https://crxdoc-zh.appspot.com/extensions/manifest/web_accessible_resources
+   "web_accessible_resources": [
+       "popup/popup.css",
+       "resources/analytics_logo.png",
+       "resources/exit_button.png",
+       "resources/button_arrow_next_ltr.gif",
+       "resources/button_arrow_prev_ltr.gif",
+       "resources/iyp-blot-blue.png",
+       "resources/iyp-blot-green.png",
+       "resources/iyp-blot-red.png",
+       "resources/iyp-blot-yellow.png",
+       "resources/iyp-bubble-gray-v2.png",
+       "resources/iyp-bubble-v2.png",
+       "resources/iyp-other-v2.png",
+       "resources/minimize_button.png",
+       "resources/maximize_button.png",
+       "resources/nav_submenu_normal_closed.png",
+       "resources/nav_submenu_normal_open.png",
+       "resources/popup_logo.png",
+       "resources/search_30.png",
+       "resources/show_bubbles.png",
+       "resources/show_colors.png",
+       "resources/sprites.png"
+   ]
+}

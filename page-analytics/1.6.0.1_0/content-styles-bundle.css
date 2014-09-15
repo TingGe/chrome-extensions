@@ -1,0 +1,3968 @@
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/datecontrol/date-control.css */
+/**
+ * primary and comparison dates displayed
+ */
+.C_DATECONTROL_VIEW {
+  padding: 0;
+}
+
+.C_DATECONTROL_START,
+.C_DATECONTROL_DELIMITER,
+.C_DATECONTROL_END {
+  color: #444;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.C_DATECONTROL_COMPARE {
+  color: #999;
+  display: none;
+  padding-left: 7px;
+}
+
+.C_DATECONTROL_COMPARE.C_DATECONTROL_SHOW {
+  display: inline-block;
+}
+
+.C_DATECONTROL_COMPARE_START {
+  padding-left: 5px;
+}
+
+.C_DATECONTROL_COMPARE_START,
+.C_DATECONTROL_COMPARE_DELIMITER,
+.C_DATECONTROL_COMPARE_END {
+  color: #333;
+}
+
+.C_DATECONTROL_DELIMITER,
+.C_DATECONTROL_COMPARE_DELIMITER {
+  padding: 0 4px;
+}
+
+/**
+ * popup menu list
+ */
+.C_DATECONTROL_MENU_LIST {
+  position: absolute;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  margin-left: 1px;
+  margin-top: -1px;
+  padding: 10px;
+  white-space: nowrap;
+  z-index: 100050;
+}
+
+/**
+ * Date control interactive elements
+ */
+.C_DATECONTROL_DATE_COMPARE_MODE {
+  padding: 3px;
+  white-space: nowrap;
+  padding-right: 22px;
+  display: none;
+}
+
+.C_DATECONTROL_DATE_COMPARE_MODE.C_DATECONTROL_SHOW {
+  display: block;
+}
+
+.C_DATECONTROL_CONTROL {
+  display: block;
+  clear: both;
+  padding: 5px;
+}
+
+.C_DATECONTROL_CANCEL {
+  color: #999;
+}
+
+.C_DATECONTROL_CANCEL.C_DATECONTROL_ENABLED {
+  text-decoration: underline;
+  color: #24B;
+  cursor: pointer;
+}
+
+.C_DATECONTROL_MENU_LIST .C_DATECONTROL_PICKER_SHORTCUTS {
+  padding: 0 10px;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+input[type="text"].C_DATECONTROL_PRIMARY_INPUT.C_DATECONTROL_PICK {
+  border: #0077cc solid 3px;
+  margin: 0px;
+}
+
+input[type="text"].C_DATECONTROL_COMPARE_INPUT.C_DATECONTROL_PICK {
+  border: #ed7e17 solid 3px;
+  margin: 0px;
+}
+
+input[type="text"].C_DATECONTROL_PRIMARY_INPUT.C_DATECONTROL_PICK.C_DATECONTROL_ERROR,
+input[type="text"].C_DATECONTROL_COMPARE_INPUT.C_DATECONTROL_PICK.C_DATECONTROL_ERROR {
+  border: #b00 solid 3px;
+}
+
+input[type="text"].C_DATECONTROL_PRIMARY_INPUT.C_DATECONTROL_ERROR,
+input[type="text"].C_DATECONTROL_COMPARE_INPUT.C_DATECONTROL_ERROR {
+  border: #b00 solid 3px;
+}
+
+input[type="text"].C_DATECONTROL_PRIMARY_INPUT.C_DATECONTROL_INPUT_DISABLED,
+input[type="text"].C_DATECONTROL_COMPARE_INPUT.C_DATECONTROL_INPUT_DISABLED {
+  border: #DDD solid 1px;
+  color: #AAA;
+}
+
+.C_DATECONTROL_CUSTOM_DATERANGE {
+  display: none;
+}
+
+.C_DATECONTROL_CUSTOM_DATERANGE.C_DATECONTROL_SHOW {
+  display: block;
+}
+
+input[type="text"].C_DATECONTROL_PRIMARY_INPUT, input[type="text"].C_DATECONTROL_COMPARE_INPUT {
+  margin: 2px;
+}
+
+.iyp__toolbar .C_DATECONTROL_PRIMARY_INPUT,
+.iyp__toolbar .C_DATECONTROL_COMPARE_INPUT {
+  border: #ccc solid 1px;
+  cursor: pointer;
+  font-size: 70%;
+  width: 7em;
+  padding: 1px;
+}
+
+.C_DATECONTROL_LABEL {
+  font-size: 75%;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.C_DATECONTROL_DATE_COMPARE_MODE label {
+  font-size: 100%;
+  font-weight: bold;
+  margin-bottom: 3px;
+  display: inline;
+}
+
+.C_DATECONTROL_DATE_COMPARE_MODE input[type="checkbox"] {
+  margin: 0;
+}
+
+.iyp__toolbar .C_DATECONTROL_DIVIDER {
+  border-top: #666 dotted 1px;
+}
+
+.C_DATECONTROL_SELECT {
+  border: #9a9a9a solid 1px;
+  background-color: #fff;
+  color: #000;
+  font-size: 90%;
+}
+
+.C_DATECONTROL_SELECT:disabled {
+  background-color: #fff;
+  color: #AAA;
+  cursor: inherit;
+}
+
+/**
+ * date pickers calendars
+ */
+
+.C_DATECONTROL_CALENDAR {
+  white-space: nowrap;
+  margin: 2px;
+}
+
+.C_DATECONTROL_CALENDAR table {
+  border-collapse: collapse;
+}
+
+.goog-date-picker {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  vertical-align: top;
+}
+
+.C_DATECONTROL_MENU_LIST .goog-date-picker-date-week, .C_DATECONTROL_MENU_LIST .goog-date-picker-wday, .C_DATECONTROL_MENU_LIST .goog-date-picker-date {
+  padding: 2px 3px;
+}
+
+.iyp__toolbar .goog-date-picker-date-week,
+.iyp__toolbar .goog-date-picker-wday,
+.iyp__toolbar .goog-date-picker-date {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 70%;
+  border-bottom: #f7f7f7 solid 1px;
+  border-right: #f7f7f7 solid 1px;
+  background-color: #fff;
+}
+
+.iyp__toolbar .goog-date-picker-wday {
+  border-bottom: #ccc solid 1px;
+}
+
+.goog-date-picker-month {
+  width: 12ex;
+}
+
+.goog-date-picker-monthyear {
+  text-align: center;
+  background-color: #ddd;
+}
+
+.goog-date-picker-monthyear button {
+  border: #fff none 0px;
+  color: #07c;
+  cursor: pointer;
+  font-size: 85%;
+  background-color: #ddd;
+}
+
+.goog-date-picker-today {
+  font-weight: bold;
+}
+
+.goog-date-picker-btn {
+  border: 0;
+  background-color: #fff;;
+  cursor: pointer;
+}
+
+.goog-date-picker-btn:hover {
+  color: #24B;
+}
+
+.goog-date-picker-menu {
+  position: absolute;
+  background-color: #fff;
+  z-index: 1;
+  outline-style: none;
+  -moz-user-focus: normal;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.goog-date-picker-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 3px;
+}
+
+.goog-date-picker-menu li {
+  padding: 1px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.goog-date-picker-menu li:hover {
+  background-color: #ff6d06;
+  color: #fff;
+}
+
+.goog-date-picker-menu-selected {
+  background-color: #ff6d06;
+  color: #fff;
+}
+
+.goog-date-picker-head td {
+  font-size: 80%;
+  height: 15px;
+  white-space: nowrap;
+}
+
+.goog-date-picker-next, .goog-date-picker-prev {
+  vertical-align: top;
+}
+
+.goog-date-picker-next div, .goog-date-picker-prev div {
+  border: #ccc solid 1px;
+  background-color: #ddd;
+  cursor: pointer;
+  padding: 3px 5px;
+}
+
+.goog-date-picker-next div {
+  border: #ccc solid 1px;
+  background-color: #ddd;
+  cursor: pointer;
+  padding: 3px 5px;
+}
+
+.goog-date-picker-prev div {
+  border-radius: 3px 0 0 3px;
+  -moz-border-radius: 3px 0 0 3px;
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-left-radius: 3px;
+  -webkit-border-bottom-right-radius: 0;
+}
+
+.goog-date-picker-next div {
+  border-radius: 0 3px 3px 0;
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-border-top-left-radius: 0;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 3px;
+}
+
+/* Needs "div div." to overcome specificity. */
+div div.C_DATEPICKER_PAGE {
+  height: 7px;
+  padding: 0;
+  width: 4px;
+}
+
+.goog-date-picker-next div div.C_DATEPICKER_PAGE {
+  background: url('chrome-extension://__MSG_@@extension_id__/resources/button_arrow_next_ltr.gif') no-repeat;
+}
+
+.goog-date-picker-prev div div.C_DATEPICKER_PAGE {
+  background: url('chrome-extension://__MSG_@@extension_id__/resources/button_arrow_prev_ltr.gif') no-repeat;
+}
+
+.iyp__toolbar .C_DATEPICKER_DATE_DISABLED, .C_DATEPICKER_DATE_DISABLED:hover {
+  color: #ddd;
+  font-weight: normal;
+  background-color: #fff;
+}
+
+.iyp__toolbar .C_DATEPICKER_IN_RANGE:hover, .iyp__toolbar .C_DATEPICKER_IN_COMPARE_RANGE:hover,
+.iyp__toolbar .C_DATEPICKER_IN_BOTH_RANGE:hover, .iyp__toolbar .C_DATEPICKER_NO_RANGE:hover {
+  background-color: #fc3;
+}
+
+.iyp__toolbar .C_DATEPICKER_IN_RANGE {
+  background-color: #0077cc;
+  color: #fff;
+  cursor: pointer;
+}
+
+.iyp__toolbar .C_DATEPICKER_IN_COMPARE_RANGE {
+  background-color: #ed7e17;
+  color: #fff;
+  cursor: pointer;
+}
+
+.iyp__toolbar .C_DATEPICKER_IN_BOTH_RANGE {
+  background-color: #00b1ab;
+  color: #fff;
+  cursor: pointer;
+}
+
+.iyp__toolbar .C_DATEPICKER_NO_RANGE {
+  cursor: pointer;
+}
+
+.iyp__toolbar .C_DATECONTROL_CONTROL .help-Helpwidgets-TooltipWidget,
+.iyp__toolbar .C_DATECONTROL_CONTROL .help-Helpwidgets-TooltipWidget-over {
+  background: none;
+  color: #A0A0A0;
+  display: block;
+  font-size: 80%;
+  margin: 1px 0 0 9px;
+}
+
+.iyp__toolbar .C_DATECONTROL_COMPARE_TEXT {
+  margin: 0;
+  vertical-align: middle;
+}
+
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/account-panel.css */
+.account-panel {
+  color: #666;
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.S_ACCOUNT_LABEL_CONTAINER {
+  background: transparent url('chrome-extension://__MSG_@@extension_id__/resources/nav_submenu_normal_open.png') no-repeat 100%;
+  cursor: pointer;
+  margin-top: 0;
+  padding-left: 10px;
+  padding-right: 9px;
+}
+
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/account-selector-list.css */
+.S_ACCOUNT_LIST_CONTAINER {
+  clear: both;
+  color: #000;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  font-family: arial, sans-serif;
+  font-size: 13px;
+  position: fixed;
+  width: 470px;
+  z-index: 100060;
+}
+
+.S_ACCOUNT_LIST_CONTAINER_HEADER {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ccc;
+  padding: 6px 8px;
+  overflow: hidden;
+}
+
+.S_ACCOUNT_FILTER_INPUT {
+  border-top: 1px solid #a3a3a3;
+  border-left: 1px solid #a3a3a3;
+  border-bottom: 1px solid #ccc;
+  border-right:  1px solid #ccc;
+  background: #fff;
+  -moz-box-shadow: inset 0 1px 0 #d6d6d6;
+  -webkit-box-shadow: inset 0 1px 0 #d6d6d6;
+  box-shadow: inset 0 1px 0 #d6d6d6;
+  color: #000;
+  font: normal 12px Arial !important;
+  float:right;
+  height: 24px;
+  margin: 0;
+  padding-left: 5px;
+  vertical-align: middle;
+  width: 200px;
+}
+
+input[type='text'].ACCOUNT_FILTER {
+  background: #fff url('chrome-extension://__MSG_@@extension_id__/resources/search_30.png') no-repeat 0 center;
+  padding: 5px 5px 5px 25px;
+  height: 19px;
+  outline: none;
+}
+
+.S_ACCOUNT_DIV {
+  background-color: #fff;
+  -moz-box-shadow: -2px -5px 5px #eee inset;
+  -webkit-box-shadow: -2px -5px 5px #eee inset;
+  box-shadow: -2px -5px 5px #eee inset;
+  padding-left: 8px;
+}
+
+.S_ACCOUNT_LIST {
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+  border-radius: 0 0 5px 5px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.L_HEADER_ACCOUNT_CONTENT {
+  padding-right: 8px;
+}
+
+.L_HEADER_ACCOUNT_CONTENT_LAST {
+  padding-bottom: 22px;
+}
+
+.S_ACCOUNT_NAME {
+  display: block;
+  margin-top: 0;
+  padding-top: 22px;
+  vertical-align: middle;
+}
+
+.S_PROPERTY_LIST_EXPANDABLE {
+  background: transparent url('chrome-extension://__MSG_@@extension_id__/resources/nav_submenu_normal_open.png') no-repeat top left;
+  cursor: pointer;
+  float: left;
+  height: 9px;
+  margin: 4px 2px 2px 0;
+  padding: 0;
+  width: 9px;
+}
+
+.S_PROPERTY_LIST_COLLAPSED {
+  background: transparent url('chrome-extension://__MSG_@@extension_id__/resources/nav_submenu_normal_closed.png') no-repeat top left;
+}
+
+.S_ACCOUNT_NAME_DISPLAY {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  float: left;
+  margin-right: 5px;
+  overflow: hidden;
+  padding: 0 5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 280px;
+}
+
+.S_ACCOUNT_NAME_DISPLAY:HOVER {
+  background-color: #ececec;
+}
+
+.L_PRODUCT_NUMBER {
+  color: #ccc;
+  float: right;
+  font-size: 11px;
+}
+
+.L_ACCOUNT_DATASET_SPACE {
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
+
+.L_WEB_LINE {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 9px;
+}
+
+.L_WEBPROP {
+  padding-top: 9px;
+}
+
+.S_WEB_PROPERTY_NAME {
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  font: bold 13px Arial;
+  font-weight: normal;
+  overflow: hidden;
+  text-align: -webkit-match-parent;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 290px;
+  vertical-align: middle;
+}
+
+.L_WEB_PROPERTY_NAME_HIDE {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.S_ACCOUNT_WEB_MSG {
+  font-weight: normal;
+  font-size: 11px;
+  float: right;
+  padding-right: 10px;
+}
+
+.S_ACCOUNT_DATASET {
+  color: #005c9c;
+  cursor: pointer;
+  font-weight: normal;
+  margin-right: 10px;
+  margin-left: 15px;
+  margin-top: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 270px;
+  white-space: nowrap;
+}
+
+.S_WEB_PROPERTY_NAME_SELECTED {
+}
+
+.S_ACCOUNT_LIST_HIGHLIGHTED,
+.S_ACCOUNT_LIST_HIGHLIGHTED.S_ACCOUNT_DATASET_SELECTED {
+  background-color: #ececec;
+}
+
+.S_ACCOUNT_FILTER_INPUT_LABEL {
+  color: #999;
+}
+
+.S_RECENT_PROFILE_LIST {
+  border-top: 1px solid #ccc;
+  color: #444;
+  margin-bottom: 6px;
+  padding: 4px 8px 0px 23px;
+}
+
+.S_RECENT_PROFILE_LIST_LABEL {
+  margin-left: 0px;
+}
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/compact-panel.css */
+.compact-panel {
+  box-sizing: border-box;
+  right: 0;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  width: 240px;
+  z-index: 100050;
+}
+
+.compact-panel-main {
+  background-color: #e5e5e5;
+  padding: 0 10px 0 10px;
+}
+
+.compact-panel-header {
+  padding: 0;
+  line-height: 29px;
+  overflow: hidden;
+}
+
+.compact-panel-page-data {
+  overflow: hidden;
+}
+
+.compact-panel-footer {
+  padding: 6px 20px 6px 0;
+  overflow: hidden;
+}
+
+
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/full-panel.css */
+.gaext-control-panel {
+  box-sizing: border-box;
+  border-bottom: 1px solid #666;
+  left: 0;
+  margin: 0;
+  min-width: 1300px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100050;
+}
+
+.gaext-control-panel a:link, .gaext-control-panel a:visited {
+  color: #005c9c !important;
+  text-decoration: none !important;
+}
+
+.gaext-control-panel a:hover {
+  text-decoration: underline !important;
+}
+
+.gaext-control-panel-main {
+  background-color: #e5e5e5;
+  padding: 0 10px 0 10px;
+}
+
+.gaext-control-panel-header {
+  line-height: 29px;
+  padding: 0;
+  overflow: hidden;
+}
+
+
+.gaext-control-panel-bottom {
+  top: auto;
+  bottom: 0;
+}
+
+.gaext-control-panel-footer {
+  padding: 6px 10px 6px 0;
+  overflow: hidden;
+}
+
+.gaext-control-panel-page-data {
+  overflow: hidden;
+}
+
+.scorecard-container {
+  float: left;
+  width: 100%;
+  margin-right: -232px;
+}
+
+/* The Extra settings bar (the one for color) has fat controls,
+ * and doesn't need as much vertical padding. */
+.C_INPAGE_PADDED_LESS {
+  padding: 4px 10px 0;
+  position: relative;
+}
+
+.C_INPAGE_COLOR_LEGEND {
+  height: 23px;
+  position: absolute;
+  visibility: hidden;
+  z-index: 1000; /* Make sure it's shown above the site IFRAME controls. */
+}
+
+.C_INPAGE_COLOR_LEGEND,
+.C_INPAGE_COLOR_LEGEND div {
+  display: inline-block;
+  float: left;
+  line-height: 18px;
+  margin-right: 6px; /* Can't use padding; the map is a sprite. */
+  text-shadow: 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff, 0px 0px 2px #fff;
+  vertical-align: middle;
+}
+
+.C_INPAGE_COLOR_LEGEND_MAP {
+  background: no-repeat url('chrome-extension://__MSG_@@extension_id__/resources/sprites.png') -81px -457px;
+  height: 19px;
+  width: 87px;
+}
+
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/real-time.css */
+.realtime {
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  background: #fff;
+  float: right;
+  width: 220px;
+}
+
+.realtime-cell {
+  padding: 8px 10px 8px 10px;
+}
+
+.realtime-text {
+  color: #898989;
+  font-size: 11px;
+  margin: 0 0 5px 0;
+}
+
+.realtime-value {
+  color: #000;
+  font-size: 19px;
+  margin: 0;
+}
+
+.realtime-header {
+  background-color: #f4f4f4;
+  color: #444;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 29px;
+  overflow: hidden;
+  padding: 0 10px 0 10px;
+  text-align: left;
+}
+
+.realtime-compact-button {
+  float: right;
+}
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/scorecard.css */
+.scorecard {
+  border: 1px solid #d8d8d8;
+  border-radius: 3px;
+  margin-right: 232px;
+}
+
+.scorecard-table {
+  background: #fff;
+  border-collapse: collapse;
+  margin: 0  !important;
+  padding: 0  !important;
+  width: 100%;
+}
+
+.iyp__toolbar .scorecard-table th,
+.iyp__toolbar .scorecard-table td {
+  margin: 0  !important;
+  border: 1px solid #d8d8d8 !important;
+  padding-left: 7px;
+  vertical-align: middle !important;
+}
+
+.scorecard-metric-header {
+  background-color: #f4f4f4;
+  color: #444;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0 0 0 10px;
+  text-align: left;
+}
+
+.scorecard-cell {
+  min-width: 150px;
+  padding: 8px 10px 8px 10px !important;
+}
+
+.scorecard-segment {
+  color: #444;
+  font-size: 19px;
+  padding: 0 30px 0 30px !important;
+}
+
+.scorecard-trendline {
+  height: 30px;
+}
+
+.scorecard-comparison-text {
+  color: #898989;
+  font-size: 11px;
+  margin: 0 0 3px 0;
+}
+
+.scorecard-metric-value {
+  color: #000;
+  font-size: 19px;
+  margin: 0;
+}
+
+
+.scorecard-metric-value-positive {
+  color: #4B9525;
+}
+
+.scorecard-metric-value-negative {
+  color: #932D22;
+}
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/tab-panel.css */
+.view-in-ga-link-logo {
+  background: url("chrome-extension://__MSG_@@extension_id__/resources/analytics_logo.png") 0 center no-repeat;
+  display: inline-block;
+  height: 29px;
+  padding-right: 5px;
+  vertical-align: middle;
+  width: 124px;
+}
+
+.panel-header-separator {
+  display: inline-block;
+}
+
+.panel-header-account-panel {
+  display: inline-block;
+}
+
+.panel-header-exit-button {
+  display: inline-block;
+}
+
+.gaext-link {
+  display: inline-block;
+  padding-left: 5px;
+}
+
+.panel-header-sample-warning {
+  display: inline-block;
+  padding-left: 25px;
+}
+/* java/com/google/analytics/fe/gaextension/content_script/control_pane/tab-panel-controls.css */
+.compare-checkbox {
+  padding-left: 5px;
+}
+
+.compare-label {
+  color: #444;
+  cursor: default;
+  font-size: 11px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+.right-controls {
+  display: inline-block;
+}
+
+.threshold {
+  color: #444;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  padding-top: 2px;
+  padding-right: 5px;
+  vertical-align: middle;
+}
+/* java/com/google/analytics/fe/gaextension/content_script/iyp/blot.css */
+span.iyp__blot {
+  position: absolute;
+  z-index: 100010;
+  display: none;
+}
+
+.iyp__blots_color span.iyp__blot.iyp__blot_color-lowest {
+  display: block;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/resources/iyp-blot-green.png);
+  padding: 1px;
+}
+
+/* TODO(talig): This is a code duplication that we can eliminate when we make */
+/* the mouse events refactoring */
+
+.iyp__blots_color span.iyp__blot.iyp__blot_color-lowest:hover,
+.iyp__blots_color span.iyp__blot.iyp__blot_color-lowest.iyp__blot_border {
+  padding: 0;
+  border: 1px solid rgb(54, 96, 246);
+}
+
+.iyp__blots_color span.iyp__blot.iyp__blot_color-low {
+  display: block;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/resources/iyp-blot-green.png);
+  padding: 1px;
+}
+
+.iyp__blots_color span.iyp__blot.iyp__blot_color-low:hover,
+.iyp__blots_color span.iyp__blot.iyp__blot_color-low.iyp__blot_border {
+  padding: 0;
+  border: 1px solid rgb(0, 148, 46);
+}
+
+.iyp__blots_color span.iyp__blot.iyp__blot_color-high {
+  display: block;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/resources/iyp-blot-yellow.png);
+  padding: 1px;
+}
+
+.iyp__blots_color span.iyp__blot.iyp__blot_color-high:hover,
+.iyp__blots_color span.iyp__blot.iyp__blot_color-high.iyp__blot_border {
+  padding: 0;
+  border: 1px solid rgb(245, 165, 13);
+}
+
+.iyp__blots_color span.iyp__blot.iyp__blot_color-highest {
+  display: block;
+  background-image: url(chrome-extension://__MSG_@@extension_id__/resources/iyp-blot-red.png);
+  padding: 1px;
+}
+
+.iyp__blots_color span.iyp__blot.iyp__blot_color-highest:hover,
+.iyp__blots_color span.iyp__blot.iyp__blot_color-highest.iyp__blot_border {
+  padding: 0;
+  border: 1px solid rgb(243, 66, 37);
+}
+
+#iyp__bubbles_color_shade {
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+#iyp__bubbles.iyp__blots_color #iyp__bubbles_color_shade {
+  background-color: #fff;
+  display: block;
+  opacity: 0.35;
+  z-index: 100010;
+}
+/* java/com/google/analytics/fe/gaextension/content_script/iyp/detailspane.css */
+.iyp__details_pane {
+    background-color: #fff;
+    border: 1px solid #595959;
+    box-shadow: 0 2px 4px rgba(89, 89, 89, 0.5);
+    -moz-box-shadow: 0 2px 4px rgba(89, 89, 89, 0.5);
+    -webkit-box-shadow: 0 2px 4px rgba(89, 89, 89, 0.5);
+    cursor: pointer;
+    color: #000;
+    font-family: arial, verdana, sans-serif !important;
+    font-size: 8pt !important;
+    height: auto;
+    margin: 0;
+    min-width: 170px;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    z-index: 100040;
+}
+
+.iyp__details_pane_header {
+    color: #333;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* MSIE is forgetful? */
+}
+
+.iyp__details_pane_header_text {
+    float: left;
+    max-width: 200px;
+    overflow: hidden;
+    padding: 2px 5px 2px 0;
+    text-overflow: ellipsis;
+}
+
+.iyp__details_pane_footer {
+    background-color: #f2f2f2;
+    border-top: 1px solid #e5e5e5;
+    color: #666;
+    padding: 5px 0;
+}
+
+.iyp__details_pane_footer_top {
+    padding: 2px 10px 4px 10px;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* MSIE is forgetful? */
+}
+
+.iyp__details_pane_footer_row {
+    padding: 1px 10px;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* MSIE is forgetful? */
+}
+
+td.iyp__details_pane_values_column {
+    font-weight: normal !important;
+    text-align: left;
+    padding: 2px 10px;
+}
+
+td.iyp__details_pane_values_with_bar {
+    border-left: 1px solid #333;
+}
+
+td.iyp__details_pane_percent_column {
+    font-weight: bold !important;
+    padding: 2px 10px;
+}
+
+.iyp__details_pane_view_name {
+    max-width: 150px;
+    overflow: hidden;
+    padding: 2px 10px 2px 5px;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* java/com/google/analytics/fe/gaextension/content_script/iyp/siteoverlay.css */
+/* ------ IYP ------ */
+
+span.iyp__bubble {
+  display: none;
+}
+
+#iyp__bubbles {
+  /*
+    Some sites have a bizarre div { postion: relative } rule. Countermand that.
+    See b/5306126 for an example.
+  */
+  position: static;
+}
+
+.iyp__bubbles span.iyp__bubble {
+  background: none !important;
+  display: inline;
+  height: 0 !important;
+  position: absolute;
+  text-decoration: none !important;
+  vertical-align: top;
+  width: 0 !important;
+  z-index: 100020;
+}
+
+.iyp__bubbles span.iyp__bubble span {
+  background: url(chrome-extension://__MSG_@@extension_id__/resources/iyp-bubble-v2.png) no-repeat !important;
+  color: white;
+  cursor: pointer;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  font-family: arial, verdana, sans-serif !important;
+  left: -45px;
+  letter-spacing: 0 !important;
+  line-height: 28px;
+  overflow: hidden;
+  position: absolute;
+  text-align: center;
+  text-decoration: none !important;
+  text-shadow: none !important;
+  top: -24px;
+  white-space: nowrap;
+  width: 50px;
+}
+
+.iyp__bubbles span.iyp__bubble span.iyp__bubble_dup {
+  background-position: -50px 0 !important;
+}
+
+.iyp__bubbles span.iyp__bubble span.iyp__bubble_top {
+  background-position: 0 -30px !important;
+}
+
+.iyp__bubbles span.iyp__bubble span.iyp__bubble_top.iyp__bubble_dup {
+  background-position: -50px -30px !important;
+}
+
+.iyp__bubbles span.iyp__bubble span.iyp__active,
+.iyp__bubbles.iyp__blots_color span.iyp__bubble span.iyp__active,
+.iyp__bubbles span.iyp__bubble span.iyp__bubble_dup.iyp__bubble_top.iyp__active {
+  background-position: 0 -60px !important;
+  color: #fff;
+  font-size: 10px !important;
+}
+
+.iyp__blots_color.iyp__bubbles span.iyp__bubble span.iyp__other,
+span.iyp__bubble span.iyp__other {
+  background: url(chrome-extension://__MSG_@@extension_id__/resources/iyp-other-v2.png) no-repeat !important;
+  color: #fff;
+}
+
+.iyp__blots_color.iyp__bubbles span.iyp__bubble span {
+  background-image: url(chrome-extension://__MSG_@@extension_id__/resources/iyp-bubble-gray-v2.png) !important;
+  background-repeat: no-repeat !important;
+  color: #000;
+}
+
+.iyp__link_highlighter_horizontal {
+  background-color: #ff6101;
+  height: 4px;
+  position: absolute;
+}
+
+.iyp__link_highlighter_vertical {
+  background-color: #ff6101;
+  width: 4px;
+  position: absolute;
+}
+
+.iyp__link_highlighter_internal_top {
+  background-color: #ffe2cd;
+  height: 3px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+}
+
+.iyp__link_highlighter_internal_bottom {
+  background-color: #ffe2cd;
+  height: 3px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+}
+
+.iyp__link_highlighter_internal_left {
+  background-color: #ffe2cd;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 3px;
+}
+
+.iyp__link_highlighter_internal_right {
+  background-color: #ffe2cd;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 3px;
+}
+
+/* javascript/closure/css/common.css */
+/*
+ * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+
+/*
+ * Cross-browser implementation of the "display: inline-block" CSS property.
+ * See http://www.w3.org/TR/CSS21/visuren.html#propdef-display for details.
+ * Tested on IE 6 & 7, FF 1.5 & 2.0, Safari 2 & 3, Webkit, and Opera 9.
+ *
+ * @author attila@google.com (Attila Bodis)
+ */
+
+/*
+ * Default rule; only Safari, Webkit, and Opera handle it without hacks.
+ */
+.goog-inline-block {
+  position: relative;
+  display: -moz-inline-box; /* Ignored by FF3 and later. */
+  display: inline-block;
+}
+
+/*
+ * Pre-IE7 IE hack.  On IE, "display: inline-block" only gives the element
+ * layout, but doesn't give it inline behavior.  Subsequently setting display
+ * to inline does the trick.
+ */
+* html .goog-inline-block {
+  display: inline;
+}
+
+/*
+ * IE7-only hack.  On IE, "display: inline-block" only gives the element
+ * layout, but doesn't give it inline behavior.  Subsequently setting display
+ * to inline does the trick.
+ */
+*:first-child+html .goog-inline-block {
+  display: inline;
+}
+
+/* javascript/closure/css/menubutton.css */
+/*
+ * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+
+/*
+ * Standard styling for buttons created by goog.ui.MenuButtonRenderer.
+ *
+ * @author attila@google.com (Attila Bodis)
+ */
+
+
+/* State: resting. */
+.goog-menu-button {
+  /* Client apps may override the URL at which they serve the image. */
+  background: #ddd url(//ssl.gstatic.com/editor/button-bg.png) repeat-x top left;
+  border: 0;
+  color: #000;
+  cursor: pointer;
+  list-style: none;
+  margin: 2px;
+  outline: none;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+/* Pseudo-rounded corners. */
+.goog-menu-button-outer-box,
+.goog-menu-button-inner-box {
+  border-style: solid;
+  border-color: #aaa;
+  vertical-align: top;
+}
+.goog-menu-button-outer-box {
+  margin: 0;
+  border-width: 1px 0;
+  padding: 0;
+}
+.goog-menu-button-inner-box {
+  margin: 0 -1px;
+  border-width: 0 1px;
+  padding: 3px 4px;
+}
+
+/* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. */
+* html .goog-menu-button-inner-box {
+  /* IE6 needs to have the box shifted to make the borders line up. */
+  left: -1px;
+}
+
+/* Pre-IE7 BiDi fixes. */
+* html .goog-menu-button-rtl .goog-menu-button-outer-box {
+  /* @noflip */ left: -1px;
+  /* @noflip */ right: auto;
+}
+* html .goog-menu-button-rtl .goog-menu-button-inner-box {
+  /* @noflip */ right: auto;
+}
+
+/* IE7-only hack; ignored by all other browsers. */
+*:first-child+html .goog-menu-button-inner-box {
+  /* IE7 needs to have the box shifted to make the borders line up. */
+  left: -1px;
+}
+/* IE7 BiDi fix. */
+*:first-child+html .goog-menu-button-rtl .goog-menu-button-inner-box {
+  /* @noflip */ left: 1px;
+  /* @noflip */ right: auto;
+}
+
+/* Safari-only hacks. */
+::root .goog-menu-button,
+::root .goog-menu-button-outer-box,
+::root .goog-menu-button-inner-box {
+  /* Required to make pseudo-rounded corners work on Safari. */
+  line-height: 0;
+}
+::root .goog-menu-button-caption,
+::root .goog-menu-button-dropdown {
+  /* Required to make pseudo-rounded corners work on Safari. */
+  line-height: normal;
+}
+
+/* State: disabled. */
+.goog-menu-button-disabled {
+  background-image: none !important;
+  opacity: 0.3;
+  -moz-opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.goog-menu-button-disabled .goog-menu-button-outer-box,
+.goog-menu-button-disabled .goog-menu-button-inner-box,
+.goog-menu-button-disabled .goog-menu-button-caption,
+.goog-menu-button-disabled .goog-menu-button-dropdown {
+  color: #333 !important;
+  border-color: #999 !important;
+}
+
+/* Pre-IE7 IE hack; ignored by IE7 and all non-IE browsers. */
+* html .goog-menu-button-disabled {
+  margin: 2px 1px !important;
+  padding: 0 1px !important;
+}
+
+/* IE7-only hack; ignored by all other browsers. */
+*:first-child+html .goog-menu-button-disabled {
+  margin: 2px 1px !important;
+  padding: 0 1px !important;
+}
+
+/* State: hover. */
+.goog-menu-button-hover .goog-menu-button-outer-box,
+.goog-menu-button-hover .goog-menu-button-inner-box {
+  border-color: #9cf #69e #69e #7af !important; /* Hover border wins. */
+}
+
+/* State: active, open. */
+.goog-menu-button-active,
+.goog-menu-button-open {
+  background-color: #bbb;
+  background-position: bottom left;
+}
+
+/* State: focused. */
+.goog-menu-button-focused .goog-menu-button-outer-box,
+.goog-menu-button-focused .goog-menu-button-inner-box {
+  border-color: orange;
+}
+
+/* Caption style. */
+.goog-menu-button-caption {
+  padding: 0 4px 0 0;
+  vertical-align: top;
+}
+
+/* Dropdown arrow style. */
+.goog-menu-button-dropdown {
+  height: 15px;
+  width: 7px;
+  /* Client apps may override the URL at which they serve the sprite. */
+  background: url(//ssl.gstatic.com/editor/editortoolbar.png) no-repeat -388px 0;
+  vertical-align: top;
+}
+
+/* Pill (collapsed border) styles. */
+/* TODO(gboyer): Remove specific menu button styles and have any button support being a menu button. */
+.goog-menu-button-collapse-right,
+.goog-menu-button-collapse-right .goog-menu-button-outer-box,
+.goog-menu-button-collapse-right .goog-menu-button-inner-box {
+  margin-right: 0;
+}
+
+.goog-menu-button-collapse-left,
+.goog-menu-button-collapse-left .goog-menu-button-outer-box,
+.goog-menu-button-collapse-left .goog-menu-button-inner-box {
+  margin-left: 0;
+}
+
+.goog-menu-button-collapse-left .goog-menu-button-inner-box  {
+  border-left: 1px solid #fff;
+}
+
+.goog-menu-button-collapse-left.goog-menu-button-checked
+.goog-menu-button-inner-box {
+  border-left: 1px solid #ddd;
+}
+
+/* javascript/closure/css/checkbox.css */
+/*
+ * Copyright 2009 The Closure Library Authors. All Rights Reserved.
+ *
+ * Use of this source code is governed by the Apache License, Version 2.0.
+ * See the COPYING file for details.
+ */
+
+/* Author: pallosp@google.com (Peter Pallos) */
+
+/* Sample 3-state checkbox styles. */
+
+.goog-checkbox {
+  border: 1px solid #1C5180;
+  display: -moz-inline-box;
+  display: inline-block;
+  font-size: 1px;  /* Fixes the height in IE6 */
+  height: 11px;
+  margin: 0 4px 0 1px;
+  vertical-align: text-bottom;
+  width: 11px;
+}
+
+.goog-checkbox-checked {
+  background: #fff url(//ssl.gstatic.com/closure/check-sprite.gif) no-repeat 2px center;
+}
+
+.goog-checkbox-undetermined {
+  background: #bbb url(//ssl.gstatic.com/closure/check-sprite.gif) no-repeat 2px center;
+}
+
+.goog-checkbox-unchecked {
+  background: #fff;
+}
+
+.goog-checkbox-disabled {
+  border: 1px solid lightgray;
+  background-position: -7px;
+}
+
+/* java/com/google/analytics/fe/gaextension/content_script/content-script.css */
+/**
+ * Global styles
+ */
+
+.iyp__toolbar {
+    font: normal 13px Arial;
+}
+
+.iyp__toolbar *:focus {
+    outline: 0;
+}
+
+.iyp__toolbar input[type='text'], .iyp__toolbar input[type='password'], .iyp__toolbar textarea {
+    border: 1px solid #a3a3a3;
+    border-right-color: #ccc;
+    border-bottom-color: #ccc;
+    background: #fff;
+    -webkit-box-shadow: inset 0 1px 0 #d6d6d6;
+    -moz-box-shadow: inset 0 1px 0 #d6d6d6;
+    box-shadow: inset 0 1px 0 #d6d6d6;
+    color: #000;
+    font: normal 12px Arial;
+    margin: 0;
+    padding-left: 5px;
+    vertical-align: middle;
+}
+
+.iyp__toolbar input[type='text'], .iyp__toolbar input[type='password'] {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 19px;
+}
+
+.floatRight {
+    float: right;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.goog-menu {
+    z-index: 100050;
+}
+
+
+/**
+ * Reset site-specific styles
+ */
+
+.iyp__toolbar img {
+    vertical-align: inherit;
+}
+
+.iyp__toolbar select {
+    height: inherit;
+    width: inherit;
+    padding: 0;
+}
+
+.iyp__toolbar tbody,
+.iyp__toolbar th,
+.iyp__toolbar td,
+.iyp__details_pane tbody {
+    border: inherit;
+    padding: inherit;
+}
+
+.iyp__toolbar hr {
+    height: inherit;
+    border: inherit;
+    margin: inherit;
+    padding: inherit;
+}
+
+.iyp__toolbar input[type='text'], .iyp__toolbar button, .iyp__toolbar select, .iyp__toolbar textarea {
+    border: inherit;
+    font-family: inherit;
+    transition: inherit;
+}
+
+/* javascript/jfk/gss/base.gss */
+/**
+ * Copyright 2010 Google Inc. All Rights Reserved.
+ *
+ * Base Kennedy GSS definitions.
+ *
+ * Note: 1. Please do not use the base colors directly in component gss.
+ *          Use the component definitions or define a new mapping.
+ *       2. Don't put any style rules here. Definitions only.
+ *       3. Modifying these values will have an impact on every product using
+ *          the Kennedy UI. Changes to these values must be carefully
+ *          considered.
+ *       4. If you change this file, you *must* run
+ *          //javatests/com/google/gwt/corp/jfk:AllTests since GWT uses this
+ *          file for their Kennedy stuff as well and they process it using a
+ *          different parser.
+ *
+ * @author eneries@google.com (Irene Chung)
+ * @author psolderitsch@google.com (Peter Solderitsch)
+ */
+
+@provide 'jfk.gss.base';
+
+@if (!DISABLE_KENNEDY) {
+
+/* Basic Kennedy typography. */
+@def JFK_BASE_FONT_FAMILY                  arial,sans-serif;
+@def JFK_BASE_FONT_LINE_HEIGHT             1.4;
+@def JFK_BASE_FONT_SIZE_SMALL              11px;
+@def JFK_BASE_FONT_SIZE_NORMAL             13px;
+@def JFK_BASE_FONT_NORMAL
+    normal JFK_BASE_FONT_SIZE_NORMAL JFK_BASE_FONT_FAMILY;
+@def JFK_BASE_FONT
+    normal JFK_BASE_FONT_SIZE_NORMAL / JFK_BASE_FONT_LINE_HEIGHT JFK_BASE_FONT_FAMILY;
+
+/* Primary and secondary typography for body text. */
+@def JFK_BASE_PRIMARY_TEXT_COLOR           #222;
+@def JFK_BASE_SECONDARY_TEXT_FONT_SIZE     JFK_BASE_FONT_SIZE_SMALL;
+@def JFK_BASE_SECONDARY_TEXT_COLOR         #777;
+@def JFK_BASE_SECONDARY_SOURCE_LINK_COLOR  #093;
+
+/* Product name typography. */
+@def JFK_BASE_PRODUCT_NAME_TEXT_COLOR      #dd4b39;
+@def JFK_BASE_PRODUCT_NAME_FONT_SIZE       20px;
+
+/* Section header typography. */
+@def JFK_BASE_SECTION_HEADER_TEXT_COLOR    #222;
+@def JFK_BASE_SECTION_HEADER_FONT_SIZE     16px;
+
+/* Link typography. */
+@def JFK_BASE_LINK_COLOR                   #15c;
+@def JFK_BASE_VISITED_LINK_COLOR           #61c;
+@def JFK_BASE_ACTIVE_LINK_COLOR            #d14836;
+@def JFK_BASE_DISABLED_LINK_COLOR          #ccc;
+@def JFK_BASE_TITLE_LINK_COLOR             JFK_BASE_LINK_COLOR;
+@def JFK_BASE_TITLE_LINK_FONT_SIZE         JFK_BASE_SECTION_HEADER_FONT_SIZE;
+
+/* Shared menu @def. */
+/* TODO(chrishenry): We should really have a menu/defs.gss, just like
+   button/defs.gss */
+@def JFK_BASE_MENU_BG_COLOR                #fff;
+@def JFK_BASE_MENU_TEXT_COLOR              #333;
+@def JFK_BASE_MENU_BORDER                  1px solid rgba(0, 0, 0, .2);
+@def JFK_BASE_MENU_FALLBACK_BORDER         1px solid #ccc;
+@def JFK_BASE_MENU_SEPARATOR               1px solid #ebebeb;
+
+/* Shared text input @def. */
+@def JFK_BASE_INPUT_BORDER_COLOR           #d9d9d9;
+@def JFK_BASE_INPUT_BORDER_TOP_COLOR       #c0c0c0;
+@def JFK_BASE_INPUT_FOCUS_BOX_SHADOW       0 1px 2px rgba(0, 0, 0, 0.3);
+@def JFK_BASE_INPUT_FOCUS_BORDER_COLOR     #4d90fe;
+
+/* Common icons (not product-specific ones) */
+@def JFK_TOOLBAR_BUTTON_DISCLOSURE_ARROW
+    url(//ssl.gstatic.com/ui/v1/disclosure/grey-disclosure-arrow.png);
+@def JFK_TOOLBAR_BUTTON_DISCLOSURE_ARROW_SELECT
+    url(//ssl.gstatic.com/ui/v1/disclosure/grey-disclosure-arrow-up-down.png);
+@def JFK_TOOLBAR_BUTTON_SMALL_DISCLOSURE_ARROW
+    url(//ssl.gstatic.com/ui/v1/disclosure/small-grey-disclosure-arrow-down.png);
+
+@def JFK_ARROW_DROPDOWN
+    url(//ssl.gstatic.com/ui/v1/icons/common/down_arrow.png);
+
+@def JFK_SETTINGS_ICON_BG  url(//ssl.gstatic.com/ui/v1/icons/common/settings.png);
+
+
+/* DEPRECATED: do not use these @defs on new gss. */
+
+@def JFK_BASE_BORDER_SHADE_COLOR           #ececec;
+@def JFK_BASE_ERROR_TEXT_COLOR             #f00;
+@def JFK_BASE_FONT_SIZE_LARGE              110%;
+@def JFK_BASE_FONT_TITLE                   bold 130% JFK_BASE_FONT_FAMILY;
+@def JFK_BASE_INPUT_FALLBACK_BORDER        JFK_BASE_MENU_FALLBACK_BORDER;
+@def JFK_BASE_INPUT_RGBA_BORDER            JFK_BASE_MENU_BORDER;
+@def JFK_BASE_INPUT_SEPARATOR              JFK_BASE_MENU_SEPARATOR;
+@def JFK_BASE_ONTOP_TEXT_COLOR             #fff;
+@def JFK_BASE_SECONDARY_BG_COLOR           #e4ebf8;
+@def JFK_BASE_SHADE_BG_COLOR               #f1f6fa;
+@def JFK_TOOLBAR_BUTTON_SMALL_DISCLOSURE_ARROW_SELECT
+    url(//ssl.gstatic.com/ui/v1/disclosure/small-grey-disclosure-arrow-up-down.png);
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/gss/mixin.gss */
+/**
+ * Copyright 2011 Google Inc. All Rights Reserved.
+ *
+ * Shared mixin definition.
+ *
+ * Author: chrishenry@google.com (Chris Henry)
+ */
+
+@provide 'jfk.gss.mixin';
+
+
+/**
+ * Mixin for the CSS3 animations.
+ * Note: No version of IE requires the -ms- prefix. See "Remarks":
+ * http://msdn.microsoft.com/en-us/library/windows/apps/hh466300.aspx
+ * @param ANIMATION The animation CSS property shorthand.
+ */
+@defmixin animation(ANIMATION) {
+  /* @alternate */ -webkit-animation: ANIMATION;
+  /* @alternate */ -moz-animation: ANIMATION;
+  /* @alternate */ -o-animation: ANIMATION;
+  /* @alternate */ animation: ANIMATION;
+}
+
+
+/**
+ * Mixin for a CSS3 animation timing function.
+ * @param DELAY CSS animation delay in ms or s.
+ */
+@defmixin animation_delay(DELAY) {
+  /* @alternate */ -webkit-animation-delay: DELAY;
+  /* @alternate */ -moz-animation-delay: DELAY;
+  /* @alternate */ -o-animation-delay: DELAY;
+  /* @alternate */ animation-delay: DELAY;
+}
+
+
+/**
+ * Mixin for a CSS3 animation's direction.
+ * @param DIRECTION CSS animation direction keyword.
+ */
+@defmixin animation_direction(DIRECTION) {
+  /* @alternate */ -webkit-animation-direction: DIRECTION;
+  /* @alternate */ -moz-animation-direction: DIRECTION;
+  /* @alternate */ -o-animation-direction: DIRECTION;
+  /* @alternate */ animation-direction: DIRECTION;
+}
+
+
+/**
+ * Mixin for a CSS3 animation duration.
+ * @param DURATION The CSS animation-duration value, in ms or s.
+ */
+@defmixin animation_duration(DURATION) {
+  /* @alternate */ -webkit-animation-duration: DURATION;
+  /* @alternate */ -moz-animation-duration: DURATION;
+  /* @alternate */ -o-animation-duration: DURATION;
+  /* @alternate */ animation-duration: DURATION;
+}
+
+
+/**
+ * Mixin for a CSS3 animation fill mode.
+ * @param MODE animation-fill-mode as keyword.
+ */
+@defmixin animation_fill_mode(MODE) {
+  /* @alternate */ -webkit-animation-fill-mode: MODE;
+  /* @alternate */ animation-fill-mode: MODE;
+}
+
+
+/**
+ * Mixin for a CSS3 animation's iteration count.
+ * @param COUNT CSS animation iteration count as integer or 'infinite'.
+ */
+@defmixin animation_iteration_count(COUNT) {
+  /* @alternate */ -webkit-animation-iteration-count: COUNT;
+  /* @alternate */ -moz-animation-iteration-count: COUNT;
+  /* @alternate */ -o-animation-iteration-count: COUNT;
+  /* @alternate */ animation-iteration-count: COUNT;
+}
+
+
+/**
+ * Mixin for the CSS3 animation names.
+ * @param NAME The CSS animation-name property name.
+ */
+@defmixin animation_name(NAME) {
+  /* @alternate */ -webkit-animation-name: NAME;
+  /* @alternate */ -moz-animation-name: NAME;
+  /* @alternate */ -o-animation-name: NAME;
+  /* @alternate */ animation-name: NAME;
+}
+
+
+/**
+ * Mixin for a CSS3 animation timing function.
+ * @param FUNCTION CSS animation-timing-function as keyword or cubic-bezier.
+ */
+@defmixin animation_timing_function(FUNCTION) {
+  /* @alternate */ -webkit-animation-timing-function: FUNCTION;
+  /* @alternate */ -moz-animation-timing-function: FUNCTION;
+  /* @alternate */ -o-animation-timing-function: FUNCTION;
+  /* @alternate */ animation-timing-function: FUNCTION;
+}
+
+
+/**
+ * Mixin for background-size.
+ * Useful for high resolution (retina) displays.
+ * @param BG_SIZE Size specification ex. "20px 25px"
+ * Grammar [<length> | <percentage> | auto]{1, 2} | cover | contain
+ */
+@defmixin background_size(BG_SIZE) {
+  /* @alternate */ -webkit-background-size: BG_SIZE;
+  /* @alternate */ -moz-background-size: BG_SIZE;
+  /* @alternate */ -o-background-size: BG_SIZE;
+  /* @alternate */ background-size: BG_SIZE;
+}
+
+
+/**
+ * Mixin for CSS3 backface visibility.
+ * @param BACKFACE_VISIBILITY The backface-visibility CSS property value.
+ */
+@defmixin backface_visibility(BACKFACE_VISIBILITY) {
+  /* @alternate */ -webkit-backface-visibility: BACKFACE_VISIBILITY;
+  /* @alternate */ -moz-backface-visibility: BACKFACE_VISIBILITY;
+  /* @alternate */ -o-backface-visibility: BACKFACE_VISIBILITY;
+  /* @alternate */ backface-visibility: BACKFACE_VISIBILITY;
+}
+
+
+/**
+ * Mixin for border-radius.
+ * @param RADIUS The radius definition.
+ */
+@defmixin border_radius(RADIUS) {
+  /* @alternate */ -webkit-border-radius: RADIUS;
+  /* @alternate */ -moz-border-radius: RADIUS;
+  /* @alternate */ border-radius: RADIUS;
+}
+
+
+/**
+ * Mixin for border gradient, fallback to solid border-color.
+ * @param GRADIENT The gradient.
+ * @param FALLBACK_BORDER_COLOR Fallback solid color.
+ */
+@defmixin border_gradient(GRADIENT, FALLBACK_BORDER_COLOR) {
+  border: 1px solid FALLBACK_BORDER_COLOR;
+
+  /* @alternate */ -webkit-border-image: -webkit-gradient(GRADIENT) 1 100%;
+  /* @alternate */ -webkit-border-image:
+      -webkit-linear-gradient(GRADIENT) 1 100%;
+  /* @alternate */ -o-border-image: -o-linear-gradient(GRADIENT) 1 100%;
+  /* @alternate */ -moz-border-image: -moz-linear-gradient(GRADIENT) 1 100%;
+}
+
+
+/**
+ * Mixin for box-shadow.
+ * @param SHADOW The shadow definition.
+ */
+@defmixin box_shadow(SHADOW) {
+  /* @alternate */ -webkit-box-shadow: SHADOW;
+  /* @alternate */ -moz-box-shadow: SHADOW;
+  /* @alternate */ box-shadow: SHADOW;
+}
+
+
+/**
+ * Mixin for box-sizing.
+ * @param BOX_SIZING The box-sizing definition.
+ */
+@defmixin box_sizing(BOX_SIZING) {
+  /* @alternate */ -webkit-box-sizing: BOX_SIZING;
+  /* @alternate */ -moz-box-sizing: BOX_SIZING;
+  /* @alternate */ box-sizing: BOX_SIZING;
+}
+
+
+/**
+ * Mixin for image-set with standard resolution background-image fallback.
+ * @param BG_IMAGE_1X_URL The background image URL for standard resolution (1x).
+ * @param BG_IMAGE_2X_URL The background image URL for high-DPI resolution (2x).
+ */
+@defmixin image_set_with_fallback(BG_IMAGE_1X_URL, BG_IMAGE_2X_URL) {
+  background-image: BG_IMAGE_1X_URL;
+
+  /* @alternate */ background-image: -webkit-image-set(
+      BG_IMAGE_1X_URL 1x,
+      BG_IMAGE_2X_URL 2x);
+}
+
+
+/**
+ * Mixin for linear gradient, fallback to solid background-color.
+ * Not safe to use with an angle or direction: use linear_gradient_angled
+ * instead.
+ * @param GRADIENT The gradient.
+ * @param FALLBACK_BG_COLOR Fallback solid color.
+ */
+@defmixin linear_gradient(GRADIENT, FALLBACK_BG_COLOR) {
+  background-color: FALLBACK_BG_COLOR;
+
+  /* @alternate */ background-image: -webkit-linear-gradient(GRADIENT);
+  /* @alternate */ background-image: -moz-linear-gradient(GRADIENT);
+  /* @alternate */ background-image: -ms-linear-gradient(GRADIENT);
+  /* @alternate */ background-image: -o-linear-gradient(GRADIENT);
+  /* @alternate */ background-image: linear-gradient(GRADIENT);
+}
+
+
+/**
+ * Mixin for linear gradient at an angle, fallback to solid background-color.
+ * Follows the "final syntax" W3C linear-gradient angle interpretation: 0deg is
+ * towards the north, 90deg towards the east. No support for named direction
+ * keywords such as "to top" or "bottom".
+ * @param ANGLE The numeric angle for the gradient, in degrees clockwise from
+ *     north and including the "deg" unit keyword.
+ * @param GRADIENT The remainder of the gradient.
+ * @param FALLBACK_BG_COLOR Fallback solid color.
+ */
+@defmixin linear_gradient_angled(ANGLE, GRADIENT, FALLBACK_BG_COLOR) {
+  background-color: FALLBACK_BG_COLOR;
+
+  /* @alternate */ background-image:
+      -webkit-linear-gradient(sub(90deg, ANGLE), GRADIENT);
+  /* @alternate */ background-image: linear-gradient(ANGLE, GRADIENT);
+}
+
+
+/**
+ * Mixin for CSS3 perspective.
+ * @param PERSPECTIVE The perspective CSS property value.
+ */
+@defmixin perspective(PERSPECTIVE) {
+  /* @alternate */ -webkit-perspective: PERSPECTIVE;
+  /* @alternate */ -moz-perspective: PERSPECTIVE;
+  /* @alternate */ perspective: PERSPECTIVE;
+}
+
+
+/**
+ * Mixin for CSS3 perspective-origin.
+ * @param PERSPECTIVE_ORIGIN The perspective-origin CSS property value.
+ */
+@defmixin perspective_origin(PERSPECTIVE_ORIGIN) {
+  /* @alternate */ -webkit-perspective-origin: PERSPECTIVE_ORIGIN;
+  /* @alternate */ -moz-perspective-origin: PERSPECTIVE_ORIGIN;
+  /* @alternate */ perspective-origin: PERSPECTIVE_ORIGIN;
+}
+
+
+/**
+ * Mixin for radial gradient, fallback to solid background-color.
+ * @param GRADIENT The gradient.
+ * @param FALLBACK_BG_COLOR Fallback solid color.
+ */
+@defmixin radial_gradient(GRADIENT, FALLBACK_BG_COLOR) {
+  background-color: FALLBACK_BG_COLOR;
+
+  /* @alternate */ background-image: -webkit-radial-gradient(GRADIENT);
+  /* @alternate */ background-image: -moz-radial-gradient(GRADIENT);
+  /* @alternate */ background-image: -o-radial-gradient(GRADIENT);
+  /* @alternate */ background-image: radial-gradient(GRADIENT);
+}
+
+
+/**
+ * Mixin for CSS3 transform.
+ * @param TRANSFORM The transform CSS property value.
+ */
+@defmixin transform(TRANSFORM) {
+  /* @alternate */ -webkit-transform: TRANSFORM;
+  /* @alternate */ -moz-transform: TRANSFORM;
+  /* @alternate */ -ms-transform: TRANSFORM;
+  /* @alternate */ -o-transform: TRANSFORM;
+  /* @alternate */ transform: TRANSFORM;
+}
+
+
+/**
+ * Mixin for CSS3 transform-origin.
+ * @param TRANSFORM_ORIGIN The transform-origin CSS property value.
+ */
+@defmixin transform_origin(TRANSFORM_ORIGIN) {
+  /* @alternate */ -webkit-transform-origin: TRANSFORM_ORIGIN;
+  /* @alternate */ -moz-transform-origin: TRANSFORM_ORIGIN;
+  /* @alternate */ -ms-transform-origin: TRANSFORM_ORIGIN;
+  /* @alternate */ -o-transform-origin: TRANSFORM_ORIGIN;
+  /* @alternate */ transform-origin: TRANSFORM_ORIGIN;
+}
+
+
+/**
+ * Mixin for CSS3 transform-style.
+ * @param TRANSFORM_STYLE The transform-style CSS property value.
+ */
+@defmixin transform_style(TRANSFORM_STYLE) {
+  /* @alternate */ -webkit-transform-style: TRANSFORM_STYLE;
+  /* @alternate */ -moz-transform-style: TRANSFORM_STYLE;
+  /* @alternate */ transform-style: TRANSFORM_STYLE;
+}
+
+
+/**
+ * Mixin for CSS3 transition.
+ * Note: No version of IE requires the -ms- prefix. See "Remarks":
+ * http://msdn.microsoft.com/en-us/library/windows/apps/hh466377.aspx
+ * @param TRANSITION The transition CSS property value.
+ */
+@defmixin transition(TRANSITION) {
+  /* @alternate */ -webkit-transition: TRANSITION;
+  /* @alternate */ -moz-transition: TRANSITION;
+  /* @alternate */ -o-transition: TRANSITION;
+  /* @alternate */ transition: TRANSITION;
+}
+
+
+/**
+ * Mixin for CSS3 transition-delay.
+ * Note: No version of IE requires the -ms- prefix. See "Remarks":
+ * http://msdn.microsoft.com/en-us/library/windows/apps/hh466377.aspx
+ * @param DELAY Time value indicating transition delay, e.g. 1s, 400ms.
+ */
+@defmixin transition_delay(DELAY) {
+  /* @alternate */ -webkit-transition-delay: DELAY;
+  /* @alternate */ -moz-transition-delay: DELAY;
+  /* @alternate */ -o-transition-delay: DELAY;
+  /* @alternate */ transition-delay: DELAY;
+}
+
+
+/**
+ * Mixin for CSS3 transition-duration.
+ * Note: No version of IE requires the -ms- prefix. See "Remarks":
+ * http://msdn.microsoft.com/en-us/library/windows/apps/hh466377.aspx
+ * @param DURATION The transition-duration CSS property value.
+ */
+@defmixin transition_duration(DURATION) {
+  /* @alternate */ -webkit-transition-duration: DURATION;
+  /* @alternate */ -moz-transition-duration: DURATION;
+  /* @alternate */ -o-transition-duration: DURATION;
+  /* @alternate */ transition-duration: DURATION;
+}
+
+
+/**
+ * Mixin for CSS3 transition-property.
+ * Note: No version of IE requires the -ms- prefix. See "Remarks":
+ * http://msdn.microsoft.com/en-us/library/windows/apps/hh466377.aspx
+ * @param PROPERTY The transition-property CSS property value.
+ */
+@defmixin transition_property(PROPERTY) {
+  /* @alternate */ -webkit-transition-property: PROPERTY;
+  /* @alternate */ -moz-transition-property: PROPERTY;
+  /* @alternate */ -o-transition-property: PROPERTY;
+  /* @alternate */ transition-property: PROPERTY;
+}
+
+
+/**
+ * Mixin for CSS3 transition-timing-function.
+ * Note: No version of IE requires the -ms- prefix. See "Remarks":
+ * http://msdn.microsoft.com/en-us/library/windows/apps/hh466377.aspx
+ * @param FUNCTION The transition-timing-function CSS property value.
+ */
+@defmixin transition_timing_function(FUNCTION) {
+  /* @alternate */ -webkit-transition-timing-function: FUNCTION;
+  /* @alternate */ -moz-transition-timing-function: FUNCTION;
+  /* @alternate */ -o-transition-timing-function: FUNCTION;
+  /* @alternate */ transition-timing-function: FUNCTION;
+}
+
+
+/**
+ * Mixin for user select.
+ * Note: "user_select" property (no vendor prefix) is not part of CSS3 spec
+ * yet and hence is not part of this mixin.
+ * @param USER_SELECT User select value.
+ */
+@defmixin user_select(USER_SELECT) {
+  /* @alternate */ -webkit-user-select: USER_SELECT;
+  /* @alternate */ -moz-user-select: USER_SELECT;
+  /* @alternate */ -ms-user-select: USER_SELECT;
+}
+
+
+/**
+ * Mixin for opacity with IE fallback. This (IE fallback) should
+ * typically be used only when usability is a concern.
+ * NOTE(chrishenry|kennedy-eng): Using this on an image will cause
+ * it to display badly in IE. Use it only when it is unusable without it.
+ * @param OPACITY The opacity value for non-IE browser, ranging from 0 to 1.0.
+ * @param IE_FALLBACK_VALUE IE's alpha filter's opacity value,
+ *     ranging from 0 to 100.
+ */
+@defmixin opacity_with_ie_fallback(OPACITY, IE_FALLBACK_VALUE) {
+  filter: alpha(opacity = IE_FALLBACK_VALUE);
+  opacity: OPACITY;
+}
+
+/* javascript/jfk/button/defs.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Base defs for jfk.Button and other jfk Button-like components, such as
+ * menubutton.
+ *
+ * @author brettcvz@google.com (Brett van Zuiden)
+ */
+
+@provide 'jfk.button.defs';
+
+@require 'jfk.gss.mixin';
+
+
+/*
+ * IE8 Hacks for :focus
+ *
+ * Kennedy style uses box-shadow inset for :focus, but IE8 does not support
+ * box-shadow. So we use border+outline to create similar effect. Since IE8
+ * does not support rgba, we use that to override both border and outline
+ * in other browser so that this hack is not visible. The outline hack
+ * is specified in each of the buttons gss since that depends on the color
+ * of the button.
+ *
+ * To use, add this to :focus section of the button.
+ *
+ * @param FOCUS_OUTLINE_IE8_FALLBACK A fallback outline color to use
+ *     when the border+outline hack is used. This is typically similar
+ *     in color to the button background color.
+ */
+@defmixin jfk_button_focus(FOCUS_OUTLINE_IE8_FALLBACK) {
+  @mixin box_shadow(JFK_BUTTON_COMMON_NONSTANDARD_BUTTON_FOCUS_SHADOW);
+
+  /* @alternate */ border: JFK_BUTTON_COMMON_FOCUS_BORDER_IE8_FALLBACK;
+  /* @alternate */ border: JFK_BUTTON_COMMON_FOCUS_BORDER_NON_IE8_OVERRIDE;
+
+  /* IE8 does not support box-shadow! See note in basebutton.gss */
+  /* @alternate */ outline: FOCUS_OUTLINE_IE8_FALLBACK;
+  /* @alternate */ outline: JFK_BUTTON_COMMON_FOCUS_OUTLINE_NON_IE8_OVERRIDE;
+}
+
+
+@if (!DISABLE_KENNEDY) {
+
+@def JFK_BUTTON_COMMON_TRANSITION all 0.218s;
+
+@def JFK_BUTTON_COMMON_BORDER_RADIUS 2px;
+@def JFK_BUTTON_COMMON_CONTENT #f1f1f1;
+@def JFK_BUTTON_COMMON_CURSOR default;
+@def JFK_BUTTON_COMMON_HOVER #e1e1e1;
+@def JFK_BUTTON_COMMON_HOVER_BOX_SHADOW 0 1px 1px rgba(0, 0, 0, .1);
+@def JFK_BUTTON_COMMON_FONT_SIZE 11px;
+@def JFK_BUTTON_COMMON_FONT_WEIGHT bold;
+/* 27px + 2px for borders = 29px */
+@def JFK_BUTTON_COMMON_HEIGHT 27px;
+
+@def JFK_BUTTON_COMMON_NONSTANDARD_BUTTON_FOCUS_SHADOW inset 0 0 0 1px #fff;
+
+@def JFK_BUTTON_COMMON_FOCUS_BORDER_IE8_FALLBACK 1px solid #fff;
+/*
+ * The following 2 defs are used to undo the border and outline applied by
+ * IE8 hacks. See below for more comments.
+ * Be sure to specify in the correct order, though any can be omitted:
+ *   outline-color
+ *   outline-style
+ *   outline-width
+ */
+@def JFK_BUTTON_COMMON_FOCUS_BORDER_NON_IE8_OVERRIDE rgba(0, 0, 0, 0) solid 1px;
+@def JFK_BUTTON_COMMON_FOCUS_OUTLINE_NON_IE8_OVERRIDE rgba(0, 0, 0, 0) 0;
+
+@def JFK_BUTTON_BORDERLESS_FONT_SIZE 13px;
+@def JFK_BUTTON_BORDERLESS_FONT_WEIGHT normal;
+
+/*
+ * The following defs are used for the standard buttons, as well as
+ * for other "button-like" jfk components, such as menubuttons, toolbar
+ * buttons, etc.
+ */
+@def JFK_BUTTON_STANDARD_BG_COLOR #f5f5f5;
+@def JFK_BUTTON_STANDARD_BORDER_COLOR #dcdcdc;
+@def JFK_BUTTON_STANDARD_BORDER_COLOR_RGBA rgba(0,0,0,0.1);
+@def JFK_BUTTON_STANDARD_GRADIENT top,#f5f5f5,#f1f1f1;
+@def JFK_BUTTON_STANDARD_TEXT_COLOR #444;
+@def JFK_BUTTON_STANDARD_BOX_SHADOW none;
+
+@def JFK_BUTTON_STANDARD_HOVER_BG_COLOR #f8f8f8;
+@def JFK_BUTTON_STANDARD_HOVER_BORDER_COLOR #c6c6c6;
+@def JFK_BUTTON_STANDARD_HOVER_GRADIENT top,#f8f8f8,#f1f1f1;
+@def JFK_BUTTON_STANDARD_HOVER_TEXT_COLOR #333;
+@def JFK_BUTTON_STANDARD_HOVER_BOX_SHADOW none;
+
+@def JFK_BUTTON_STANDARD_ACTIVE_BG_COLOR JFK_BUTTON_STANDARD_HOVER_BG_COLOR;
+/* active color defaults to hover and exists bc different in rio */ 
+@def JFK_BUTTON_STANDARD_ACTIVE_TEXT_COLOR JFK_BUTTON_STANDARD_HOVER_TEXT_COLOR;
+@def JFK_BUTTON_STANDARD_ACTIVE_BOX_SHADOW inset 0 1px 2px rgba(0, 0, 0, .1);
+
+@def JFK_BUTTON_STANDARD_SELECTED_BG_COLOR #eee;
+@def JFK_BUTTON_STANDARD_SELECTED_BORDER_COLOR #ccc;
+@def JFK_BUTTON_STANDARD_SELECTED_GRADIENT top,#f8f8f8,#f1f1f1;
+@def JFK_BUTTON_STANDARD_SELECTED_TEXT_COLOR #333;
+
+@def JFK_BUTTON_STANDARD_CHECKED_BG_COLOR #eee;
+@def JFK_BUTTON_STANDARD_CHECKED_BORDER_COLOR #ccc;
+@def JFK_BUTTON_STANDARD_CHECKED_GRADIENT top,#eee,#e0e0e0;
+@def JFK_BUTTON_STANDARD_CHECKED_TEXT_COLOR #333;
+@def JFK_BUTTON_STANDARD_CHECKED_BOX_SHADOW
+    JFK_BUTTON_STANDARD_ACTIVE_BOX_SHADOW;
+
+@def JFK_BUTTON_STANDARD_DISABLED_BG_COLOR #fff;
+@def JFK_BUTTON_STANDARD_DISABLED_BORDER_COLOR #f3f3f3;
+@def JFK_BUTTON_STANDARD_DISABLED_TEXT_COLOR #b8b8b8;
+
+@def JFK_BUTTON_STANDARD_FOCUS_BORDER_COLOR #4d90fe;
+@def JFK_BUTTON_STANDARD_FOCUS_OUTLINE none;
+@def JFK_BUTTON_STANDARD_FOCUS_CLEAR_OUTLINE none;
+
+@def JFK_BUTTON_STANDARD_ICON_OPACITY .55;
+@def JFK_BUTTON_STANDARD_ICON_HOVER_OPACITY 0.9;
+@def JFK_BUTTON_STANDARD_ICON_DISABLED_FILTER alpha(opacity=33);
+@def JFK_BUTTON_STANDARD_ICON_DISABLED_OPACITY 0.333;
+
+/*
+ * The following defs are used for the action button.
+ */
+@def JFK_BUTTON_ACTION_BG_COLOR #4d90fe;
+@def JFK_BUTTON_ACTION_BORDER_COLOR #3079ed;
+@def JFK_BUTTON_ACTION_GRADIENT top,#4d90fe,#4787ed;
+@def JFK_BUTTON_ACTION_TEXT_COLOR #fff;
+@def JFK_BUTTON_ACTION_BOX_SHADOW none;
+
+@def JFK_BUTTON_ACTION_HOVER_BG_COLOR #357ae8;
+@def JFK_BUTTON_ACTION_HOVER_BORDER_COLOR #2f5bb7;
+@def JFK_BUTTON_ACTION_HOVER_BOTTOM_BORDER_COLOR JFK_BUTTON_ACTION_HOVER_BORDER_COLOR;
+@def JFK_BUTTON_ACTION_HOVER_GRADIENT top,#4d90fe,#357ae8;
+@def JFK_BUTTON_ACTION_HOVER_BOX_SHADOW none;
+
+@def JFK_BUTTON_ACTION_CLEAR_OUTLINE none;
+@def JFK_BUTTON_ACTION_FOCUS_OUTLINE_IE8_FALLBACK
+    1px solid JFK_BUTTON_ACTION_BG_COLOR;
+
+@def JFK_BUTTON_ACTION_ACTIVE_BORDER_COLOR JFK_BUTTON_ACTION_HOVER_BORDER_COLOR;
+@def JFK_BUTTON_ACTION_ACTIVE_TOP_BORDER_COLOR JFK_BUTTON_ACTION_HOVER_BORDER_COLOR;
+@def JFK_BUTTON_ACTION_ACTIVE_BG_COLOR JFK_BUTTON_ACTION_HOVER_BG_COLOR;
+@def JFK_BUTTON_ACTION_ACTIVE_BOX_SHADOW inset 0 1px 2px rgba(0, 0, 0, 0.3);
+
+/**
+ * The following defs are used for the mini button.
+ */
+@def JFK_BUTTON_MINI_HEIGHT 17px;
+@def JFK_BUTTON_MINI_BG_COLOR JFK_BUTTON_STANDARD_BG_COLOR;
+@def JFK_BUTTON_MINI_BORDER_COLOR JFK_BUTTON_STANDARD_BORDER_COLOR;
+@def JFK_BUTTON_MINI_BORDER_COLOR_RGBA JFK_BUTTON_STANDARD_BORDER_COLOR_RGBA;
+@def JFK_BUTTON_MINI_GRADIENT JFK_BUTTON_STANDARD_GRADIENT;
+@def JFK_BUTTON_MINI_TEXT_COLOR JFK_BUTTON_STANDARD_TEXT_COLOR;
+@def JFK_BUTTON_MINI_TEXT_SHADOW 0px 1px JFK_BUTTON_STANDARD_BORDER_COLOR_RGBA;
+
+@def JFK_BUTTON_MINI_DISABLED_BG_COLOR JFK_BUTTON_STANDARD_DISABLED_BG_COLOR;
+@def JFK_BUTTON_MINI_DISABLED_BORDER_COLOR
+    JFK_BUTTON_STANDARD_DISABLED_BORDER_COLOR;
+@def JFK_BUTTON_MINI_DISABLED_TEXT_COLOR
+    JFK_BUTTON_STANDARD_DISABLED_TEXT_COLOR;
+
+@def JFK_BUTTON_MINI_HOVER_BG_COLOR JFK_BUTTON_STANDARD_HOVER_BG_COLOR;
+@def JFK_BUTTON_MINI_HOVER_BORDER_COLOR JFK_BUTTON_STANDARD_HOVER_BORDER_COLOR;
+@def JFK_BUTTON_MINI_HOVER_TEXT_SHADOW 0px 1px rgba(0,0,0,0.3);
+@def JFK_BUTTON_MINI_HOVER_GRADIENT JFK_BUTTON_STANDARD_HOVER_GRADIENT;
+
+@def JFK_BUTTON_MINI_ACTIVE_BOX_SHADOW JFK_BUTTON_STANDARD_ACTIVE_BOX_SHADOW;
+
+@def JFK_BUTTON_MINI_FOCUS_BORDER_COLOR JFK_BUTTON_STANDARD_FOCUS_BORDER_COLOR;
+
+@def JFK_BUTTON_MINI_FOCUS_OUTLINE_IE8_FALLBACK
+    1px solid JFK_BUTTON_MINI_BG_COLOR;
+
+@def JFK_BUTTON_MINI_CHECKED_GRADIENT top,#eee,#e0e0e0;
+@def JFK_BUTTON_MINI_CHECKED_GRADIENT_FALLBACK_COLOR #e0e0e0;
+@def JFK_BUTTON_MINI_CHECKED_BG_COLOR #999;
+@def JFK_BUTTON_MINI_CHECKED_BORDER 1px solid JFK_BUTTON_STANDARD_SELECTED_BORDER_COLOR;
+@def JFK_BUTTON_MINI_CHECKED_BOX_SHADOW JFK_BUTTON_STANDARD_ACTIVE_BOX_SHADOW;
+@def JFK_BUTTON_MINI_CHECKED_TEXT_COLOR #333;
+
+/*
+ * The following defs are used for the contrast buttons.
+ */
+@def JFK_BUTTON_CONTRAST_BG_COLOR JFK_BUTTON_STANDARD_BG_COLOR;
+@def JFK_BUTTON_CONTRAST_BORDER_COLOR JFK_BUTTON_STANDARD_BORDER_COLOR;
+@def JFK_BUTTON_CONTRAST_BORDER_COLOR_RGBA JFK_BUTTON_STANDARD_BORDER_COLOR_RGBA;
+@def JFK_BUTTON_CONTRAST_GRADIENT JFK_BUTTON_STANDARD_GRADIENT;
+@def JFK_BUTTON_CONTRAST_TEXT_COLOR JFK_BUTTON_STANDARD_TEXT_COLOR;
+@def JFK_BUTTON_CONTRAST_BOX_SHADOW JFK_BUTTON_STANDARD_BOX_SHADOW;
+
+@def JFK_BUTTON_CONTRAST_HOVER_BG_COLOR JFK_BUTTON_STANDARD_HOVER_BG_COLOR;
+@def JFK_BUTTON_CONTRAST_HOVER_BORDER_COLOR JFK_BUTTON_STANDARD_HOVER_BORDER_COLOR;
+@def JFK_BUTTON_CONTRAST_HOVER_GRADIENT JFK_BUTTON_STANDARD_HOVER_GRADIENT;
+@def JFK_BUTTON_CONTRAST_HOVER_TEXT_COLOR JFK_BUTTON_STANDARD_HOVER_TEXT_COLOR;
+@def JFK_BUTTON_CONTRAST_HOVER_BOX_SHADOW JFK_BUTTON_STANDARD_HOVER_BOX_SHADOW;
+
+@def JFK_BUTTON_CONTRAST_ACTIVE_BG_COLOR JFK_BUTTON_STANDARD_ACTIVE_BG_COLOR;
+@def JFK_BUTTON_CONTRAST_ACTIVE_BOX_SHADOW JFK_BUTTON_STANDARD_ACTIVE_BOX_SHADOW;
+
+@def JFK_BUTTON_CONTRAST_SELECTED_BG_COLOR JFK_BUTTON_STANDARD_SELECTED_BG_COLOR;
+@def JFK_BUTTON_CONTRAST_SELECTED_BORDER_COLOR JFK_BUTTON_STANDARD_SELECTED_BORDER_COLOR;
+@def JFK_BUTTON_CONTRAST_SELECTED_GRADIENT JFK_BUTTON_STANDARD_SELECTED_GRADIENT;
+@def JFK_BUTTON_CONTRAST_SELECTED_TEXT_COLOR JFK_BUTTON_STANDARD_SELECTED_TEXT_COLOR;
+
+@def JFK_BUTTON_CONTRAST_CHECKED_BG_COLOR JFK_BUTTON_STANDARD_CHECKED_BG_COLOR;
+@def JFK_BUTTON_CONTRAST_CHECKED_BORDER_COLOR JFK_BUTTON_STANDARD_CHECKED_BORDER_COLOR;
+@def JFK_BUTTON_CONTRAST_CHECKED_GRADIENT JFK_BUTTON_STANDARD_CHECKED_GRADIENT;
+@def JFK_BUTTON_CONTRAST_CHECKED_TEXT_COLOR JFK_BUTTON_STANDARD_CHECKED_TEXT_COLOR;
+@def JFK_BUTTON_CONTRAST_CHECKED_BOX_SHADOW JFK_BUTTON_STANDARD_CHECKED_BOX_SHADOW;
+
+@def JFK_BUTTON_CONTRAST_DISABLED_BG_COLOR JFK_BUTTON_STANDARD_DISABLED_BG_COLOR;
+@def JFK_BUTTON_CONTRAST_DISABLED_BORDER_COLOR JFK_BUTTON_STANDARD_DISABLED_BORDER_COLOR;
+@def JFK_BUTTON_CONTRAST_DISABLED_TEXT_COLOR JFK_BUTTON_STANDARD_DISABLED_TEXT_COLOR;
+
+@def JFK_BUTTON_CONTRAST_FOCUS_BORDER_COLOR JFK_BUTTON_STANDARD_FOCUS_BORDER_COLOR;
+@def JFK_BUTTON_CONTRAST_FOCUS_OUTLINE JFK_BUTTON_STANDARD_FOCUS_OUTLINE;
+@def JFK_BUTTON_CONTRAST_FOCUS_CLEAR_OUTLINE JFK_BUTTON_STANDARD_FOCUS_CLEAR_OUTLINE;
+
+@def JFK_BUTTON_CONTRAST_ICON_OPACITY JFK_BUTTON_STANDARD_ICON_OPACITY;
+@def JFK_BUTTON_CONTRAST_ICON_HOVER_OPACITY JFK_BUTTON_STANDARD_ICON_HOVER_OPACITY;
+@def JFK_BUTTON_CONTRAST_ICON_DISABLED_FILTER JFK_BUTTON_STANDARD_ICON_DISABLED_FILTER;
+@def JFK_BUTTON_CONTRAST_ICON_DISABLED_OPACITY JFK_BUTTON_STANDARD_ICON_DISABLED_OPACITY;
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/gss/menubutton.gss */
+/**
+ * Copyright 2010 Google Inc.
+ * All Rights Reserved.
+ *
+ * @author talin@google.com (Talin)
+ * @author brettcvz@google.com (Brett van Zuiden)
+ */
+
+@provide 'jfk.gss.menuButton';
+
+@require 'jfk.button.defs';
+@require 'jfk.gss.base';
+@require 'jfk.gss.mixin';
+
+/* Common goog-based styles used by JFK*/
+
+@if (!DISABLE_KENNEDY) {
+
+@def JFK_MENU_BUTTON_MARGIN                   0 2px;
+@def JFK_MENU_BUTTON_PADDING                  0 18px 0 6px;
+@def JFK_MENU_BUTTON_LINE_HEIGHT              27px;
+@def JFK_MENU_BUTTON_MIN_WIDTH                46px;
+
+@def JFK_MENU_BUTTON_DROPDOWN_HALFWIDTH       4px;
+@def JFK_MENU_BUTTON_DROPDOWN_HEIGHT          4px;
+@def JFK_MENU_BUTTON_DROPDOWN_COLOR           #777;
+@def JFK_MENU_BUTTON_DROPDOWN_HOVER_COLOR     #595959;
+@def JFK_MENU_BUTTON_DROPDOWN_POSITION_RIGHT  5px;
+@def JFK_MENU_BUTTON_DROPDOWN_POSITION_TOP    12px;
+
+.goog-flat-menu-button {
+  @mixin border_radius(JFK_BUTTON_COMMON_BORDER_RADIUS);
+  @mixin linear_gradient(
+      JFK_BUTTON_STANDARD_GRADIENT, JFK_BUTTON_STANDARD_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_STANDARD_BORDER_COLOR;
+
+  color: JFK_BUTTON_STANDARD_TEXT_COLOR;
+  cursor: default;
+  font-size: JFK_BUTTON_COMMON_FONT_SIZE;
+  font-weight: bold;
+  line-height: JFK_MENU_BUTTON_LINE_HEIGHT;
+  list-style: none;
+  margin: JFK_MENU_BUTTON_MARGIN;
+  min-width: JFK_MENU_BUTTON_MIN_WIDTH;
+  outline: none;
+  padding: JFK_MENU_BUTTON_PADDING;
+  text-align: center;
+  text-decoration: none;
+}
+
+.goog-flat-menu-button-disabled {
+  background-color: JFK_BUTTON_STANDARD_DISABLED_BG_COLOR;
+  border-color: JFK_BUTTON_STANDARD_DISABLED_BORDER_COLOR;
+  color: JFK_BUTTON_STANDARD_DISABLED_TEXT_COLOR;
+}
+
+.goog-flat-menu-button.goog-flat-menu-button-hover {
+  @mixin linear_gradient(
+      JFK_BUTTON_STANDARD_HOVER_GRADIENT, JFK_BUTTON_STANDARD_HOVER_BG_COLOR);
+  @mixin box_shadow(JFK_BUTTON_COMMON_HOVER_BOX_SHADOW);
+
+  border-color: JFK_BUTTON_STANDARD_HOVER_BORDER_COLOR;
+  color: JFK_BUTTON_STANDARD_HOVER_TEXT_COLOR;
+}
+
+.goog-flat-menu-button.goog-flat-menu-button-focused {
+  border-color: JFK_BUTTON_STANDARD_FOCUS_BORDER_COLOR;
+}
+
+.goog-flat-menu-button.goog-flat-menu-button-open,
+.goog-flat-menu-button.goog-flat-menu-button-active {
+  @mixin box_shadow(JFK_BUTTON_STANDARD_CHECKED_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_STANDARD_CHECKED_GRADIENT,
+      JFK_BUTTON_STANDARD_CHECKED_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_STANDARD_CHECKED_BORDER_COLOR;
+  color: JFK_BUTTON_STANDARD_SELECTED_TEXT_COLOR;
+  z-index: 2;
+}
+
+.goog-flat-menu-button-caption {
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.goog-flat-menu-button-dropdown {
+  border-color: JFK_MENU_BUTTON_DROPDOWN_COLOR transparent;
+  border-style: solid;
+  border-width: JFK_MENU_BUTTON_DROPDOWN_HEIGHT
+                JFK_MENU_BUTTON_DROPDOWN_HALFWIDTH
+                0
+                JFK_MENU_BUTTON_DROPDOWN_HALFWIDTH;
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: JFK_MENU_BUTTON_DROPDOWN_POSITION_RIGHT;
+  top: JFK_MENU_BUTTON_DROPDOWN_POSITION_TOP;
+}
+
+.goog-flat-menu-button .goog-flat-menu-button-img {
+  margin-top: -3px;
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: JFK_BUTTON_STANDARD_ICON_OPACITY;
+  vertical-align: middle;
+}
+
+.goog-flat-menu-button-active .goog-flat-menu-button-img,
+.goog-flat-menu-button-open .goog-flat-menu-button-img,
+.goog-flat-menu-button-selected .goog-flat-menu-button-img,
+.goog-flat-menu-button-hover .goog-flat-menu-button-img {
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: JFK_BUTTON_STANDARD_ICON_HOVER_OPACITY;
+}
+
+.goog-flat-menu-button-active .goog-flat-menu-button-dropdown,
+.goog-flat-menu-button-open .goog-flat-menu-button-dropdown,
+.goog-flat-menu-button-selected .goog-flat-menu-button-dropdown,
+.goog-flat-menu-button-hover .goog-flat-menu-button-dropdown {
+  border-color: JFK_MENU_BUTTON_DROPDOWN_HOVER_COLOR transparent;
+}
+
+/* Properties for collapsing menubuttons against other buttons */
+
+/*
+ * To create the collapsed button, we actually overlap the collapsed buttons
+ * by 1px, causing the left border of the right button to overlap on top
+ * of the left button. In the following 3 rules, we add z-indices such
+ * that the correct border is visible.
+ */
+.goog-flat-menu-button-left, .goog-flat-menu-button-right {
+  z-index: 1;
+}
+
+
+.goog-flat-menu-button-left.goog-flat-menu-button-disabled {
+  z-index: 0;
+}
+
+.goog-flat-menu-button-right:focus,
+.goog-flat-menu-button-hover.goog-flat-menu-button-collapse-right {
+  z-index: 2;
+}
+
+.goog-flat-menu-button-left:focus,
+.goog-flat-menu-button-hover.goog-flat-menu-button-collapse-left {
+  z-index: 2;
+}
+
+.goog-flat-menu-button-collapse-left {
+  /* Causes border to overlap with neighboring button to form a 1px border. */
+  margin-left: -1px;
+
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  min-width: 0;
+  padding-left: 0;
+  vertical-align: top;
+}
+
+.goog-flat-menu-button-collapse-right {
+  margin-right: 0px;
+
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/gss/menu.gss */
+/**
+ * Copyright 2009 Google Inc, All Rights Reserved
+ *
+ * Standard styling for menus created by goog.ui.MenuRenderer
+ *
+ * Author: attila@google.com (Attila Bodis)
+ * Author: psolderitsch@google.com (Peter Solderitsch)
+ */
+
+@provide 'jfk.gss.menu';
+@require 'jfk.gss.base';
+@require 'jfk.gss.mixin';
+
+/**
+ * Kennedy styles have been tweaked from the default Closure values. This file
+ * can be considered a drop-in replacement for javascript/closure/css/menu.css
+ */
+
+@if (!DISABLE_KENNEDY) {
+
+@def JFK_MENU_BG_COLOR         JFK_BASE_MENU_BG_COLOR;
+@def JFK_MENU_RGBA_BORDER      JFK_BASE_MENU_BORDER;
+@def JFK_MENU_FALLBACK_BORDER  JFK_BASE_MENU_FALLBACK_BORDER;
+@def JFK_MENU_BORDER_RADIUS    0;
+@def JFK_MENU_BOX_SHADOW       0 2px 4px rgba(0, 0, 0, 0.2);
+@def JFK_MENU_PADDING          6px 0;
+@def JFK_MENU_TEXT_COLOR       JFK_BASE_MENU_TEXT_COLOR;
+@def JFK_MENU_TRANSITION       opacity 0.218s;
+
+
+.goog-menu {
+  @mixin border_radius(JFK_MENU_BORDER_RADIUS);
+  @mixin box_shadow(JFK_MENU_BOX_SHADOW);
+  @mixin transition(JFK_MENU_TRANSITION);
+
+  background: JFK_MENU_BG_COLOR;
+/*
+ * TODO(psolderitsch): If/when we support conditional browser GSS for JFK,
+ * update this to use outline for browsers that support it.
+ */
+  border: JFK_MENU_FALLBACK_BORDER; /* IE8 can't handle RGBA */
+  /* @alternate */ border: JFK_MENU_RGBA_BORDER;
+  cursor: default;
+  font-size: JFK_BASE_FONT_SIZE_NORMAL;
+  margin: 0;
+  outline: none;
+  padding: JFK_MENU_PADDING;
+  position: absolute;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/gss/menuitem.gss */
+/**
+ * Copyright 2009 Google Inc, All Rights Reserved
+ *
+ * Standard styling for menus created by goog.ui.MenuItemRenderer
+ *
+ * Author: attila@google.com (Attila Bodis)
+ * Author: psolderitsch@google.com (Peter Solderitsch)
+ */
+
+@provide 'jfk.gss.menuItem';
+
+@require 'jfk.gss.base';
+@require 'jfk.gss.menu';
+
+/**
+ * Kennedy styles have been tweaked from the default Closure values. This file
+ * can be considered a drop-in replacement for
+ * javascript/closure/css/menuitem.css
+ */
+
+@if (!DISABLE_KENNEDY) {
+
+@def JFK_MENUITEM_ACCEL_TEXT_PADDING         6px;
+@def JFK_MENUITEM_CHECKBOX_BACKGROUND_POS    left center;
+@def JFK_MENUITEM_CHECKBOX_BACKGROUND_REPEAT no-repeat;
+@def JFK_MENUITEM_CHECKBOX_LEFT              3px;
+@def JFK_MENUITEM_CHECKBOX_TOP               3px;
+@def JFK_MENUITEM_CHECKBOX_PADDING           30px;
+@def JFK_MENUITEM_CHECKBOX_SIZE              21px;
+@def JFK_MENUITEM_DISABLED_TEXT_COLOR        JFK_BASE_DISABLED_LINK_COLOR;
+@def JFK_MENUITEM_DISABLED_OPACITY           0.3;
+@def JFK_MENUITEM_DISABLED_FILTER_OPACITY    30;
+/* TODO(psolderitsch): Move this color to base.gss? */
+@def JFK_MENUITEM_HOVER_BG_COLOR             #eee;
+@def JFK_MENUITEM_HOVER_COLOR                #eee;
+/* JFK_MENUITEM_PADDING_TOP - 1 */
+@def JFK_MENUITEM_HOVER_VERTICAL_PADDING     5px;
+@def JFK_MENUITEM_MARGIN                     0;
+@def JFK_MENUITEM_MNEMONIC_SEPARATOR_FONTSIZE 12px;
+@def JFK_MENUITEM_MNEMONIC_SEPARATOR_PADDING 4px;
+@def JFK_MENUITEM_PADDING_TOP                6px;
+@def JFK_MENUITEM_PADDING_RIGHT              8em;
+@def JFK_MENUITEM_NOACCEL_PADDING_RIGHT      44px;
+@def JFK_MENUITEM_PADDING_LEFT               16px;
+@def JFK_MENUITEM_SELECTED_TEXT_COLOR        JFK_BASE_MENU_TEXT_COLOR;
+@def JFK_MENUITEM_SHORTCUT_TEXT_COLOR        JFK_BASE_SECONDARY_TEXT_COLOR;
+@def JFK_MENUITEM_TEXT_COLOR                 JFK_BASE_MENU_TEXT_COLOR;
+
+@def JFK_MENUITEM_CHECKBOX_BACKGROUND_IMAGE
+    url(//ssl.gstatic.com/ui/v1/menu/checkmark.png);
+
+/* State: resting. */
+.goog-menuitem, .goog-tristatemenuitem, .goog-filterobsmenuitem {
+  position: relative;
+  color: JFK_MENUITEM_TEXT_COLOR;
+  cursor: pointer;
+  list-style: none;
+  margin: JFK_MENUITEM_MARGIN;
+  padding: JFK_MENUITEM_PADDING_TOP JFK_MENUITEM_PADDING_RIGHT
+           JFK_MENUITEM_PADDING_TOP JFK_MENUITEM_CHECKBOX_PADDING;
+  white-space: nowrap;
+}
+
+/*
+ * If a menu doesn't have checkable items or items with icons, remove
+ * padding.
+ */
+.goog-menu-nocheckbox .goog-menuitem,
+.goog-menu-noicon .goog-menuitem {
+  padding-left: JFK_MENUITEM_PADDING_LEFT;
+  vertical-align: middle;
+}
+
+/*
+ * If a menu doesn't have items with shortcuts, leave just enough room for
+ * submenu arrows, if they are rendered.
+ */
+.goog-menu-noaccel .goog-menuitem {
+  padding-right: JFK_MENUITEM_NOACCEL_PADDING_RIGHT;
+}
+
+/* State: disabled. */
+.goog-menuitem-disabled {
+  cursor: default;
+}
+
+.goog-menuitem-disabled .goog-menuitem-accel,
+.goog-menuitem-disabled .goog-menuitem-content {
+  color: JFK_MENUITEM_DISABLED_TEXT_COLOR !important;
+}
+
+.goog-menuitem-disabled .goog-menuitem-icon {
+  filter: alpha(opacity=JFK_MENUITEM_DISABLED_FILTER_OPACITY);
+  opacity: JFK_MENUITEM_DISABLED_OPACITY;
+}
+
+/* State: hover. */
+.goog-menuitem-highlight,
+.goog-menuitem-hover {
+  background-color: JFK_MENUITEM_HOVER_BG_COLOR;
+
+  /* We set an explicit top and bottom border for high-contrast mode. */
+  border-color: JFK_MENUITEM_HOVER_COLOR;
+  border-style: dotted;
+  border-width: 1px 0;
+  padding-top:  JFK_MENUITEM_HOVER_VERTICAL_PADDING;
+  padding-bottom: JFK_MENUITEM_HOVER_VERTICAL_PADDING;
+}
+
+.goog-menuitem-highlight .goog-menuitem-content,
+.goog-menuitem-hover .goog-menuitem-content {
+  color: JFK_MENUITEM_SELECTED_TEXT_COLOR;
+}
+
+/* State: selected/checked. */
+.goog-menuitem-checkbox,
+.goog-menuitem-icon {
+  background-repeat: no-repeat;
+  height: JFK_MENUITEM_CHECKBOX_SIZE;
+  left: JFK_MENUITEM_CHECKBOX_LEFT;
+  position: absolute;
+  right: auto;
+  top: JFK_MENUITEM_CHECKBOX_TOP;
+  vertical-align: middle;
+  width: JFK_MENUITEM_CHECKBOX_SIZE;
+}
+
+.goog-option-selected {
+  background-image: JFK_MENUITEM_CHECKBOX_BACKGROUND_IMAGE;
+  background-repeat: JFK_MENUITEM_CHECKBOX_BACKGROUND_REPEAT;
+  background-position: JFK_MENUITEM_CHECKBOX_BACKGROUND_POS;
+}
+
+/**
+ * TODO(chadli): left center here is a workaround for b/10616087  Remove this
+ * block once the bug is fixed.
+ */
+@if (SCS_BIDI) {
+  .goog-option-selected {
+    background-position: left center;
+  }
+}
+
+.goog-option-selected .goog-menuitem-content,
+.goog-option-selected .goog-menuitem-content {
+  color: JFK_MENUITEM_SELECTED_TEXT_COLOR;
+}
+
+/* Keyboard shortcut ("accelerator") style. */
+.goog-menuitem-accel {
+  color: JFK_MENUITEM_SHORTCUT_TEXT_COLOR;
+  /* Keyboard shortcuts are untranslated; always left-to-right. */
+  /* @noflip */ direction: ltr;
+  left: auto;
+  padding: 0 JFK_MENUITEM_ACCEL_TEXT_PADDING;
+  position: absolute;
+  right: 0;
+  text-align: right;
+}
+
+/* Mnemonic styles. */
+.goog-menuitem-mnemonic-hint {
+  text-decoration: underline;
+}
+
+.goog-menuitem-mnemonic-separator {
+  color: JFK_MENUITEM_SHORTCUT_TEXT_COLOR;
+  font-size: JFK_MENUITEM_MNEMONIC_SEPARATOR_FONTSIZE;
+  padding-left: JFK_MENUITEM_MNEMONIC_SEPARATOR_PADDING;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/gss/toolbarbutton.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Standard styling for toolbar buttons and toolbar menu buttons.
+ *
+ * Author: psolderitsch@google.com (Peter Solderitsch)
+ */
+
+@provide 'jfk.gss.toolbarButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.base';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+/* Regular toolbar buttons should only have borders in non-default state. */
+@def JFK_TOOLBAR_BUTTON_ACTIVE_BG_COLOR       #f6f6f6;
+@def JFK_TOOLBAR_BUTTON_ACTIVE_BOX_SHADOW
+    JFK_BUTTON_STANDARD_ACTIVE_BOX_SHADOW;
+@def JFK_TOOLBAR_BUTTON_ACTIVE_GRADIENT       top,#f6f6f6,#f1f1f1;
+@def JFK_TOOLBAR_BUTTON_BORDER_COLOR          transparent;
+@def JFK_TOOLBAR_BUTTON_BORDER_RADIUS         2px;
+@def JFK_TOOLBAR_BUTTON_BORDER_STYLE          solid;
+@def JFK_TOOLBAR_BUTTON_BORDER_WIDTH          1px;
+@def JFK_TOOLBAR_BUTTON_CHECKED_BOX_SHADOW
+    JFK_BUTTON_STANDARD_CHECKED_BOX_SHADOW;
+@def JFK_TOOLBAR_BUTTON_CURSOR                JFK_BUTTON_COMMON_CURSOR;
+@def JFK_TOOLBAR_BUTTON_DISABLED_FILTER       alpha(opacity=30);
+@def JFK_TOOLBAR_BUTTON_DISABLED_OPACITY      0.3;
+@def JFK_TOOLBAR_BUTTON_DISABLED_TEXT_COLOR   JFK_BASE_PRIMARY_TEXT_COLOR;
+@def JFK_TOOLBAR_BUTTON_FONT_SIZE             JFK_BUTTON_COMMON_FONT_SIZE;
+@def JFK_TOOLBAR_BUTTON_FONT_WEIGHT           JFK_BUTTON_COMMON_FONT_WEIGHT;
+@def JFK_TOOLBAR_BUTTON_HEIGHT                24px;
+@def JFK_TOOLBAR_BUTTON_HORIZONTAL_PADDING    2px;
+@def JFK_TOOLBAR_BUTTON_HOVER_BG_COLOR        JFK_BUTTON_STANDARD_HOVER_BG_COLOR;
+@def JFK_TOOLBAR_BUTTON_HOVER_BORDER_COLOR    JFK_BUTTON_STANDARD_HOVER_BORDER_COLOR;
+@def JFK_TOOLBAR_BUTTON_HOVER_BOX_SHADOW
+    JFK_BUTTON_COMMON_HOVER_BOX_SHADOW;
+@def JFK_TOOLBAR_BUTTON_HOVER_GRADIENT        JFK_BUTTON_STANDARD_HOVER_GRADIENT;
+@def JFK_TOOLBAR_BUTTON_HOVER_TEXT_COLOR      JFK_BASE_PRIMARY_TEXT_COLOR;
+@def JFK_TOOLBAR_BUTTON_LINE_HEIGHT           JFK_TOOLBAR_BUTTON_HEIGHT;
+@def JFK_TOOLBAR_BUTTON_SELECTED_BG_COLOR     #eee;
+@def JFK_TOOLBAR_BUTTON_SELECTED_BORDER_COLOR JFK_BUTTON_STANDARD_SELECTED_BORDER_COLOR;
+@def JFK_TOOLBAR_BUTTON_SELECTED_GRADIENT     top,#eee,#e0e0e0;
+@def JFK_TOOLBAR_BUTTON_TEXT_COLOR            JFK_BUTTON_STANDARD_TEXT_COLOR;
+@def JFK_TOOLBAR_BUTTON_TEXT_DECORATION       none;
+@def JFK_TOOLBAR_BUTTON_TRANSITION            JFK_BUTTON_COMMON_TRANSITION;
+@def JFK_TOOLBAR_SEPARATOR_COLOR              #ccc;
+@def JFK_TOOLBAR_SEPARATOR_HEIGHT             17px;
+
+
+/*
+ * Styles used by goog.ui.ToolbarButtonRenderer and menu button.
+ */
+.goog-toolbar-button,
+.goog-toolbar-menu-button {
+  @mixin border_radius(JFK_TOOLBAR_BUTTON_BORDER_RADIUS);
+  @mixin user_select(none);
+
+  background: 0;
+
+  /* Borders */
+  border-color: JFK_TOOLBAR_BUTTON_BORDER_COLOR;
+  border-style: JFK_TOOLBAR_BUTTON_BORDER_STYLE;
+  border-width: JFK_TOOLBAR_BUTTON_BORDER_WIDTH;
+  outline: none;
+  padding: 0;
+
+  /* Sizes */
+  height: JFK_TOOLBAR_BUTTON_HEIGHT;
+
+  /* Text info */
+  color: JFK_TOOLBAR_BUTTON_TEXT_COLOR;
+  line-height: JFK_TOOLBAR_BUTTON_LINE_HEIGHT;
+  list-style: none;
+  font-size: JFK_TOOLBAR_BUTTON_FONT_SIZE;
+  font-weight: JFK_TOOLBAR_BUTTON_FONT_WEIGHT;
+  text-decoration: JFK_TOOLBAR_BUTTON_TEXT_DECORATION;
+  vertical-align: middle;
+
+  /* Cursors and pointers */
+  cursor: JFK_TOOLBAR_BUTTON_CURSOR;
+}
+
+/*
+ * TODO(psolderitsch): Create a JfkToolbarButtonRenderer that does not need to
+ * generate this extra dom.
+ */
+.goog-toolbar-button-outer-box,
+.goog-toolbar-button-inner-box
+.goog-toolbar-menu-button-outer-box,
+.goog-toolbar-menu-button-inner-box {
+  border: 0;
+  vertical-align: top;
+}
+
+.goog-toolbar-button-outer-box,
+.goog-toolbar-menu-button-outer-box {
+  margin: 0;
+  padding: 0;
+}
+
+.goog-toolbar-button-inner-box,
+.goog-toolbar-menu-button-inner-box {
+  padding: 0 JFK_TOOLBAR_BUTTON_HORIZONTAL_PADDING;
+}
+
+.goog-toolbar-button-hover,
+.goog-toolbar-button-active,
+.goog-toolbar-button-checked,
+.goog-toolbar-button-selected {
+  color: JFK_TOOLBAR_BUTTON_HOVER_TEXT_COLOR;
+  padding: 0;
+}
+
+.goog-toolbar-button-hover,
+.goog-toolbar-menu-button-hover {
+  border-color: JFK_TOOLBAR_BUTTON_HOVER_BORDER_COLOR !important;
+  color: JFK_TOOLBAR_BUTTON_HOVER_TEXT_COLOR;
+}
+
+.goog-toolbar-menu-button-open {
+  color: JFK_TOOLBAR_BUTTON_HOVER_TEXT_COLOR;
+}
+
+.goog-toolbar-button-hover,
+.goog-toolbar-menu-button-hover {
+  @mixin box_shadow(JFK_TOOLBAR_BUTTON_HOVER_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_TOOLBAR_BUTTON_HOVER_GRADIENT, JFK_TOOLBAR_BUTTON_HOVER_BG_COLOR);
+}
+
+/* Active styles. */
+.goog-toolbar-button-active,
+.goog-toolbar-menu-button-active {
+  @mixin box_shadow(JFK_TOOLBAR_BUTTON_ACTIVE_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_TOOLBAR_BUTTON_ACTIVE_GRADIENT, JFK_TOOLBAR_BUTTON_ACTIVE_BG_COLOR);
+
+  border-color: JFK_TOOLBAR_BUTTON_HOVER_BORDER_COLOR;
+}
+
+/* Selected styles. */
+.goog-toolbar-button-selected,
+.goog-toolbar-button-checked,
+.goog-toolbar-menu-button-open {
+  @mixin box_shadow(JFK_TOOLBAR_BUTTON_CHECKED_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_TOOLBAR_BUTTON_SELECTED_GRADIENT,
+      JFK_TOOLBAR_BUTTON_SELECTED_BG_COLOR);
+
+  border-color: JFK_TOOLBAR_BUTTON_SELECTED_BORDER_COLOR;
+}
+
+/* Disabled styles. */
+.goog-toolbar-button-disabled,
+.goog-toolbar-menu-button-disabled {
+  color: JFK_TOOLBAR_BUTTON_DISABLED_TEXT_COLOR !important;
+  opacity: JFK_TOOLBAR_BUTTON_DISABLED_OPACITY;
+  filter: JFK_TOOLBAR_BUTTON_DISABLED_FILTER;
+}
+
+/* Pill (collapsed border) styles. */
+.goog-toolbar-button-collapse-right,
+.goog-toolbar-button-collapse-right .goog-toolbar-button-outer-box,
+.goog-toolbar-button-collapse-right .goog-toolbar-button-inner-box {
+  margin-right: 0;
+}
+
+.goog-toolbar-button-collapse-left,
+.goog-toolbar-button-collapse-left .goog-toolbar-button-outer-box,
+.goog-toolbar-button-collapse-left .goog-toolbar-button-inner-box {
+  margin-left: 0;
+}
+
+/* Dropdown style */
+.goog-toolbar-menu-button-dropdown {
+  background: JFK_TOOLBAR_BUTTON_SMALL_DISCLOSURE_ARROW center no-repeat;
+
+  /* Icon positioning */
+  float: right;
+  margin: 10px 2px 0 3px;
+  padding: 0;
+
+  /* Icon appearance */
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: .8;
+
+  vertical-align: middle;
+
+  width: 5px;
+  height: 7px;
+
+  /* NOTE: The below IE hacks were incorporated directly from the Kennedy spec
+     implementation, and the toolbar breaks in IE without them. */
+/*  ie hacks*/
+  *float:none;
+  *position:relative;
+  *top:-3px;
+}
+
+/*
+ * Styles used by goog.ui.ToolbarSeparatorRenderer.
+ */
+.goog-toolbar-separator {
+  border-left: 1px solid JFK_TOOLBAR_SEPARATOR_COLOR;
+  height: JFK_TOOLBAR_SEPARATOR_HEIGHT;
+  line-height: normal;
+  list-style: none;
+  margin: 0 JFK_TOOLBAR_BUTTON_HORIZONTAL_PADDING;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  text-decoration: none;
+  vertical-align: middle;
+  width: 0;
+}
+
+/*
+ * Additional styling for toolbar select dropdowns, which have a different
+ * image glyph.
+ */
+.goog-toolbar-select .goog-toolbar-menu-button-dropdown {
+  /* TODO(psolderitsch): Point this to gstatic once the icon lives there. */
+  background: JFK_TOOLBAR_BUTTON_SMALL_DISCLOSURE_ARROW center no-repeat;
+  height: 11px;
+  margin-top: 7px;
+  width: 7px;
+
+  /* Override rotations from the menu button dropdown rules. */
+  -webkit-transform: none;
+  -moz-transform: none;
+  transform: none;
+  filter: none;
+}
+
+.goog-toolbar-menu-button-caption {
+  padding: 0;
+  margin: 0;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/basebutton.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Styles for jfk.Button.
+ *
+ * @author nnaze@google.com (Nathan Naze)
+ */
+
+@provide 'jfk.button.baseButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+/*
+ * NOTE(chrishenry): Do not add pointer-events: none; to disabled button.
+ * TooltipManager requires pointer events to show tooltips. We still
+ * want to show tooltip for disabled buttons to conform with default
+ * browser behavior and so that users still can figure out what a
+ * button means. This is especially important since Kennedy design
+ * utilizes image caption in place of text caption.
+ */
+
+/* Common button styles */
+.jfk-button {
+  @mixin border_radius(JFK_BUTTON_COMMON_BORDER_RADIUS);
+
+  cursor: JFK_BUTTON_COMMON_CURSOR;
+  font-size: JFK_BUTTON_COMMON_FONT_SIZE;
+  font-weight: JFK_BUTTON_COMMON_FONT_WEIGHT;
+  text-align: center;
+  white-space: nowrap;
+
+  margin-right: 16px;
+
+  /* dimensions */
+  height: JFK_BUTTON_COMMON_HEIGHT;
+  line-height: JFK_BUTTON_COMMON_HEIGHT;
+  min-width: 54px;
+  outline: 0px;
+  padding: 0 8px;
+}
+
+.jfk-button-hover {
+  @mixin box_shadow(JFK_BUTTON_COMMON_HOVER_BOX_SHADOW);
+}
+
+.jfk-button-selected {
+  @mixin box_shadow(inset 0px 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* Icon and label content styles */
+
+.jfk-button .jfk-button-img {
+  margin-top: -3px;
+  vertical-align: middle;
+}
+
+.jfk-button-label {
+  margin-left: 5px;
+}
+
+/* Width */
+
+.jfk-button-narrow {
+  min-width:34px;
+  padding:0;
+}
+
+/* Collapsed buttons */
+
+/*
+ * To create the collapsed button, we actually overlap the collapsed buttons
+ * by 1px, causing the left border of the right button to overlap on top
+ * of the left button. In the following 3 rules, we add z-indices such
+ * that the correct border is visible.
+ */
+.jfk-button-collapse-left, .jfk-button-collapse-right {
+  z-index: 1;
+}
+
+.jfk-button-collapse-left.jfk-button-disabled {
+  z-index: 0;
+}
+
+.jfk-button-checked.jfk-button-collapse-left,
+.jfk-button-checked.jfk-button-collapse-right {
+  z-index: 2
+}
+
+.jfk-button-collapse-left:focus,
+.jfk-button-collapse-right:focus,
+.jfk-button-hover.jfk-button-collapse-left,
+.jfk-button-hover.jfk-button-collapse-right {
+  z-index: 3;
+}
+
+/*
+ * NOTE(chrishenry): goog.ui.Button already has a logic to determine
+ * whether to add jfk-button-collapse-left or -right class name correctly
+ * depending on whether the button is LTR/RTL. So we should not let
+ * the css compiler performs flipping in these 2 selectors.
+ */
+.jfk-button-collapse-left {
+  /* Causes border to overlap with neighboring button to form a 1px border. */
+  /* @noflip */ margin-left: -1px;
+
+  /* @noflip */ -moz-border-radius-bottomleft: 0;
+  /* @noflip */ -moz-border-radius-topleft: 0;
+  /* @noflip */ -webkit-border-bottom-left-radius: 0;
+  /* @noflip */ -webkit-border-top-left-radius: 0;
+  /* @noflip */ border-bottom-left-radius: 0;
+  /* @noflip */ border-top-left-radius: 0;
+}
+
+.jfk-button-collapse-right {
+  /* @noflip */ margin-right: 0px;
+
+  /* @noflip */ -moz-border-radius-topright: 0;
+  /* @noflip */ -moz-border-radius-bottomright: 0;
+  /* @noflip */ -webkit-border-top-right-radius: 0;
+  /* @noflip */ -webkit-border-bottom-right-radius: 0;
+  /* @noflip */ border-top-right-radius: 0;
+  /* @noflip */ border-bottom-right-radius: 0;
+}
+
+/* Disabled button */
+
+/*
+ * NOTE(chrishenry): disabled button should not have :active state.
+ * One option is to specify active state using jfk-button-active
+ * class name provided by Closure to style active button (which will
+ * not be activated on disabled button). We opted to use :active
+ * instead (for better performance), hence requiring us to override
+ * all :active style for disabled button. Currently, this is only
+ * box-shadow.
+ */
+.jfk-button.jfk-button-disabled:active {
+  @mixin box_shadow(none);
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/actionbutton.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Styles for the action jfk.Button (jfk.ActionButton).
+ *
+ * @author nnaze@google.com (Nathan Naze)
+ */
+
+@provide 'jfk.button.actionButton';
+@require 'jfk.button.baseButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+.jfk-button-action {
+  @mixin box_shadow(JFK_BUTTON_ACTION_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_ACTION_GRADIENT, JFK_BUTTON_ACTION_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_ACTION_BORDER_COLOR;
+  color: JFK_BUTTON_ACTION_TEXT_COLOR;
+}
+
+/* Keep styles in order -- hover, focus, active */
+
+.jfk-button-action.jfk-button-hover {
+  @mixin box_shadow(JFK_BUTTON_ACTION_HOVER_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_ACTION_HOVER_GRADIENT, JFK_BUTTON_ACTION_HOVER_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_ACTION_HOVER_BORDER_COLOR;
+  border-bottom-color: JFK_BUTTON_ACTION_HOVER_BOTTOM_BORDER_COLOR;
+}
+
+.jfk-button-action:focus {
+  @mixin jfk_button_focus(JFK_BUTTON_ACTION_FOCUS_OUTLINE_IE8_FALLBACK);
+}
+
+/* This class is applied to clear the above :focus style. */
+.jfk-button-action.jfk-button-clear-outline {
+  @mixin box_shadow(none);
+  outline: JFK_BUTTON_ACTION_CLEAR_OUTLINE;
+}
+
+.jfk-button-action:active {
+  @mixin box_shadow(JFK_BUTTON_ACTION_ACTIVE_BOX_SHADOW);
+  background: JFK_BUTTON_ACTION_ACTIVE_BG_COLOR;
+  border: 1px solid JFK_BUTTON_ACTION_ACTIVE_BORDER_COLOR;
+  border-top: 1px solid JFK_BUTTON_ACTION_ACTIVE_TOP_BORDER_COLOR;
+}
+
+.jfk-button-action.jfk-button-disabled {
+  background: JFK_BUTTON_ACTION_BG_COLOR;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/contrastbutton.gss */
+/**
+ * Styles for the contrast jfk.Button (jfk.ContrastButton).
+ * Contrast buttons are being standardized for Google-wide use by the Rio team
+ * (gasp@google.com), but are currently only intended for use as a part of Rio
+ * with Showroom in Google+ (goto/rioguide). Until they are in wider
+ * circulation, they render the same as a standard button outside of Showroom.
+ */
+
+@provide 'jfk.button.contrastButton';
+@require 'jfk.button.baseButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+.jfk-button-contrast {
+  @mixin box_shadow(JFK_BUTTON_CONTRAST_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_CONTRAST_GRADIENT, JFK_BUTTON_CONTRAST_BG_COLOR);
+
+  color: JFK_BUTTON_CONTRAST_TEXT_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_CONTRAST_BORDER_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_CONTRAST_BORDER_COLOR_RGBA;
+}
+
+.jfk-button-contrast.jfk-button-hover,
+.jfk-button-contrast.jfk-button-clear-outline.jfk-button-hover {
+  @mixin box_shadow(JFK_BUTTON_CONTRAST_HOVER_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_CONTRAST_HOVER_GRADIENT, JFK_BUTTON_CONTRAST_HOVER_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_CONTRAST_HOVER_BORDER_COLOR;
+  color: JFK_BUTTON_CONTRAST_HOVER_TEXT_COLOR;
+}
+
+.jfk-button-contrast:active,
+.jfk-button-contrast.jfk-button-hover:active {
+  @mixin box_shadow(JFK_BUTTON_CONTRAST_ACTIVE_BOX_SHADOW);
+  background: JFK_BUTTON_CONTRAST_ACTIVE_BG_COLOR;
+}
+
+.jfk-button-contrast.jfk-button-selected,
+.jfk-button-contrast.jfk-button-clear-outline.jfk-button-selected {
+  @mixin linear_gradient(
+      JFK_BUTTON_CONTRAST_SELECTED_GRADIENT,
+      JFK_BUTTON_CONTRAST_SELECTED_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_CONTRAST_SELECTED_BORDER_COLOR;
+  color: JFK_BUTTON_CONTRAST_SELECTED_TEXT_COLOR;
+}
+
+.jfk-button-contrast.jfk-button-checked,
+.jfk-button-contrast.jfk-button-clear-outline.jfk-button-checked {
+  @mixin box_shadow(JFK_BUTTON_CONTRAST_CHECKED_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_CONTRAST_CHECKED_GRADIENT,
+      JFK_BUTTON_CONTRAST_CHECKED_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_CONTRAST_CHECKED_BORDER_COLOR;
+  color: JFK_BUTTON_CONTRAST_CHECKED_TEXT_COLOR;
+}
+
+.jfk-button-contrast:focus {
+  border: 1px solid JFK_BUTTON_CONTRAST_FOCUS_BORDER_COLOR;
+  outline: JFK_BUTTON_CONTRAST_FOCUS_OUTLINE;
+}
+
+/* This class is applied to clear the above :focus style. */
+.jfk-button-contrast.jfk-button-clear-outline {
+  border: 1px solid  JFK_BUTTON_CONTRAST_BORDER_COLOR;
+  outline: JFK_BUTTON_CONTRAST_FOCUS_CLEAR_OUTLINE;
+}
+
+.jfk-button-contrast.jfk-button-disabled {
+  background: JFK_BUTTON_CONTRAST_DISABLED_BG_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_CONTRAST_DISABLED_BORDER_COLOR;
+  /* @alternate */ border: 1px solid rgba(0,0,0,0.05);
+  color: JFK_BUTTON_CONTRAST_DISABLED_TEXT_COLOR;
+}
+
+/* For the contrast button, the icon opacity should change on hover
+   and selection. */
+
+/* TODO(nnaze): These opacity values need to be changed for when we have
+   all-black image assets. */
+
+.jfk-button-contrast .jfk-button-img {
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: JFK_BUTTON_CONTRAST_ICON_OPACITY;
+}
+
+.jfk-button-contrast.jfk-button-checked .jfk-button-img,
+.jfk-button-contrast.jfk-button-selected .jfk-button-img,
+.jfk-button-contrast.jfk-button-hover .jfk-button-img {
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: JFK_BUTTON_CONTRAST_ICON_HOVER_OPACITY;
+}
+
+.jfk-button-contrast.jfk-button-disabled .jfk-button-img {
+  filter: JFK_BUTTON_CONTRAST_ICON_DISABLED_FILTER;
+  opacity: JFK_BUTTON_CONTRAST_ICON_DISABLED_OPACITY;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/defaultbutton.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Styles for the default jfk.Button (jfk.DefaultButton).
+ *
+ * @author nnaze@google.com (Nathan Naze)
+ */
+
+@provide 'jfk.button.defaultButton';
+@require 'jfk.button.baseButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+@def JFK_BUTTON_DEFAULT_BG_COLOR #3d9400;
+@def JFK_BUTTON_DEFAULT_BORDER_COLOR #29691d;
+@def JFK_BUTTON_DEFAULT_GRADIENT top,#3d9400,#398a00;
+@def JFK_BUTTON_DEFAULT_TEXT_COLOR #fff;
+@def JFK_BUTTON_DEFAULT_TEXT_SHADOW 0px 1px rgba(0,0,0,0.1);
+@def JFK_BUTTON_DEFAULT_BOX_SHADOW none;
+
+@def JFK_BUTTON_DEFAULT_HOVER_BG_COLOR #368200;
+@def JFK_BUTTON_DEFAULT_HOVER_BORDER_COLOR #2d6200;
+@def JFK_BUTTON_DEFAULT_HOVER_BOTTOM_BORDER_COLOR JFK_BUTTON_DEFAULT_HOVER_BORDER_COLOR;
+@def JFK_BUTTON_DEFAULT_HOVER_GRADIENT top,#3d9400,#368200;
+@def JFK_BUTTON_DEFAULT_HOVER_TEXT_SHADOW 0px 1px rgba(0,0,0,0.3);
+@def JFK_BUTTON_DEFAULT_HOVER_BOX_SHADOW none;
+
+@def JFK_BUTTON_DEFAULT_ACTIVE_BOX_SHADOW inset 0px 1px 2px rgba(0, 0, 0, 0.3);
+@def JFK_BUTTON_DEFAULT_ACTIVE_BG_COLOR JFK_BUTTON_DEFAULT_HOVER_BG_COLOR;
+@def JFK_BUTTON_DEFAULT_ACTIVE_BORDER_COLOR JFK_BUTTON_DEFAULT_HOVER_BORDER_COLOR;
+@def JFK_BUTTON_DEFAULT_ACTIVE_TOP_BORDER_COLOR JFK_BUTTON_DEFAULT_HOVER_BORDER_COLOR;
+
+@def JFK_BUTTON_DEFAULT_CLEAR_FOCUS_OUTLINE none;
+
+@def JFK_BUTTON_DEFAULT_FOCUS_OUTLINE_IE8_FALLBACK
+    1px solid JFK_BUTTON_DEFAULT_BG_COLOR;
+
+.jfk-button-default {
+  @mixin box_shadow(JFK_BUTTON_DEFAULT_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_DEFAULT_GRADIENT, JFK_BUTTON_DEFAULT_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_DEFAULT_BORDER_COLOR;
+  color: JFK_BUTTON_DEFAULT_TEXT_COLOR;
+  text-shadow: JFK_BUTTON_DEFAULT_TEXT_SHADOW;
+}
+
+/* Keep styles in order -- hover, focus, active */
+
+.jfk-button-default.jfk-button-hover {
+  @mixin box_shadow(JFK_BUTTON_DEFAULT_HOVER_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_DEFAULT_HOVER_GRADIENT, JFK_BUTTON_DEFAULT_HOVER_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_DEFAULT_HOVER_BORDER_COLOR;
+  border-bottom: 1px solid JFK_BUTTON_DEFAULT_HOVER_BOTTOM_BORDER_COLOR;
+  text-shadow: JFK_BUTTON_DEFAULT_HOVER_TEXT_SHADOW;
+}
+
+.jfk-button-default:focus {
+  @mixin jfk_button_focus(JFK_BUTTON_DEFAULT_FOCUS_OUTLINE_IE8_FALLBACK);
+}
+
+/* This class is applied to clear the above :focus style. */
+.jfk-button-default.jfk-button-clear-outline {
+  @mixin box_shadow(none);
+  outline: JFK_BUTTON_DEFAULT_CLEAR_FOCUS_OUTLINE;
+}
+
+.jfk-button-default:active {
+  @mixin box_shadow(JFK_BUTTON_DEFAULT_ACTIVE_BOX_SHADOW);
+  background: JFK_BUTTON_DEFAULT_ACTIVE_BG_COLOR;
+  border: 1px solid JFK_BUTTON_DEFAULT_ACTIVE_BORDER_COLOR;
+  border-top: 1px solid JFK_BUTTON_DEFAULT_ACTIVE_TOP_BORDER_COLOR;
+}
+
+.jfk-button-default.jfk-button-disabled {
+  background: JFK_BUTTON_DEFAULT_BG_COLOR;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/primarybutton.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Styles for the primary jfk.Button (jfk.PrimaryButton).
+ *
+ * @author nnaze@google.com (Nathan Naze)
+ */
+
+@provide 'jfk.button.primaryButton';
+@require 'jfk.button.baseButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+@def JFK_BUTTON_PRIMARY_BG_COLOR #d14836;
+@def JFK_BUTTON_PRIMARY_BORDER_COLOR transparent;
+@def JFK_BUTTON_PRIMARY_GRADIENT top,#dd4b39,#d14836;
+@def JFK_BUTTON_PRIMARY_TEXT_COLOR #fff;
+@def JFK_BUTTON_PRIMARY_TEXT_SHADOW 0px 1px rgba(0, 0, 0, 0.1);
+@def JFK_BUTTON_PRIMARY_BOX_SHADOW none;
+@def JFK_BUTTON_PRIMARY_TEXT_TRANSFORM uppercase;
+
+@def JFK_BUTTON_PRIMARY_HOVER_BG_COLOR #c53727;
+@def JFK_BUTTON_PRIMARY_HOVER_BORDER_COLOR #b0281a;
+@def JFK_BUTTON_PRIMARY_HOVER_BOTTOM_BORDER_COLOR #af301f;
+@def JFK_BUTTON_PRIMARY_HOVER_GRADIENT top,#dd4b39,#c53727;
+@def JFK_BUTTON_PRIMARY_HOVER_BOX_SHADOW 0px 1px 1px rgba(0, 0, 0, 0.2);
+
+@def JFK_BUTTON_PRIMARY_ACTIVE_BG_COLOR #b0281a;
+@def JFK_BUTTON_PRIMARY_ACTIVE_BORDER_COLOR #992a1b;
+@def JFK_BUTTON_PRIMARY_ACTIVE_GRADIENT top,#dd4b39,#b0281a;
+@def JFK_BUTTON_PRIMARY_ACTIVE_BOX_SHADOW inset 0px 1px 2px rgba(0, 0, 0, 0.3);
+@def JFK_BUTTON_PRIMARY_ACTIVE_TOP_BORDER_COLOR
+    JFK_BUTTON_PRIMARY_ACTIVE_BORDER_COLOR;
+
+@def JFK_BUTTON_PRIMARY_CLEAR_FOCUS_OUTLINE none;
+
+@def JFK_BUTTON_PRIMARY_FOCUS_OUTLINE_IE8_FALLBACK
+    1px solid JFK_BUTTON_PRIMARY_BG_COLOR;
+
+.jfk-button-primary {
+  @mixin box_shadow(JFK_BUTTON_PRIMARY_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_PRIMARY_GRADIENT, JFK_BUTTON_PRIMARY_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_PRIMARY_BORDER_COLOR;
+  color: JFK_BUTTON_PRIMARY_TEXT_COLOR;
+  text-shadow: JFK_BUTTON_PRIMARY_TEXT_SHADOW;
+  text-transform: JFK_BUTTON_PRIMARY_TEXT_TRANSFORM;
+}
+
+/* Keep styles in order -- hover, focus, active */
+
+.jfk-button-primary.jfk-button-hover {
+  @mixin box_shadow(JFK_BUTTON_PRIMARY_HOVER_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_PRIMARY_HOVER_GRADIENT, JFK_BUTTON_PRIMARY_HOVER_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_PRIMARY_HOVER_BORDER_COLOR;
+  border-bottom-color: JFK_BUTTON_PRIMARY_HOVER_BOTTOM_BORDER_COLOR;
+}
+
+.jfk-button-primary:focus {
+  @mixin jfk_button_focus(JFK_BUTTON_PRIMARY_FOCUS_OUTLINE_IE8_FALLBACK);
+}
+
+/* This class is applied to clear the above :focus style. */
+.jfk-button-primary.jfk-button-clear-outline {
+  @mixin box_shadow(none);
+  outline: JFK_BUTTON_PRIMARY_CLEAR_FOCUS_OUTLINE;
+}
+
+.jfk-button-primary:active {
+  @mixin box_shadow(JFK_BUTTON_PRIMARY_ACTIVE_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_PRIMARY_ACTIVE_GRADIENT, JFK_BUTTON_PRIMARY_ACTIVE_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_PRIMARY_ACTIVE_BORDER_COLOR;
+  border-top: 1px solid JFK_BUTTON_PRIMARY_ACTIVE_TOP_BORDER_COLOR;
+}
+
+.jfk-button-primary.jfk-button-disabled {
+  background: JFK_BUTTON_PRIMARY_BG_COLOR;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/slidetoggle.gss */
+/**
+ * CSS rules for the Slide Toggle component.
+ */
+
+@provide 'jfk.button.slideToggle';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+@def SLIDE_TOGGLE_CONTAINER_BORDER 1px solid #ccc;
+@def SLIDE_TOGGLE_CONTAINER_BORDER_RADIUS 2px;
+@def SLIDE_TOGGLE_CONTAINER_BOX_SHADOW inset 0px 1px 2px 0 rgba(0, 0, 0, .1);
+@def SLIDE_TOGGLE_CONTAINER_TEXT_COLOR #666;
+@def SLIDE_TOGGLE_CONTAINER_GRADIENT top, #eee, #e0e0e0;
+
+@def SLIDE_TOGGLE_ON_BOX_SHADOW inset 0 1px 2px 0 rgba(0, 0, 0, .1);
+@def SLIDE_TOGGLE_ON_TEXT_COLOR #fff;
+@def SLIDE_TOGGLE_ON_GRADIENT top, #3b93ff, #3689ee;
+
+@def SLIDE_TOGGLE_THUMB_BORDER 1px solid #ccc;
+@def SLIDE_TOGGLE_THUMB_BOX_SHADOW 0px 1px 2px 0 rgba(0, 0, 0, .1);
+@def SLIDE_TOGGLE_THUMB_GRADIENT top, #f8f8f8, #f1f1f1;
+
+@def SLIDE_TOGGLE_TRANSITION all .130s ease-out;
+
+@def SLIDE_TOGGLE_AFTER_GRADIENT left, #ccc 50%, transparent 50%;
+
+@def SLIDE_TOGGLE_OFF_BORDER_RADIUS 2px 2px 0 0;
+
+/* Sets rules that apply to the toggle container. */
+.jfk-slideToggle {
+  @mixin border_radius(SLIDE_TOGGLE_CONTAINER_BORDER_RADIUS);
+  @mixin box_shadow(SLIDE_TOGGLE_CONTAINER_BOX_SHADOW);
+  @mixin linear_gradient(SLIDE_TOGGLE_CONTAINER_GRADIENT, #f5f5f5);
+
+  border: SLIDE_TOGGLE_CONTAINER_BORDER;
+  color: SLIDE_TOGGLE_CONTAINER_TEXT_COLOR;
+  font-weight: bold;
+  height: 27px;
+  line-height: 27px;
+  margin-right: 16px;
+  outline: none;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: 94px;
+}
+
+/* Sets rules that apply to all three divs. */
+.jfk-slideToggle-on,
+.jfk-slideToggle-off,
+.jfk-slideToggle-thumb {
+  display: inline-block;
+  text-align: center;
+  text-transform: uppercase;
+  width: 47px;
+}
+
+/* Sets rules for "on" div. */
+.jfk-slideToggle-on {
+  @mixin box_shadow(SLIDE_TOGGLE_ON_BOX_SHADOW);
+  @mixin linear_gradient(SLIDE_TOGGLE_ON_GRADIENT, #398bf2);
+
+  color: SLIDE_TOGGLE_ON_TEXT_COLOR;
+  height: 27px;
+}
+
+/* Sets rules for "off" div. */
+.jfk-slideToggle-off {
+  @mixin border_radius(SLIDE_TOGGLE_OFF_BORDER_RADIUS);
+}
+
+/* Sets rules for "thumb" div. */
+.jfk-slideToggle-thumb {
+  @mixin box_shadow(SLIDE_TOGGLE_THUMB_BOX_SHADOW);
+  @mixin linear_gradient(SLIDE_TOGGLE_THUMB_GRADIENT, #f5f5f5);
+  @mixin transition(SLIDE_TOGGLE_TRANSITION);
+
+  border: SLIDE_TOGGLE_THUMB_BORDER;
+  display: block;
+  height: 27px;
+  left: -1px;
+  position: absolute;
+  top: -1px;
+}
+
+/* Creates the dot pattern on the slider. */
+.jfk-slideToggle-thumb::after {
+  content: '';
+
+  background-image:
+      -webkit-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -webkit-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -webkit-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -webkit-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -webkit-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT);
+
+  /* @alternate */ background-image:
+      -moz-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -moz-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -moz-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -moz-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -moz-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT);
+
+  /* @alternate */ background-image:
+      -ms-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -ms-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -ms-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -ms-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -ms-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT);
+
+  /* @alternate */ background-image:
+      -o-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -o-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -o-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -o-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      -o-linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT);
+
+  /* @alternate */ background-image:
+      linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT),
+      linear-gradient(SLIDE_TOGGLE_AFTER_GRADIENT);
+
+  background-position: 0 0, 0 2px, 0 4px, 0 6px, 0 8px;
+  background-repeat: repeat-x;
+  background-size: 2px 1px;
+  display: block;
+  height: 9px;
+  left: 15px;
+  position: absolute;
+  top: 9px;
+  width: 17px;
+}
+
+/* Sets checked behavior for toggle. */
+.jfk-slideToggle.jfk-slideToggle-checked .jfk-slideToggle-thumb {
+  left: 47px;
+}
+
+/* Sets focus behavior for toggle. */
+.jfk-slideToggle:focus {
+  border: 1px solid JFK_BUTTON_STANDARD_FOCUS_BORDER_COLOR;
+}
+
+/* This class is applied to clear the above :focus style. */
+.jfk-slideToggle.jfk-slideToggle-clearOutline {
+  border: SLIDE_TOGGLE_CONTAINER_BORDER;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/standardbutton.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Styles for the standard jfk.Button (jfk.StandardButton).
+ *
+ * @author nnaze@google.com (Nathan Naze)
+ */
+
+@provide 'jfk.button.standardButton';
+@require 'jfk.button.baseButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+.jfk-button-standard {
+  @mixin box_shadow(JFK_BUTTON_STANDARD_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_STANDARD_GRADIENT, JFK_BUTTON_STANDARD_BG_COLOR);
+
+  color: JFK_BUTTON_STANDARD_TEXT_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_STANDARD_BORDER_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_STANDARD_BORDER_COLOR_RGBA;
+}
+
+.jfk-button-standard.jfk-button-hover,
+.jfk-button-standard.jfk-button-clear-outline.jfk-button-hover {
+  @mixin box_shadow(JFK_BUTTON_STANDARD_HOVER_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_STANDARD_HOVER_GRADIENT, JFK_BUTTON_STANDARD_HOVER_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_STANDARD_HOVER_BORDER_COLOR;
+  color: JFK_BUTTON_STANDARD_HOVER_TEXT_COLOR;
+}
+
+.jfk-button-standard:active,
+.jfk-button-standard.jfk-button-hover:active {
+  @mixin box_shadow(JFK_BUTTON_STANDARD_ACTIVE_BOX_SHADOW);
+  background: JFK_BUTTON_STANDARD_ACTIVE_BG_COLOR;
+  color: JFK_BUTTON_STANDARD_ACTIVE_TEXT_COLOR;
+}
+
+.jfk-button-standard.jfk-button-selected,
+.jfk-button-standard.jfk-button-clear-outline.jfk-button-selected {
+  @mixin linear_gradient(
+      JFK_BUTTON_STANDARD_SELECTED_GRADIENT,
+      JFK_BUTTON_STANDARD_SELECTED_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_STANDARD_SELECTED_BORDER_COLOR;
+  color: JFK_BUTTON_STANDARD_SELECTED_TEXT_COLOR;
+}
+
+.jfk-button-standard.jfk-button-checked,
+.jfk-button-standard.jfk-button-clear-outline.jfk-button-checked {
+  @mixin box_shadow(JFK_BUTTON_STANDARD_CHECKED_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_STANDARD_CHECKED_GRADIENT,
+      JFK_BUTTON_STANDARD_CHECKED_BG_COLOR);
+
+  border: 1px solid JFK_BUTTON_STANDARD_CHECKED_BORDER_COLOR;
+  color: JFK_BUTTON_STANDARD_CHECKED_TEXT_COLOR;
+}
+
+.jfk-button-standard:focus {
+  border: 1px solid JFK_BUTTON_STANDARD_FOCUS_BORDER_COLOR;
+  outline: JFK_BUTTON_STANDARD_FOCUS_OUTLINE;
+}
+
+/* This class is applied to clear the above :focus style. */
+.jfk-button-standard.jfk-button-clear-outline {
+  /* @alternate */ border: 1px solid JFK_BUTTON_STANDARD_BORDER_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_STANDARD_BORDER_COLOR_RGBA;
+  outline: JFK_BUTTON_STANDARD_FOCUS_CLEAR_OUTLINE;
+}
+
+.jfk-button-standard.jfk-button-disabled {
+  background: JFK_BUTTON_STANDARD_DISABLED_BG_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_STANDARD_DISABLED_BORDER_COLOR;
+  /* @alternate */ border: 1px solid rgba(0,0,0,0.05);
+  color: JFK_BUTTON_STANDARD_DISABLED_TEXT_COLOR;
+}
+
+/* For the standard button, the icon opacity should change on hover
+   and selection. */
+
+/* TODO(nnaze): These opacity values need to be changed for when we have
+   all-black image assets. */
+
+.jfk-button-standard .jfk-button-img {
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: JFK_BUTTON_STANDARD_ICON_OPACITY;
+}
+
+.jfk-button-standard.jfk-button-checked .jfk-button-img,
+.jfk-button-standard.jfk-button-selected .jfk-button-img,
+.jfk-button-standard.jfk-button-hover .jfk-button-img {
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: JFK_BUTTON_STANDARD_ICON_HOVER_OPACITY;
+}
+
+.jfk-button-standard.jfk-button-disabled .jfk-button-img {
+  filter: JFK_BUTTON_STANDARD_ICON_DISABLED_FILTER;
+  opacity: JFK_BUTTON_STANDARD_ICON_DISABLED_OPACITY;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/flatbutton.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Styles for flat jfk.Button.
+ *
+ * @author mariakhomenko@google.com (Maria Khomenko)
+ */
+
+@provide 'jfk.button.flatButton';
+
+@require 'jfk.button.baseButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+.jfk-button-flat {
+  @mixin border_radius(0);
+
+  border: 1px solid transparent;
+  font-size: JFK_BUTTON_BORDERLESS_FONT_SIZE;
+  font-weight: JFK_BUTTON_BORDERLESS_FONT_WEIGHT;
+
+  /* override dimensions of base button */
+  height: 21px;
+  line-height: 21px;
+  margin-right: 1px;
+  min-width: 0;
+  padding: 0;
+}
+
+.jfk-button-flat.jfk-button-hover,
+.jfk-button-flat.jfk-button-selected,
+.jfk-button-flat:focus,
+.jfk-button-flat:active {
+  @mixin box_shadow(none);
+}
+
+.jfk-button-flat .jfk-button-img {
+  height: 21px;
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: JFK_BUTTON_STANDARD_ICON_OPACITY;
+  width: 21px;
+}
+
+.jfk-button-flat .jfk-button-label {
+  display: inline-block;
+  margin: 0;
+  padding: 0 1px;
+}
+
+.jfk-button-flat.jfk-button-selected .jfk-button-img,
+.jfk-button-flat.jfk-button-hover .jfk-button-img {
+  /* filter:opacity interacts badly with alpha-channel PNGs on IE8 */
+  opacity: JFK_BUTTON_STANDARD_ICON_HOVER_OPACITY;
+}
+
+.jfk-button-flat.jfk-button-disabled .jfk-button-img {
+  filter: JFK_BUTTON_STANDARD_ICON_DISABLED_FILTER;
+  opacity: JFK_BUTTON_STANDARD_ICON_DISABLED_OPACITY;
+}
+
+.jfk-button-flat:focus {
+  border: 1px solid JFK_BUTTON_STANDARD_FOCUS_BORDER_COLOR;
+}
+
+/* This class is applied to clear the above :focus style. */
+.jfk-button-flat.jfk-button-clear-outline {
+  border: 1px solid transparent;
+}
+
+} /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/button/minibutton.gss */
+/**
+ * Copyright 2011 Google Inc, All Rights Reserved
+ *
+ * Styles for the mini jfk.Button (jfk.MiniButton).
+ *
+ * @author ziegs@google.com (Matt Ziegelbaum)
+ */
+
+@provide 'jfk.button.miniButton';
+
+@require 'jfk.button.baseButton';
+@require 'jfk.button.defs';
+@require 'jfk.gss.mixin';
+
+@if (!DISABLE_KENNEDY) {
+
+.jfk-button-mini {
+  @mixin linear_gradient(
+      JFK_BUTTON_MINI_GRADIENT, JFK_BUTTON_MINI_BG_COLOR);
+
+  /* @alternate */ border: 1px solid JFK_BUTTON_MINI_BORDER_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_MINI_BORDER_COLOR_RGBA;
+  color: JFK_BUTTON_MINI_TEXT_COLOR;
+  height: JFK_BUTTON_MINI_HEIGHT;
+  line-height: JFK_BUTTON_MINI_HEIGHT;
+  min-width: 22px;
+  text-shadow: JFK_BUTTON_MINI_TEXT_SHADOW;
+}
+
+.jfk-button-mini.jfk-button-hover,
+.jfk-button-mini.jfk-button-clear-outline.jfk-button-hover {
+  @mixin linear_gradient(
+      JFK_BUTTON_MINI_HOVER_GRADIENT, JFK_BUTTON_MINI_HOVER_BG_COLOR);
+  border: 1px solid JFK_BUTTON_MINI_HOVER_BORDER_COLOR;
+  text-shadow: JFK_BUTTON_MINI_HOVER_TEXT_SHADOW;
+}
+
+.jfk-button-mini:active {
+  @mixin box_shadow(JFK_BUTTON_MINI_ACTIVE_BOX_SHADOW);
+}
+
+.jfk-button-mini.jfk-button-checked,
+.jfk-button-mini.jfk-button-clear-outline.jfk-button-checked {
+  @mixin box_shadow(JFK_BUTTON_MINI_CHECKED_BOX_SHADOW);
+  @mixin linear_gradient(
+      JFK_BUTTON_MINI_CHECKED_GRADIENT,
+      JFK_BUTTON_MINI_CHECKED_GRADIENT_FALLBACK_COLOR);
+  border: JFK_BUTTON_MINI_CHECKED_BORDER;
+  color: JFK_BUTTON_MINI_CHECKED_TEXT_COLOR;
+}
+
+.jfk-button-mini:focus {
+  border: 1px solid JFK_BUTTON_MINI_FOCUS_BORDER_COLOR;
+}
+
+.jfk-button-mini.jfk-button-clear-outline {
+  border: 1px solid JFK_BUTTON_MINI_BORDER_COLOR;
+}
+
+.jfk-button-mini.jfk-button-disabled {
+  background: JFK_BUTTON_MINI_DISABLED_BG_COLOR;
+  /* @alternate */ border: 1px solid JFK_BUTTON_MINI_DISABLED_BORDER_COLOR;
+  /* @alternate */ border: 1px solid rgba(0,0,0,0.05);
+  color: JFK_BUTTON_MINI_DISABLED_TEXT_COLOR;
+}
+
+}  /* @if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/checkbox/checkbox.gss */
+/**
+ * Copyright 2011 Google Inc. All Rights Reserved.
+ *
+ * Styles for the Kennedy checkbox.
+ *
+ * @author gkuznetsov@google.com (Gleb Kuznetsov)
+ */
+
+@provide 'jfk.checkbox';
+@require 'jfk.gss.mixin';
+
+
+@if (!DISABLE_KENNEDY) {
+
+@def JFK_CHECKBOX_BG_COLOR         rgba(255,255,255,.05);
+@def JFK_CHECKBOX_FALLBACK_BORDER  1px solid #c6c6c6;
+@def JFK_CHECKBOX_BORDER           1px solid rgba(155, 155, 155, .57);
+@def JFK_CHECKBOX_BORDER_RADIUS    1px;
+
+@def JFK_CHECKBOX_UNDETERMINED_URL
+    url(//ssl.gstatic.com/ui/v1/menu/checkmark-partial.png);
+@def JFK_CHECKBOX_CHECKED_URL
+    url(//ssl.gstatic.com/ui/v1/menu/checkmark.png);
+@def JFK_CHECKBOX_UNDETERMINED_2X_URL
+    url(//ssl.gstatic.com/ui/v1/menu/checkmark-partial_2x.png);
+@def JFK_CHECKBOX_CHECKED_2X_URL
+    url(//ssl.gstatic.com/ui/v1/menu/checkmark_2x.png);
+
+@def JFK_CHECKBOX_UNDETERMINED_BG
+    JFK_CHECKBOX_UNDETERMINED_URL no-repeat -5px -3px;
+@def JFK_CHECKBOX_CHECKED_BG
+    JFK_CHECKBOX_CHECKED_URL no-repeat -5px -3px;
+
+@def JFK_CHECKBOX_HOVER_BORDER                  1px solid #b2b2b2;
+
+@def JFK_CHECKBOX_ACTIVE_BG_COLOR               #ebebeb;
+
+@def JFK_CHECKBOX_CHECKED_FALLBACK_BG_COLOR     #fff;
+@def JFK_CHECKBOX_CHECKED_BG_COLOR              rgba(255, 255, 255, .65);
+
+@def JFK_CHECKBOX_UNDETERMINED_FALLBACK_BG_COLOR
+    JFK_CHECKBOX_CHECKED_FALLBACK_BG_COLOR;
+@def JFK_CHECKBOX_UNDETERMINED_BG_COLOR
+    JFK_CHECKBOX_CHECKED_BG_COLOR;
+
+@def JFK_CHECKBOX_DISABLED_BG_COLOR             #fff;
+@def JFK_CHECKBOX_DISABLED_BORDER               1px solid #f1f1f1;
+
+@def JFK_CHECKBOX_FOCUSED_BORDER                1px solid #4d90fe;
+
+/* Font size applied to the checkbox to fix an IE6 rendering issue */
+@def JFK_CHECKBOX_IE6_FIX_FONT_SIZE  1px;
+
+.jfk-checkbox {
+  @mixin border_radius(JFK_CHECKBOX_BORDER_RADIUS);
+
+  background-color: JFK_CHECKBOX_BG_COLOR;
+  /* @alternate */ border: JFK_CHECKBOX_FALLBACK_BORDER;
+  /* @alternate */ border: JFK_CHECKBOX_BORDER;
+  font-size: JFK_CHECKBOX_IE6_FIX_FONT_SIZE;
+  height: 11px;
+  margin: 0px 4px 0px 1px;
+  outline: 0;
+  vertical-align: text-bottom;
+  width: 11px;
+}
+
+.jfk-checkbox-undetermined {
+  /* @alternate */ background-color:
+      JFK_CHECKBOX_UNDETERMINED_FALLBACK_BG_COLOR;
+  /* @alternate */ background-color: JFK_CHECKBOX_UNDETERMINED_BG_COLOR;
+}
+
+.jfk-checkbox-checked {
+  /* @alternate */ background-color: JFK_CHECKBOX_CHECKED_FALLBACK_BG_COLOR;
+  /* @alternate */ background-color: JFK_CHECKBOX_CHECKED_BG_COLOR;
+}
+
+.jfk-checkbox-hover {
+  @mixin box_shadow(inset 0px 1px 1px rgba(0, 0, 0, .1));
+
+  border: JFK_CHECKBOX_HOVER_BORDER;
+}
+
+.jfk-checkbox-active {
+  background-color: JFK_CHECKBOX_ACTIVE_BG_COLOR;
+}
+
+.jfk-checkbox-focused {
+  border: JFK_CHECKBOX_FOCUSED_BORDER;
+}
+
+/*
+ * NOTE(chrishenry): We clear the focus outline if users click on the
+ * checkbox instead of tabbing into it.
+ */
+.jfk-checkbox-clearOutline.jfk-checkbox-focused {
+  /* @alternate */ border: JFK_CHECKBOX_FALLBACK_BORDER;
+  /* @alternate */ border: JFK_CHECKBOX_BORDER;
+}
+
+.jfk-checkbox-disabled,
+.jfk-checkbox-clearOutline.jfk-checkbox-disabled {
+  background-color: JFK_CHECKBOX_DISABLED_BG_COLOR;
+  border: JFK_CHECKBOX_DISABLED_BORDER;
+  cursor: default;
+}
+
+/* Div that allows the checkmark image to be offset from the container box. */
+
+.jfk-checkbox-checkmark {
+  /* dimensions */
+  height: 15px;
+  outline: 0;
+  width: 15px;
+
+  /* position */
+  left: 0;
+  position: relative;
+  top: -3px
+}
+
+.jfk-checkbox-undetermined .jfk-checkbox-checkmark {
+  background: JFK_CHECKBOX_UNDETERMINED_BG;
+  /* @alternate */
+  background-image: -webkit-image-set(JFK_CHECKBOX_UNDETERMINED_URL 1x,
+      JFK_CHECKBOX_UNDETERMINED_2X_URL 2x);
+}
+
+.jfk-checkbox-checked .jfk-checkbox-checkmark {
+  background: JFK_CHECKBOX_CHECKED_BG;
+  /* @alternate */
+  background-image: -webkit-image-set(JFK_CHECKBOX_CHECKED_URL 1x,
+      JFK_CHECKBOX_CHECKED_2X_URL 2x);
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/gss/menuseparator.gss */
+/**
+ * Copyright 2009 Google Inc, All Rights Reserved
+ *
+ * Standard styling for menus created by goog.ui.MenuSeparatorRenderer
+ *
+ * Author: attila@google.com (Attila Bodis)
+ * Author: psolderitsch@google.com (Peter Solderitsch)
+ */
+
+@provide 'jfk.gss.menuSeparator';
+@require 'jfk.gss.base';
+
+/**
+ * Kennedy styles have been tweaked from the default Closure values. This file
+ * can be considered a drop-in replacement for
+ * javascript/closure/css/menuseparator.css
+ */
+
+@if (!DISABLE_KENNEDY) {
+
+@def JFK_MENU_SEPARATOR_BORDER_TOP        JFK_BASE_MENU_SEPARATOR;
+@def JFK_MENU_SEPARATOR_MARGIN_TOP        6px;
+@def JFK_MENU_SEPARATOR_MARGIN_BOTTOM     6px;
+
+
+.goog-menuseparator {
+  border-top: JFK_MENU_SEPARATOR_BORDER_TOP;
+  margin-top: JFK_MENU_SEPARATOR_MARGIN_TOP;
+  margin-bottom: JFK_MENU_SEPARATOR_MARGIN_BOTTOM;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+
+/* javascript/jfk/menu/select.gss */
+/**
+ * Copyright 2011 Google Inc. All Rights Reserved.
+ *
+ * @author zhyder@google.com (Zohair Hyder)
+ */
+
+@provide 'jfk.menu.select';
+@require 'jfk.gss.base';
+@require 'jfk.gss.menu';
+@require 'jfk.gss.menuItem';
+@require 'jfk.gss.menuSeparator';
+
+@if (!DISABLE_KENNEDY) {
+
+.jfk-select .goog-flat-menu-button-caption {
+  /*
+   * These styles are needed when a width/max-width is added to the
+   * select button.
+   */
+  overflow: hidden;
+  width: 100%;
+}
+
+.jfk-select .goog-flat-menu-button-dropdown {
+  background: JFK_TOOLBAR_BUTTON_DISCLOSURE_ARROW_SELECT center no-repeat;
+  border: none;
+  height: 11px;
+  margin-top: -4px;
+  width: 7px;
+}
+
+}  /* if (!DISABLE_KENNEDY) */
+

@@ -11,11 +11,30 @@
 - [Google Analytics Debugger](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?utm_source=chrome-ntp-icon)，主要是用來除错，在一些定制化的JavaScript处理上，可以用来检查 Google Analytics 数据是否成功发送。
 
 
-Chrome扩展开发
+Chrome扩展开发案例——Page Analtics（by Google）代码逆向分析
 ---------------
-- [Chrome Extension generator](https://github.com/yeoman/generator-chrome-extension)
 
-- [360极速浏览器应用开放平台](http://open.chrome.360.cn/extension_dev/overview.html)
+
+
+### 目录结构
+
+主要由manifest.json、background.js、content.js（css）、popup.js(html、css)和resources（主要存放图片资源）五部分组成。代码分析见page-analytics/1.6.0.1_0/
+
+![image](./res/dir.png) 
+
+_metadata目录是将扩展上传到Chrome web store时，由Google添加进crx中的验证文件。
+
+注释：CMF文件暂时未知用途。
+
+### 文件功能
+
+- manifest.json：Chrome Extensions配置清单文件
+
+- background：后台网页，用于验证Google+ 登录API（https://apis.google.com/js/client:plusone.js?onload=gaextOnGapiClientLoadCallback）
+
+- content_script：根据登录和popup中的 Data Panel 位置信息，在页面中创建 Data Panel 
+
+- popup：根据登录信息，显示未显示 Data Panel 原因、登录或控制 Data Panel 位置信息
 
 
 参考
@@ -23,4 +42,15 @@ Chrome扩展开发
 
 - [網站分析師瀏覽器必掛工具 – Tag Assistant (by Google)](http://blog.wis.com.tw/2013/fay/tag-assistant-by-google/) 
 
--  [Building a Chrome Extension with Yeoman](http://www.alolo.co/blog/2013/10/30/building-a-chrome-extension-with-yeoman)
+- [Building a Chrome Extension with Yeoman](http://www.alolo.co/blog/2013/10/30/building-a-chrome-extension-with-yeoman)
+
+- [Chrome Extension generator](https://github.com/yeoman/generator-chrome-extension)
+
+- [Chrome 官网扩展程序文档](https://developer.chrome.com/extensions/extension)
+
+- [Chrome 扩展程序、应用开发文档（非官方中文版）](https://code.google.com/p/crxdoczh/)
+
+- [360极速浏览器应用开放平台](http://open.chrome.360.cn/extension_dev/overview.html)
+
+- [Google+ Platform JavaScript API](https://developers.google.com/+/web/api/javascript?hl=zh-cn)
+
