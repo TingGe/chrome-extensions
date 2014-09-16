@@ -34,7 +34,7 @@ _metadata目录是将扩展上传到Chrome web store时，由Google添加进crx�
 
 - content_script：根据登录和popup中的 Data Panel 位置信息，在页面中创建 Data Panel 
 
-- popup：根据登录信息，显示未显示 Data Panel 原因、登录或控制 Data Panel 位置信息
+- popup：根据登录信息，呈现未显示 Data Panel 原因、登录或控制 Data Panel 位置信息
 
 
 参考
