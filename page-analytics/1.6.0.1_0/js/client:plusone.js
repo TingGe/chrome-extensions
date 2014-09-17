@@ -10,16 +10,67 @@
 var gapi = window.gapi = window.gapi || {};
 gapi._bs = new Date().getTime();
 (function () {
-    var aa = encodeURIComponent, k = window, ba = Object, q = document, ca = Array, da = parseInt, r = String, ea = decodeURIComponent;
+    var aa = encodeURIComponent,
+        k = window,
+        ba = Object,
+        q = document,
+        ca = Array,
+        da = parseInt,
+        r = String,
+        ea = decodeURIComponent;
 
     function fa(a, b) {
         return a.type = b
     }
 
-    var ga = "appendChild", ha = "shift", ia = "exec", ja = "width", s = "replace", ka = "concat", la = "charAt", ma = "match", t = "createElement", v = "setAttribute", na = "bind", oa = "getTime", pa = "getElementsByTagName", x = "substr", y = "toString", z = "split", A = "location", B = "style", qa = "protocol", D = "href", ra = "action", E = "apply", sa = "attributes", ta = "height", F = "push", G = "test", ua = "slice", va = "getElementById", wa = "JSON", H = "indexOf", xa = "nodeName", ya = "type", I = "length", K = "prototype", za = "removeChild", L = "call", M = "getAttribute", N = "charCodeAt", Aa = "substring",
-        Ba = "documentMode", O = "parentNode", Ca = "update", P = "join", Da = "toLowerCase", Ea = function (a, b, c) {
+    var ga = "appendChild",
+        ha = "shift",
+        ia = "exec",
+        ja = "width",
+        s = "replace",
+        ka = "concat",
+        la = "charAt",
+        ma = "match",
+        t = "createElement",
+        v = "setAttribute",
+        na = "bind",
+        oa = "getTime",
+        pa = "getElementsByTagName",
+        x = "substr",
+        y = "toString",
+        z = "split",
+        A = "location",
+        B = "style",
+        qa = "protocol",
+        D = "href",
+        ra = "action",
+        E = "apply",
+        sa = "attributes",
+        ta = "height",
+        F = "push",
+        G = "test",
+        ua = "slice",
+        va = "getElementById",
+        wa = "JSON",
+        H = "indexOf",
+        xa = "nodeName",
+        ya = "type",
+        I = "length",
+        K = "prototype",
+        za = "removeChild",
+        L = "call",
+        M = "getAttribute",
+        N = "charCodeAt",
+        Aa = "substring",
+        Ba = "documentMode",
+        O = "parentNode",
+        Ca = "update",
+        P = "join",
+        Da = "toLowerCase",
+        Ea = function (a, b, c) {
             return a[L][E](a[na], arguments)
-        }, Fa = function (a, b, c) {
+        },
+        Fa = function (a, b, c) {
             if (!a)throw Error();
             if (2 < arguments[I]) {
                 var d = ca[K][ua][L](arguments, 2);
@@ -32,10 +83,12 @@ gapi._bs = new Date().getTime();
             return function () {
                 return a[E](b, arguments)
             }
-        }, Ga = function (a, b, c) {
+        },
+        Ga = function (a, b, c) {
             Ga = Function[K][na] && -1 != Function[K][na][y]()[H]("native code") ? Ea : Fa;
             return Ga[E](null, arguments)
         };
+
     Function[K].bind = Function[K][na] || function (a, b) {
         if (1 < arguments[I]) {
             var c = ca[K][ua][L](arguments, 1);
