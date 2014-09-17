@@ -28,13 +28,23 @@ _metadata目录是将扩展上传到Chrome web store时，由Google添加进crx�
 
 ### 文件功能
 
-- manifest.json：Chrome Extensions配置清单文件
+#### manifest.json：
+Chrome Extensions配置清单文件。用于配置加载background、content_scripts、popup等。
 
-- background：后台网页，用于验证Google+ 登录API（https://apis.google.com/js/client:plusone.js?onload=gaextOnGapiClientLoadCallback）
+#### background：
+后台网页。有三个作用：
 
-- content_script：根据登录和popup中的 Data Panel 位置信息，在页面中创建 Data Panel 
+1. 用于验证Google+ 登录API，并在加载完 client:plusone.js（https://apis.google.com/js/client:plusone.js?onload=gaextOnGapiClientLoadCallback） 触发 onload 时调用回调方法 gaextOnGapiClientLoadCallback。
 
-- popup：根据登录信息，呈现未显示 Data Panel 原因、登录或控制 Data Panel 位置信息
+2. 读写storage存储。websiteSettings（Config）、ga-clientId(GAClient)
+
+3. 读写cookie。APISID、SAPISID(Background的Auth)
+
+#### content_script：
+根据登录和popup中的 Data Panel 位置信息，在页面中创建 Data Panel 
+
+#### popup：
+根据登录信息，呈现未显示 Data Panel 原因、登录或控制 Data Panel 位置信息
 
 
 参考

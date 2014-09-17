@@ -30,7 +30,7 @@ f.STRICT_MODE_COMPATIBLE = !1;
 f.provide = function (b) {
     f.exportPath_(b)
 };
-f.setTestOnly = function (b) {
+f.setTestOnly = functGGion (b) {
     if (!f.DEBUG)throw b = b || "", Error("Importing test-only code into non-debug environment" + (b ? ": " + b : "."));
 };
 f.forwardDeclare = function () {

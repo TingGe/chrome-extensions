@@ -7,16 +7,13 @@
  * @fileoverview Page Analytics（分析）Chrome扩展代码：后台网页。
  */
 
-
 'use strict';
 var b, g = g || {};
 g.global = this;
 
-
 g.isDef = function (a) {
     return void 0 !== a
 };
-
 g.exportPath_ = function (a, c, d) {
     a = a.split(".");
     d = d || g.global;
@@ -24,7 +21,6 @@ g.exportPath_ = function (a, c, d) {
     for (var e; a.length && (e = a.shift());)
         !a.length && g.isDef(c) ? d[e] = c : d = d[e] ? d[e] : d[e] = {}
 };
-
 g.define = function (a, c) {
     var d = c;
     g.exportPath_(a, d)
@@ -109,8 +105,7 @@ g.DEPENDENCIES_ENABLED && (
                 var d = a[c].src,
                     e = d.lastIndexOf("?"),
                     e = -1 == e ? d.length : e;
-                if ("base.js" == d.substr(e -
-                    7, 7)) {
+                if ("base.js" == d.substr(e - 7, 7)) {
                     g.basePath = d.substr(0, e - 7);
                     break
                 }
@@ -287,7 +282,8 @@ g.globalEval = function (a) {
         if (null == g.evalWorksForGlobals_ && (g.global.eval("var _et_ = 1;"), "undefined" != typeof g.global._et_ ? (delete g.global._et_, g.evalWorksForGlobals_ = !0) : g.evalWorksForGlobals_ = !1), g.evalWorksForGlobals_)
             g.global.eval(a);
         else {
-            var c = g.global.document, d = c.createElement("script");
+            var c = g.global.document,
+                d = c.createElement("script");
             d.type = "text/javascript";
             d.defer = !1;
             d.appendChild(c.createTextNode(a));
@@ -422,7 +418,20 @@ g.debug.Error = function (a) {
 g.inherits(g.debug.Error, Error);
 g.debug.Error.prototype.name = "CustomError";
 g.dom = {};
-g.dom.NodeType = {ELEMENT: 1, ATTRIBUTE: 2, TEXT: 3, CDATA_SECTION: 4, ENTITY_REFERENCE: 5, ENTITY: 6, PROCESSING_INSTRUCTION: 7, COMMENT: 8, DOCUMENT: 9, DOCUMENT_TYPE: 10, DOCUMENT_FRAGMENT: 11, NOTATION: 12};
+g.dom.NodeType = {
+    ELEMENT: 1,
+    ATTRIBUTE: 2,
+    TEXT: 3,
+    CDATA_SECTION: 4,
+    ENTITY_REFERENCE: 5,
+    ENTITY: 6,
+    PROCESSING_INSTRUCTION: 7,
+    COMMENT: 8,
+    DOCUMENT: 9,
+    DOCUMENT_TYPE: 10,
+    DOCUMENT_FRAGMENT: 11,
+    NOTATION: 12
+};
 g.string = {};
 g.string.DETECT_DOUBLE_ESCAPING = !1;
 g.string.Unicode = {NBSP: "\u00a0"};
@@ -522,12 +531,14 @@ g.string.newLineToBr = function (a, c) {
     return a.replace(/(\r\n|\r|\n)/g, c ? "<br />" : "<br>")
 };
 g.string.htmlEscape = function (a, c) {
-    if (c)a = a.replace(g.string.AMP_RE_, "&amp;").replace(g.string.LT_RE_, "&lt;").replace(g.string.GT_RE_, "&gt;").replace(g.string.QUOT_RE_, "&quot;").replace(g.string.SINGLE_QUOTE_RE_, "&#39;").replace(g.string.NULL_RE_, "&#0;"), g.string.DETECT_DOUBLE_ESCAPING && (a = a.replace(g.string.E_RE_, "&#101;")); else {
-        if (!g.string.ALL_RE_.test(a))return a;
+    if (c)
+        a = a.replace(g.string.AMP_RE_, "&amp;").replace(g.string.LT_RE_, "&lt;").replace(g.string.GT_RE_, "&gt;").replace(g.string.QUOT_RE_, "&quot;").replace(g.string.SINGLE_QUOTE_RE_, "&#39;").replace(g.string.NULL_RE_, "&#0;"), g.string.DETECT_DOUBLE_ESCAPING && (a = a.replace(g.string.E_RE_, "&#101;"));
+    else {
+        if (!g.string.ALL_RE_.test(a))
+            return a;
         -1 != a.indexOf("&") && (a = a.replace(g.string.AMP_RE_, "&amp;"));
         -1 != a.indexOf("<") && (a = a.replace(g.string.LT_RE_, "&lt;"));
-        -1 != a.indexOf(">") &&
-        (a = a.replace(g.string.GT_RE_, "&gt;"));
+        -1 != a.indexOf(">") && (a = a.replace(g.string.GT_RE_, "&gt;"));
         -1 != a.indexOf('"') && (a = a.replace(g.string.QUOT_RE_, "&quot;"));
         -1 != a.indexOf("'") && (a = a.replace(g.string.SINGLE_QUOTE_RE_, "&#39;"));
         -1 != a.indexOf("\x00") && (a = a.replace(g.string.NULL_RE_, "&#0;"));
@@ -627,23 +638,31 @@ g.string.quote = function (a) {
     return c.join("")
 };
 g.string.escapeString = function (a) {
-    for (var c = [], d = 0; d < a.length; d++)c[d] = g.string.escapeChar(a.charAt(d));
+    for (var c = [], d = 0; d < a.length; d++)
+        c[d] = g.string.escapeChar(a.charAt(d));
     return c.join("")
 };
 g.string.escapeChar = function (a) {
-    if (a in g.string.jsEscapeCache_)return g.string.jsEscapeCache_[a];
-    if (a in g.string.specialEscapeChars_)return g.string.jsEscapeCache_[a] = g.string.specialEscapeChars_[a];
-    var c = a, d = a.charCodeAt(0);
-    if (31 < d && 127 > d)c = a; else {
+    if (a in g.string.jsEscapeCache_)
+        return g.string.jsEscapeCache_[a];
+    if (a in g.string.specialEscapeChars_)
+        return g.string.jsEscapeCache_[a] = g.string.specialEscapeChars_[a];
+    var c = a,
+        d = a.charCodeAt(0);
+    if (31 < d && 127 > d)
+        c = a; else {
         if (256 > d) {
-            if (c = "\\x", 16 > d || 256 < d)c += "0"
-        } else c = "\\u", 4096 > d && (c += "0");
+            if (c = "\\x", 16 > d || 256 < d)
+                c += "0"
+        } else
+            c = "\\u", 4096 > d && (c += "0");
         c += d.toString(16).toUpperCase()
     }
     return g.string.jsEscapeCache_[a] = c
 };
 g.string.toMap = function (a) {
-    for (var c = {}, d = 0; d < a.length; d++)c[a.charAt(d)] = !0;
+    for (var c = {}, d = 0; d < a.length; d++)
+        c[a.charAt(d)] = !0;
     return c
 };
 g.string.contains = function (a, c) {
@@ -694,9 +713,9 @@ g.string.compareVersions = function (a, c) {
         var m = e[l] || "", n = f[l] || "", p = /(\d*)(\D*)/g, q = /(\d*)(\D*)/g;
         do {
             var r = p.exec(m) || ["", "", ""], s = q.exec(n) || ["", "", ""];
-            if (0 == r[0].length && 0 == s[0].length)break;
-            var d = 0 == r[1].length ? 0 : parseInt(r[1], 10), x = 0 == s[1].length ? 0 : parseInt(s[1], 10), d = g.string.compareElements_(d, x) || g.string.compareElements_(0 == r[2].length, 0 == s[2].length) || g.string.compareElements_(r[2],
-                s[2])
+            if (0 == r[0].length && 0 == s[0].length)
+                break;
+            var d = 0 == r[1].length ? 0 : parseInt(r[1], 10), x = 0 == s[1].length ? 0 : parseInt(s[1], 10), d = g.string.compareElements_(d, x) || g.string.compareElements_(0 == r[2].length, 0 == s[2].length) || g.string.compareElements_(r[2], s[2])
         } while (0 == d)
     }
     return d
@@ -706,7 +725,8 @@ g.string.compareElements_ = function (a, c) {
 };
 g.string.HASHCODE_MAX_ = 4294967296;
 g.string.hashCode = function (a) {
-    for (var c = 0, d = 0; d < a.length; ++d)c = 31 * c + a.charCodeAt(d), c %= g.string.HASHCODE_MAX_;
+    for (var c = 0, d = 0; d < a.length; ++d)
+        c = 31 * c + a.charCodeAt(d), c %= g.string.HASHCODE_MAX_;
     return c
 };
 g.string.uniqueStringCounter_ = 2147483648 * Math.random() | 0;
@@ -2033,7 +2053,8 @@ g.i18n.DateTimeSymbols_ka = {
     NARROWWEEKDAYS: "\u10d9\u10dd\u10e1\u10dd\u10ee\u10de\u10e8".split(""),
     STANDALONENARROWWEEKDAYS: "\u10d9\u10dd\u10e1\u10dd\u10ee\u10de\u10e8".split(""),
     SHORTQUARTERS: ["I \u10d9\u10d5.", "II \u10d9\u10d5.", "III \u10d9\u10d5.", "IV \u10d9\u10d5."],
-    QUARTERS: ["I \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8", "II \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8", "III \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8", "IV \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8"], AMPMS: ["\u10d3\u10d8\u10da\u10d8\u10e1", "\u10e1\u10d0\u10e6\u10d0\u10db\u10dd\u10e1"],
+    QUARTERS: ["I \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8", "II \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8", "III \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8", "IV \u10d9\u10d5\u10d0\u10e0\u10e2\u10d0\u10da\u10d8"],
+    AMPMS: ["\u10d3\u10d8\u10da\u10d8\u10e1", "\u10e1\u10d0\u10e6\u10d0\u10db\u10dd\u10e1"],
     DATEFORMATS: ["EEEE, dd MMMM, y", "d MMMM, y", "d MMM, y", "dd.MM.yy"],
     TIMEFORMATS: ["HH:mm:ss zzzz", "HH:mm:ss z", "HH:mm:ss", "HH:mm"],
     DATETIMEFORMATS: ["{1} {0}", "{1}, {0}", "{1} {0}", "{1}, {0}"],
@@ -2207,7 +2228,8 @@ g.i18n.DateTimeSymbols_lo = {
     MONTHS: "\u0ea1\u0eb1\u0e87\u0e81\u0ead\u0e99 \u0e81\u0eb8\u0ea1\u0e9e\u0eb2 \u0ea1\u0eb5\u0e99\u0eb2 \u0ec0\u0ea1\u0eaa\u0eb2 \u0e9e\u0eb6\u0e94\u0eaa\u0eb0\u0e9e\u0eb2 \u0ea1\u0eb4\u0e96\u0eb8\u0e99\u0eb2 \u0e81\u0ecd\u0ea5\u0eb0\u0e81\u0ebb\u0e94 \u0eaa\u0eb4\u0e87\u0eab\u0eb2 \u0e81\u0eb1\u0e99\u0e8d\u0eb2 \u0e95\u0eb8\u0ea5\u0eb2 \u0e9e\u0eb0\u0e88\u0eb4\u0e81 \u0e97\u0eb1\u0e99\u0ea7\u0eb2".split(" "),
     STANDALONEMONTHS: "\u0ea1\u0eb1\u0e87\u0e81\u0ead\u0e99 \u0e81\u0eb8\u0ea1\u0e9e\u0eb2 \u0ea1\u0eb5\u0e99\u0eb2 \u0ec0\u0ea1\u0eaa\u0eb2 \u0e9e\u0eb6\u0e94\u0eaa\u0eb0\u0e9e\u0eb2 \u0ea1\u0eb4\u0e96\u0eb8\u0e99\u0eb2 \u0e81\u0ecd\u0ea5\u0eb0\u0e81\u0ebb\u0e94 \u0eaa\u0eb4\u0e87\u0eab\u0eb2 \u0e81\u0eb1\u0e99\u0e8d\u0eb2 \u0e95\u0eb8\u0ea5\u0eb2 \u0e9e\u0eb0\u0e88\u0eb4\u0e81 \u0e97\u0eb1\u0e99\u0ea7\u0eb2".split(" "),
     SHORTMONTHS: "\u0ea1.\u0e81. \u0e81.\u0e9e. \u0ea1.\u0e99. \u0ea1.\u0eaa. \u0e9e.\u0e9e. \u0ea1\u0eb4.\u0e96. \u0e81.\u0ea5. \u0eaa.\u0eab. \u0e81.\u0e8d. \u0e95.\u0ea5. \u0e9e.\u0e88. \u0e97.\u0ea7.".split(" "),
-    STANDALONESHORTMONTHS: "\u0ea1.\u0e81. \u0e81.\u0e9e. \u0ea1.\u0e99. \u0ea1.\u0eaa. \u0e9e.\u0e9e. \u0ea1\u0eb4.\u0e96. \u0e81.\u0ea5. \u0eaa.\u0eab. \u0e81.\u0e8d. \u0e95.\u0ea5. \u0e9e.\u0e88. \u0e97.\u0ea7.".split(" "), WEEKDAYS: "\u0ea7\u0eb1\u0e99\u0ead\u0eb2\u0e97\u0eb4\u0e94 \u0ea7\u0eb1\u0e99\u0e88\u0eb1\u0e99 \u0ea7\u0eb1\u0e99\u0ead\u0eb1\u0e87\u0e84\u0eb2\u0e99 \u0ea7\u0eb1\u0e99\u0e9e\u0eb8\u0e94 \u0ea7\u0eb1\u0e99\u0e9e\u0eb0\u0eab\u0eb1\u0e94 \u0ea7\u0eb1\u0e99\u0eaa\u0eb8\u0e81 \u0ea7\u0eb1\u0e99\u0ec0\u0eaa\u0ebb\u0eb2".split(" "),
+    STANDALONESHORTMONTHS: "\u0ea1.\u0e81. \u0e81.\u0e9e. \u0ea1.\u0e99. \u0ea1.\u0eaa. \u0e9e.\u0e9e. \u0ea1\u0eb4.\u0e96. \u0e81.\u0ea5. \u0eaa.\u0eab. \u0e81.\u0e8d. \u0e95.\u0ea5. \u0e9e.\u0e88. \u0e97.\u0ea7.".split(" "),
+    WEEKDAYS: "\u0ea7\u0eb1\u0e99\u0ead\u0eb2\u0e97\u0eb4\u0e94 \u0ea7\u0eb1\u0e99\u0e88\u0eb1\u0e99 \u0ea7\u0eb1\u0e99\u0ead\u0eb1\u0e87\u0e84\u0eb2\u0e99 \u0ea7\u0eb1\u0e99\u0e9e\u0eb8\u0e94 \u0ea7\u0eb1\u0e99\u0e9e\u0eb0\u0eab\u0eb1\u0e94 \u0ea7\u0eb1\u0e99\u0eaa\u0eb8\u0e81 \u0ea7\u0eb1\u0e99\u0ec0\u0eaa\u0ebb\u0eb2".split(" "),
     STANDALONEWEEKDAYS: "\u0ea7\u0eb1\u0e99\u0ead\u0eb2\u0e97\u0eb4\u0e94 \u0ea7\u0eb1\u0e99\u0e88\u0eb1\u0e99 \u0ea7\u0eb1\u0e99\u0ead\u0eb1\u0e87\u0e84\u0eb2\u0e99 \u0ea7\u0eb1\u0e99\u0e9e\u0eb8\u0e94 \u0ea7\u0eb1\u0e99\u0e9e\u0eb0\u0eab\u0eb1\u0e94 \u0ea7\u0eb1\u0e99\u0eaa\u0eb8\u0e81 \u0ea7\u0eb1\u0e99\u0ec0\u0eaa\u0ebb\u0eb2".split(" "),
     SHORTWEEKDAYS: "\u0ea7\u0eb1\u0e99\u0ead\u0eb2\u0e97\u0eb4\u0e94 \u0ea7\u0eb1\u0e99\u0e88\u0eb1\u0e99 \u0ea7\u0eb1\u0e99\u0ead\u0eb1\u0e87\u0e84\u0eb2\u0e99 \u0ea7\u0eb1\u0e99\u0e9e\u0eb8\u0e94 \u0ea7\u0eb1\u0e99\u0e9e\u0eb0\u0eab\u0eb1\u0e94 \u0ea7\u0eb1\u0e99\u0eaa\u0eb8\u0e81 \u0ea7\u0eb1\u0e99\u0ec0\u0eaa\u0ebb\u0eb2".split(" "),
     STANDALONESHORTWEEKDAYS: "\u0ea7\u0eb1\u0e99\u0ead\u0eb2\u0e97\u0eb4\u0e94 \u0ea7\u0eb1\u0e99\u0e88\u0eb1\u0e99 \u0ea7\u0eb1\u0e99\u0ead\u0eb1\u0e87\u0e84\u0eb2\u0e99 \u0ea7\u0eb1\u0e99\u0e9e\u0eb8\u0e94 \u0ea7\u0eb1\u0e99\u0e9e\u0eb0\u0eab\u0eb1\u0e94 \u0ea7\u0eb1\u0e99\u0eaa\u0eb8\u0e81 \u0ea7\u0eb1\u0e99\u0ec0\u0eaa\u0ebb\u0eb2".split(" "),
@@ -3293,7 +3315,9 @@ g.date.isLeapYear = function (a) {
     return 0 == a % 4 && (0 != a % 100 || 0 == a % 400)
 };
 g.date.isLongIsoYear = function (a) {
-    var c = 5 * a + 12 - 4 * (Math.floor(a / 100) - Math.floor(a / 400)), c = c + (Math.floor((a - 100) / 400) - Math.floor((a - 102) / 400)), c = c + (Math.floor((a - 200) / 400) - Math.floor((a - 199) / 400));
+    var c = 5 * a + 12 - 4 * (Math.floor(a / 100) - Math.floor(a / 400)),
+        c = c + (Math.floor((a - 100) / 400) - Math.floor((a - 102) / 400)),
+        c = c + (Math.floor((a - 200) / 400) - Math.floor((a - 199) / 400));
     return 5 > c % 28
 };
 g.date.getNumberOfDaysInMonth = function (a, c) {
@@ -3380,17 +3404,28 @@ g.date.Interval = function (a, c, d, e, f, h) {
 };
 g.date.Interval.fromIsoString = function (a) {
     a = a.match(g.date.splitDurationRegex_);
-    if (!a)return null;
-    var c = !(a[6] || a[7] || a[8]), d = c && !(a[2] || a[3] || a[4]);
-    if (d || c && a[5])return null;
-    var c = a[1], d = parseInt(a[2], 10) || 0, e = parseInt(a[3], 10) || 0, f = parseInt(a[4], 10) || 0, h = parseInt(a[6], 10) || 0, l = parseInt(a[7], 10) || 0;
+    if (!a)
+        return null;
+    var c = !(a[6] || a[7] || a[8]),
+        d = c && !(a[2] || a[3] || a[4]);
+    if (d || c && a[5])
+        return null;
+    var c = a[1],
+        d = parseInt(a[2], 10) || 0,
+        e = parseInt(a[3], 10) || 0,
+        f = parseInt(a[4], 10) || 0,
+        h = parseInt(a[6], 10) || 0,
+        l = parseInt(a[7], 10) || 0;
     a = parseFloat(a[8]) || 0;
     return c ? new g.date.Interval(-d, -e, -f, -h, -l, -a) : new g.date.Interval(d, e, f, h, l, a)
 };
 g.date.Interval.prototype.toIsoString = function (a) {
-    var c = Math.min(this.years, this.months, this.days, this.hours, this.minutes, this.seconds), d = Math.max(this.years, this.months, this.days, this.hours, this.minutes, this.seconds);
-    if (0 > c && 0 < d)return null;
-    if (!a && 0 == c && 0 == d)return"PT0S";
+    var c = Math.min(this.years, this.months, this.days, this.hours, this.minutes, this.seconds),
+        d = Math.max(this.years, this.months, this.days, this.hours, this.minutes, this.seconds);
+    if (0 > c && 0 < d)
+        return null;
+    if (!a && 0 == c && 0 == d)
+        return"PT0S";
     d = [];
     0 > c && d.push("-");
     d.push("P");
@@ -3961,7 +3996,8 @@ g.array.zip = function (a) {
     for (var c = [], d = 0; ; d++) {
         for (var e = [], f = 0; f < arguments.length; f++) {
             var h = arguments[f];
-            if (d >= h.length)return c;
+            if (d >= h.length)
+                return c;
             e.push(h[d])
         }
         c.push(e)
@@ -3969,7 +4005,8 @@ g.array.zip = function (a) {
 };
 g.array.shuffle = function (a, c) {
     for (var d = c || Math.random, e = a.length - 1; 0 < e; e--) {
-        var f = Math.floor(d() * (e + 1)), h = a[e];
+        var f = Math.floor(d() * (e + 1)),
+            h = a[e];
         a[e] = a[f];
         a[f] = h
     }
@@ -4118,10 +4155,15 @@ g.math.longestCommonSubsequence = function (a, c, d, e) {
     e = e || function (c) {
         return a[c]
     };
-    for (var f = a.length, h = c.length, l = [], m = 0; m < f + 1; m++)l[m] = [], l[m][0] = 0;
-    for (var n = 0; n < h + 1; n++)l[0][n] = 0;
-    for (m = 1; m <= f; m++)for (n = 1; n <= h; n++)d(a[m - 1], c[n - 1]) ? l[m][n] = l[m - 1][n - 1] + 1 : l[m][n] = Math.max(l[m - 1][n], l[m][n - 1]);
-    for (var p = [], m = f, n = h; 0 < m && 0 < n;)d(a[m - 1], c[n - 1]) ? (p.unshift(e(m - 1, n - 1)), m--, n--) : l[m - 1][n] > l[m][n - 1] ? m-- : n--;
+    for (var f = a.length, h = c.length, l = [], m = 0; m < f + 1; m++)
+        l[m] = [], l[m][0] = 0;
+    for (var n = 0; n < h + 1; n++)
+        l[0][n] = 0;
+    for (m = 1; m <= f; m++)
+        for (n = 1; n <= h; n++)
+            d(a[m - 1], c[n - 1]) ? l[m][n] = l[m - 1][n - 1] + 1 : l[m][n] = Math.max(l[m - 1][n], l[m][n - 1]);
+    for (var p = [], m = f, n = h; 0 < m && 0 < n;)
+        d(a[m - 1], c[n - 1]) ? (p.unshift(e(m - 1, n - 1)), m--, n--) : l[m - 1][n] > l[m][n - 1] ? m-- : n--;
     return p
 };
 g.math.sum = function (a) {
@@ -4175,14 +4217,19 @@ g.iter.Iterator.prototype.__iterator__ = function () {
     return this
 };
 g.iter.toIterator = function (a) {
-    if (a instanceof g.iter.Iterator)return a;
-    if ("function" == typeof a.__iterator__)return a.__iterator__(!1);
+    if (a instanceof g.iter.Iterator)
+        return a;
+    if ("function" == typeof a.__iterator__)
+        return a.__iterator__(!1);
     if (g.isArrayLike(a)) {
-        var c = 0, d = new g.iter.Iterator;
+        var c = 0,
+            d = new g.iter.Iterator;
         d.next = function () {
             for (; ;) {
-                if (c >= a.length)throw g.iter.StopIteration;
-                if (c in a)return a[c++];
+                if (c >= a.length)
+                    throw g.iter.StopIteration;
+                if (c in a)
+                    return a[c++];
                 c++
             }
         };
@@ -4194,13 +4241,16 @@ g.iter.forEach = function (a, c, d) {
     if (g.isArrayLike(a))try {
         g.array.forEach(a, c, d)
     } catch (e) {
-        if (e !== g.iter.StopIteration)throw e;
+        if (e !== g.iter.StopIteration)
+            throw e;
     } else {
         a = g.iter.toIterator(a);
         try {
-            for (; ;)c.call(d, a.next(), void 0, a)
+            for (; ;)
+                c.call(d, a.next(), void 0, a)
         } catch (f) {
-            if (f !== g.iter.StopIteration)throw f;
+            if (f !== g.iter.StopIteration)
+                throw f;
         }
     }
 };
@@ -5409,6 +5459,7 @@ if (u && g.userAgent.IE) {
     t = v || ("CSS1Compat" == u.compatMode ? parseInt(g.userAgent.VERSION, 10) : 5)
 } else t = void 0;
 g.userAgent.DOCUMENT_MODE = t;
+
 g.uri = {};
 g.uri.utils = {};
 g.uri.utils.CharCode_ = {AMPERSAND: 38, EQUAL: 61, HASH: 35, QUESTION: 63};
@@ -5964,6 +6015,8 @@ b.extend = function (a) {
         }, this)
     }
 };
+
+
 k.UrlRewriteResolver = function (a, c) {
     this.view_ = a;
     this.filters_ = c || [];
@@ -6110,7 +6163,8 @@ k.Auth.prototype.loadGapi_ = function () {
     gapi.client.load("analytics", "v3", function () {
         k.Auth.setUpGapi_();
         a.gapiLoaded_ = !0;
-        if (a.authenticated_)a.onConnect_()
+        if (a.authenticated_)
+            a.onConnect_()
     })
 };
 k.Auth.setUpGapi_ = function () {
@@ -6974,11 +7028,23 @@ g.debug.Logger.Level.FINE = new g.debug.Logger.Level("FINE", 500);
 g.debug.Logger.Level.FINER = new g.debug.Logger.Level("FINER", 400);
 g.debug.Logger.Level.FINEST = new g.debug.Logger.Level("FINEST", 300);
 g.debug.Logger.Level.ALL = new g.debug.Logger.Level("ALL", 0);
-g.debug.Logger.Level.PREDEFINED_LEVELS = [g.debug.Logger.Level.OFF, g.debug.Logger.Level.SHOUT, g.debug.Logger.Level.SEVERE, g.debug.Logger.Level.WARNING, g.debug.Logger.Level.INFO, g.debug.Logger.Level.CONFIG, g.debug.Logger.Level.FINE, g.debug.Logger.Level.FINER, g.debug.Logger.Level.FINEST, g.debug.Logger.Level.ALL];
+g.debug.Logger.Level.PREDEFINED_LEVELS = [
+    g.debug.Logger.Level.OFF,
+    g.debug.Logger.Level.SHOUT,
+    g.debug.Logger.Level.SEVERE,
+    g.debug.Logger.Level.WARNING,
+    g.debug.Logger.Level.INFO,
+    g.debug.Logger.Level.CONFIG,
+    g.debug.Logger.Level.FINE,
+    g.debug.Logger.Level.FINER,
+    g.debug.Logger.Level.FINEST,
+    g.debug.Logger.Level.ALL
+];
 g.debug.Logger.Level.predefinedLevelsCache_ = null;
 g.debug.Logger.Level.createPredefinedLevelsCache_ = function () {
     g.debug.Logger.Level.predefinedLevelsCache_ = {};
-    for (var a = 0, c; c = g.debug.Logger.Level.PREDEFINED_LEVELS[a]; a++)g.debug.Logger.Level.predefinedLevelsCache_[c.value] = c, g.debug.Logger.Level.predefinedLevelsCache_[c.name] = c
+    for (var a = 0, c; c = g.debug.Logger.Level.PREDEFINED_LEVELS[a]; a++)
+        g.debug.Logger.Level.predefinedLevelsCache_[c.value] = c, g.debug.Logger.Level.predefinedLevelsCache_[c.name] = c
 };
 g.debug.Logger.Level.getPredefinedLevel = function (a) {
     g.debug.Logger.Level.predefinedLevelsCache_ || g.debug.Logger.Level.createPredefinedLevelsCache_();
@@ -6986,7 +7052,8 @@ g.debug.Logger.Level.getPredefinedLevel = function (a) {
 };
 g.debug.Logger.Level.getPredefinedLevelByValue = function (a) {
     g.debug.Logger.Level.predefinedLevelsCache_ || g.debug.Logger.Level.createPredefinedLevelsCache_();
-    if (a in g.debug.Logger.Level.predefinedLevelsCache_)return g.debug.Logger.Level.predefinedLevelsCache_[a];
+    if (a in g.debug.Logger.Level.predefinedLevelsCache_)
+        return g.debug.Logger.Level.predefinedLevelsCache_[a];
     for (var c = 0; c < g.debug.Logger.Level.PREDEFINED_LEVELS.length; ++c) {
         var d = g.debug.Logger.Level.PREDEFINED_LEVELS[c];
         if (d.value <= a)return d
@@ -7277,18 +7344,135 @@ g.reflect.canAccessProperty = function (a, c) {
     }
     return!1
 };
-g.events.BrowserFeature = {HAS_W3C_BUTTON: !g.userAgent.IE || g.userAgent.isDocumentModeOrHigher(9), HAS_W3C_EVENT_SUPPORT: !g.userAgent.IE || g.userAgent.isDocumentModeOrHigher(9), SET_KEY_CODE_TO_PREVENT_DEFAULT: g.userAgent.IE && !g.userAgent.isVersionOrHigher("9"), HAS_NAVIGATOR_ONLINE_PROPERTY: !g.userAgent.WEBKIT || g.userAgent.isVersionOrHigher("528"), HAS_HTML5_NETWORK_EVENT_SUPPORT: g.userAgent.GECKO && g.userAgent.isVersionOrHigher("1.9b") || g.userAgent.IE && g.userAgent.isVersionOrHigher("8") || g.userAgent.OPERA &&
-    g.userAgent.isVersionOrHigher("9.5") || g.userAgent.WEBKIT && g.userAgent.isVersionOrHigher("528"), HTML5_NETWORK_EVENTS_FIRE_ON_BODY: g.userAgent.GECKO && !g.userAgent.isVersionOrHigher("8") || g.userAgent.IE && !g.userAgent.isVersionOrHigher("9"), TOUCH_ENABLED: "ontouchstart"in g.global || !!(g.global.document && document.documentElement && "ontouchstart"in document.documentElement) || !(!g.global.navigator || !g.global.navigator.msMaxTouchPoints)};
+g.events.BrowserFeature = {
+    HAS_W3C_BUTTON: !g.userAgent.IE || g.userAgent.isDocumentModeOrHigher(9),
+    HAS_W3C_EVENT_SUPPORT: !g.userAgent.IE || g.userAgent.isDocumentModeOrHigher(9),
+    SET_KEY_CODE_TO_PREVENT_DEFAULT: g.userAgent.IE && !g.userAgent.isVersionOrHigher("9"),
+    HAS_NAVIGATOR_ONLINE_PROPERTY: !g.userAgent.WEBKIT || g.userAgent.isVersionOrHigher("528"),
+    HAS_HTML5_NETWORK_EVENT_SUPPORT: g.userAgent.GECKO && g.userAgent.isVersionOrHigher("1.9b") || g.userAgent.IE && g.userAgent.isVersionOrHigher("8") || g.userAgent.OPERA && g.userAgent.isVersionOrHigher("9.5") || g.userAgent.WEBKIT && g.userAgent.isVersionOrHigher("528"),
+    HTML5_NETWORK_EVENTS_FIRE_ON_BODY: g.userAgent.GECKO && !g.userAgent.isVersionOrHigher("8") || g.userAgent.IE && !g.userAgent.isVersionOrHigher("9"),
+    TOUCH_ENABLED: "ontouchstart"in g.global || !!(g.global.document && document.documentElement && "ontouchstart"in document.documentElement) || !(!g.global.navigator || !g.global.navigator.msMaxTouchPoints)
+};
 g.events.getVendorPrefixedName_ = function (a) {
     return g.userAgent.WEBKIT ? "webkit" + a : g.userAgent.OPERA ? "o" + a.toLowerCase() : a.toLowerCase()
 };
-g.events.EventType = {CLICK: "click", RIGHTCLICK: "rightclick", DBLCLICK: "dblclick", MOUSEDOWN: "mousedown", MOUSEUP: "mouseup", MOUSEOVER: "mouseover", MOUSEOUT: "mouseout", MOUSEMOVE: "mousemove", MOUSEENTER: "mouseenter", MOUSELEAVE: "mouseleave", SELECTSTART: "selectstart", KEYPRESS: "keypress", KEYDOWN: "keydown", KEYUP: "keyup", BLUR: "blur", FOCUS: "focus", DEACTIVATE: "deactivate", FOCUSIN: g.userAgent.IE ? "focusin" : "DOMFocusIn", FOCUSOUT: g.userAgent.IE ? "focusout" : "DOMFocusOut", CHANGE: "change", SELECT: "select", SUBMIT: "submit",
-    INPUT: "input", PROPERTYCHANGE: "propertychange", DRAGSTART: "dragstart", DRAG: "drag", DRAGENTER: "dragenter", DRAGOVER: "dragover", DRAGLEAVE: "dragleave", DROP: "drop", DRAGEND: "dragend", TOUCHSTART: "touchstart", TOUCHMOVE: "touchmove", TOUCHEND: "touchend", TOUCHCANCEL: "touchcancel", BEFOREUNLOAD: "beforeunload", CONSOLEMESSAGE: "consolemessage", CONTEXTMENU: "contextmenu", DOMCONTENTLOADED: "DOMContentLoaded", ERROR: "error", HELP: "help", LOAD: "load", LOSECAPTURE: "losecapture", ORIENTATIONCHANGE: "orientationchange", READYSTATECHANGE: "readystatechange",
-    RESIZE: "resize", SCROLL: "scroll", UNLOAD: "unload", HASHCHANGE: "hashchange", PAGEHIDE: "pagehide", PAGESHOW: "pageshow", POPSTATE: "popstate", COPY: "copy", PASTE: "paste", CUT: "cut", BEFORECOPY: "beforecopy", BEFORECUT: "beforecut", BEFOREPASTE: "beforepaste", ONLINE: "online", OFFLINE: "offline", MESSAGE: "message", CONNECT: "connect", ANIMATIONSTART: g.events.getVendorPrefixedName_("AnimationStart"), ANIMATIONEND: g.events.getVendorPrefixedName_("AnimationEnd"), ANIMATIONITERATION: g.events.getVendorPrefixedName_("AnimationIteration"),
-    TRANSITIONEND: g.events.getVendorPrefixedName_("TransitionEnd"), POINTERDOWN: "pointerdown", POINTERUP: "pointerup", POINTERCANCEL: "pointercancel", POINTERMOVE: "pointermove", POINTEROVER: "pointerover", POINTEROUT: "pointerout", POINTERENTER: "pointerenter", POINTERLEAVE: "pointerleave", GOTPOINTERCAPTURE: "gotpointercapture", LOSTPOINTERCAPTURE: "lostpointercapture", MSGESTURECHANGE: "MSGestureChange", MSGESTUREEND: "MSGestureEnd", MSGESTUREHOLD: "MSGestureHold", MSGESTURESTART: "MSGestureStart", MSGESTURETAP: "MSGestureTap",
-    MSGOTPOINTERCAPTURE: "MSGotPointerCapture", MSINERTIASTART: "MSInertiaStart", MSLOSTPOINTERCAPTURE: "MSLostPointerCapture", MSPOINTERCANCEL: "MSPointerCancel", MSPOINTERDOWN: "MSPointerDown", MSPOINTERENTER: "MSPointerEnter", MSPOINTERHOVER: "MSPointerHover", MSPOINTERLEAVE: "MSPointerLeave", MSPOINTERMOVE: "MSPointerMove", MSPOINTEROUT: "MSPointerOut", MSPOINTEROVER: "MSPointerOver", MSPOINTERUP: "MSPointerUp", TEXTINPUT: "textinput", COMPOSITIONSTART: "compositionstart", COMPOSITIONUPDATE: "compositionupdate", COMPOSITIONEND: "compositionend",
-    EXIT: "exit", LOADABORT: "loadabort", LOADCOMMIT: "loadcommit", LOADREDIRECT: "loadredirect", LOADSTART: "loadstart", LOADSTOP: "loadstop", RESPONSIVE: "responsive", SIZECHANGED: "sizechanged", UNRESPONSIVE: "unresponsive", VISIBILITYCHANGE: "visibilitychange", STORAGE: "storage", DOMSUBTREEMODIFIED: "DOMSubtreeModified", DOMNODEINSERTED: "DOMNodeInserted", DOMNODEREMOVED: "DOMNodeRemoved", DOMNODEREMOVEDFROMDOCUMENT: "DOMNodeRemovedFromDocument", DOMNODEINSERTEDINTODOCUMENT: "DOMNodeInsertedIntoDocument", DOMATTRMODIFIED: "DOMAttrModified",
-    DOMCHARACTERDATAMODIFIED: "DOMCharacterDataModified"};
+g.events.EventType = {
+    CLICK: "click",
+    RIGHTCLICK: "rightclick",
+    DBLCLICK: "dblclick",
+    MOUSEDOWN: "mousedown",
+    MOUSEUP: "mouseup",
+    MOUSEOVER: "mouseover",
+    MOUSEOUT: "mouseout",
+    MOUSEMOVE: "mousemove",
+    MOUSEENTER: "mouseenter",
+    MOUSELEAVE: "mouseleave",
+    SELECTSTART: "selectstart",
+    KEYPRESS: "keypress",
+    KEYDOWN: "keydown",
+    KEYUP: "keyup",
+    BLUR: "blur",
+    FOCUS: "focus",
+    DEACTIVATE: "deactivate",
+    FOCUSIN: g.userAgent.IE ? "focusin" : "DOMFocusIn",
+    FOCUSOUT: g.userAgent.IE ? "focusout" : "DOMFocusOut",
+    CHANGE: "change",
+    SELECT: "select",
+    SUBMIT: "submit",
+    INPUT: "input",
+    PROPERTYCHANGE: "propertychange",
+    DRAGSTART: "dragstart",
+    DRAG: "drag",
+    DRAGENTER: "dragenter",
+    DRAGOVER: "dragover",
+    DRAGLEAVE: "dragleave",
+    DROP: "drop",
+    DRAGEND: "dragend",
+    TOUCHSTART: "touchstart",
+    TOUCHMOVE: "touchmove",
+    TOUCHEND: "touchend",
+    TOUCHCANCEL: "touchcancel",
+    BEFOREUNLOAD: "beforeunload",
+    CONSOLEMESSAGE: "consolemessage",
+    CONTEXTMENU: "contextmenu",
+    DOMCONTENTLOADED: "DOMContentLoaded",
+    ERROR: "error",
+    HELP: "help",
+    LOAD: "load",
+    LOSECAPTURE: "losecapture",
+    ORIENTATIONCHANGE: "orientationchange",
+    READYSTATECHANGE: "readystatechange",
+    RESIZE: "resize",
+    SCROLL: "scroll",
+    UNLOAD: "unload",
+    HASHCHANGE: "hashchange",
+    PAGEHIDE: "pagehide",
+    PAGESHOW: "pageshow",
+    POPSTATE: "popstate",
+    COPY: "copy",
+    PASTE: "paste",
+    CUT: "cut",
+    BEFORECOPY: "beforecopy",
+    BEFORECUT: "beforecut",
+    BEFOREPASTE: "beforepaste",
+    ONLINE: "online",
+    OFFLINE: "offline",
+    MESSAGE: "message",
+    CONNECT: "connect",
+    ANIMATIONSTART: g.events.getVendorPrefixedName_("AnimationStart"),
+    ANIMATIONEND: g.events.getVendorPrefixedName_("AnimationEnd"),
+    ANIMATIONITERATION: g.events.getVendorPrefixedName_("AnimationIteration"),
+    TRANSITIONEND: g.events.getVendorPrefixedName_("TransitionEnd"),
+    POINTERDOWN: "pointerdown",
+    POINTERUP: "pointerup",
+    POINTERCANCEL: "pointercancel",
+    POINTERMOVE: "pointermove",
+    POINTEROVER: "pointerover",
+    POINTEROUT: "pointerout",
+    POINTERENTER: "pointerenter",
+    POINTERLEAVE: "pointerleave",
+    GOTPOINTERCAPTURE: "gotpointercapture",
+    LOSTPOINTERCAPTURE: "lostpointercapture",
+    MSGESTURECHANGE: "MSGestureChange",
+    MSGESTUREEND: "MSGestureEnd",
+    MSGESTUREHOLD: "MSGestureHold",
+    MSGESTURESTART: "MSGestureStart",
+    MSGESTURETAP: "MSGestureTap",
+    MSGOTPOINTERCAPTURE: "MSGotPointerCapture",
+    MSINERTIASTART: "MSInertiaStart",
+    MSLOSTPOINTERCAPTURE: "MSLostPointerCapture",
+    MSPOINTERCANCEL: "MSPointerCancel",
+    MSPOINTERDOWN: "MSPointerDown",
+    MSPOINTERENTER: "MSPointerEnter",
+    MSPOINTERHOVER: "MSPointerHover",
+    MSPOINTERLEAVE: "MSPointerLeave",
+    MSPOINTERMOVE: "MSPointerMove",
+    MSPOINTEROUT: "MSPointerOut",
+    MSPOINTEROVER: "MSPointerOver",
+    MSPOINTERUP: "MSPointerUp",
+    TEXTINPUT: "textinput",
+    COMPOSITIONSTART: "compositionstart",
+    COMPOSITIONUPDATE: "compositionupdate",
+    COMPOSITIONEND: "compositionend",
+    EXIT: "exit",
+    LOADABORT: "loadabort",
+    LOADCOMMIT: "loadcommit",
+    LOADREDIRECT: "loadredirect",
+    LOADSTART: "loadstart",
+    LOADSTOP: "loadstop",
+    RESPONSIVE: "responsive",
+    SIZECHANGED: "sizechanged",
+    UNRESPONSIVE: "unresponsive",
+    VISIBILITYCHANGE: "visibilitychange",
+    STORAGE: "storage",
+    DOMSUBTREEMODIFIED: "DOMSubtreeModified",
+    DOMNODEINSERTED: "DOMNodeInserted",
+    DOMNODEREMOVED: "DOMNodeRemoved",
+    DOMNODEREMOVEDFROMDOCUMENT: "DOMNodeRemovedFromDocument",
+    DOMNODEINSERTEDINTODOCUMENT: "DOMNodeInsertedIntoDocument",
+    DOMATTRMODIFIED: "DOMAttrModified",
+    DOMCHARACTERDATAMODIFIED: "DOMCharacterDataModified"
+};
 g.events.BrowserEvent = function (a, c) {
     g.events.Event.call(this, a ? a.type : "");
     this.relatedTarget = this.currentTarget = this.target = null;
@@ -7298,7 +7482,11 @@ g.events.BrowserEvent = function (a, c) {
     a && this.init(a, c)
 };
 g.inherits(g.events.BrowserEvent, g.events.Event);
-g.events.BrowserEvent.MouseButton = {LEFT: 0, MIDDLE: 1, RIGHT: 2};
+g.events.BrowserEvent.MouseButton = {
+    LEFT: 0,
+    MIDDLE: 1,
+    RIGHT: 2
+};
 g.events.BrowserEvent.IEButtonMap = [1, 4, 2];
 g.events.BrowserEvent.prototype.init = function (a, c) {
     var d = this.type = a.type;
@@ -7388,7 +7576,8 @@ b.add = function (a, c, d, e, f) {
 };
 b.remove = function (a, c, d, e) {
     a = a.toString();
-    if (!(a in this.listeners))return!1;
+    if (!(a in this.listeners))
+        return!1;
     var f = this.listeners[a];
     c = g.events.ListenerMap.findListenerIndex_(f, c, d, e);
     return-1 < c ? (d = f[c], d.markAsRemoved(), g.array.removeAt(f, c), 0 == f.length && (delete this.listeners[a], this.typeCount_--), !0) : !1
@@ -7404,7 +7593,8 @@ b.removeAll = function (a) {
     a = a && a.toString();
     var c = 0, d;
     for (d in this.listeners)if (!a || d == a) {
-        for (var e = this.listeners[d], f = 0; f < e.length; f++)++c, e[f].markAsRemoved();
+        for (var e = this.listeners[d], f = 0; f < e.length; f++)
+            ++c, e[f].markAsRemoved();
         delete this.listeners[d];
         this.typeCount_--
     }
@@ -7427,43 +7617,54 @@ b.getListener = function (a, c, d, e) {
 b.hasListener = function (a, c) {
     var d = g.isDef(a), e = d ? a.toString() : "", f = g.isDef(c);
     return g.object.some(this.listeners, function (a) {
-        for (var l = 0; l < a.length; ++l)if (!(d && a[l].type != e || f && a[l].capture != c))return!0;
+        for (var l = 0; l < a.length; ++l)
+            if (!(d && a[l].type != e || f && a[l].capture != c))
+                return!0;
         return!1
     })
 };
 g.events.ListenerMap.findListenerIndex_ = function (a, c, d, e) {
     for (var f = 0; f < a.length; ++f) {
         var h = a[f];
-        if (!h.removed && h.listener == c && h.capture == !!d && h.handler == e)return f
+        if (!h.removed && h.listener == c && h.capture == !!d && h.handler == e)
+            return f
     }
     return-1
 };
 g.events.LISTENER_MAP_PROP_ = "closure_lm_" + (1E6 * Math.random() | 0);
 g.events.onString_ = "on";
 g.events.onStringMap_ = {};
-g.events.CaptureSimulationMode = {OFF_AND_FAIL: 0, OFF_AND_SILENT: 1, ON: 2};
+g.events.CaptureSimulationMode = {
+    OFF_AND_FAIL: 0,
+    OFF_AND_SILENT: 1,
+    ON: 2
+};
 g.events.CAPTURE_SIMULATION_MODE = 2;
 g.events.listenerCountEstimate_ = 0;
 g.events.listen = function (a, c, d, e, f) {
     if (g.isArray(c)) {
-        for (var h = 0; h < c.length; h++)g.events.listen(a, c[h], d, e, f);
+        for (var h = 0; h < c.length; h++)
+            g.events.listen(a, c[h], d, e, f);
         return null
     }
     d = g.events.wrapListener(d);
     return g.events.Listenable.isImplementedBy(a) ? a.listen(c, d, e, f) : g.events.listen_(a, c, d, !1, e, f)
 };
 g.events.listen_ = function (a, c, d, e, f, h) {
-    if (!c)throw Error("Invalid event type");
+    if (!c)
+        throw Error("Invalid event type");
     var l = !!f;
     if (l && !g.events.BrowserFeature.HAS_W3C_EVENT_SUPPORT) {
-        if (g.events.CAPTURE_SIMULATION_MODE == g.events.CaptureSimulationMode.OFF_AND_FAIL)return g.asserts.fail("Can not register capture listener in IE8-."), null;
-        if (g.events.CAPTURE_SIMULATION_MODE == g.events.CaptureSimulationMode.OFF_AND_SILENT)return null
+        if (g.events.CAPTURE_SIMULATION_MODE == g.events.CaptureSimulationMode.OFF_AND_FAIL)
+            return g.asserts.fail("Can not register capture listener in IE8-."), null;
+        if (g.events.CAPTURE_SIMULATION_MODE == g.events.CaptureSimulationMode.OFF_AND_SILENT)
+            return null
     }
     var m = g.events.getListenerMap_(a);
     m || (a[g.events.LISTENER_MAP_PROP_] = m = new g.events.ListenerMap(a));
-    d = m.add(c,
-        d, e, f, h);
-    if (d.proxy)return d;
+    d = m.add(c, d, e, f, h);
+    if (d.proxy)
+        return d;
     e = g.events.getProxy();
     d.proxy = e;
     e.src = a;
@@ -7473,17 +7674,19 @@ g.events.listen_ = function (a, c, d, e, f, h) {
     return d
 };
 g.events.getProxy = function () {
-    var a = g.events.handleBrowserEvent_, c = g.events.BrowserFeature.HAS_W3C_EVENT_SUPPORT ? function (d) {
-        return a.call(c.src, c.listener, d)
-    } : function (d) {
-        d = a.call(c.src, c.listener, d);
-        if (!d)return d
-    };
+    var a = g.events.handleBrowserEvent_,
+        c = g.events.BrowserFeature.HAS_W3C_EVENT_SUPPORT ? function (d) {
+            return a.call(c.src, c.listener, d)
+        } : function (d) {
+            d = a.call(c.src, c.listener, d);
+            if (!d)return d
+        };
     return c
 };
 g.events.listenOnce = function (a, c, d, e, f) {
     if (g.isArray(c)) {
-        for (var h = 0; h < c.length; h++)g.events.listenOnce(a, c[h], d, e, f);
+        for (var h = 0; h < c.length; h++)
+            g.events.listenOnce(a, c[h], d, e, f);
         return null
     }
     d = g.events.wrapListener(d);
@@ -7494,21 +7697,29 @@ g.events.listenWithWrapper = function (a, c, d, e, f) {
 };
 g.events.unlisten = function (a, c, d, e, f) {
     if (g.isArray(c)) {
-        for (var h = 0; h < c.length; h++)g.events.unlisten(a, c[h], d, e, f);
+        for (var h = 0; h < c.length; h++)
+            g.events.unlisten(a, c[h], d, e, f);
         return null
     }
     d = g.events.wrapListener(d);
-    if (g.events.Listenable.isImplementedBy(a))return a.unlisten(c, d, e, f);
-    if (!a)return!1;
+    if (g.events.Listenable.isImplementedBy(a))
+        return a.unlisten(c, d, e, f);
+    if (!a)
+        return!1;
     e = !!e;
-    if (a = g.events.getListenerMap_(a))if (c = a.getListener(c, d, e, f))return g.events.unlistenByKey(c);
+    if (a = g.events.getListenerMap_(a))
+        if (c = a.getListener(c, d, e, f))
+            return g.events.unlistenByKey(c);
     return!1
 };
 g.events.unlistenByKey = function (a) {
-    if (g.isNumber(a) || !a || a.removed)return!1;
+    if (g.isNumber(a) || !a || a.removed)
+        return!1;
     var c = a.src;
-    if (g.events.Listenable.isImplementedBy(c))return c.unlistenByKey(a);
-    var d = a.type, e = a.proxy;
+    if (g.events.Listenable.isImplementedBy(c))
+        return c.unlistenByKey(a);
+    var d = a.type,
+        e = a.proxy;
     c.removeEventListener ? c.removeEventListener(d, e, a.capture) : c.detachEvent && c.detachEvent(g.events.getOnString_(d), e);
     g.events.listenerCountEstimate_--;
     (d = g.events.getListenerMap_(c)) ? (d.removeByKey(a), 0 == d.getTypeCount() && (d.src = null, c[g.events.LISTENER_MAP_PROP_] = null)) : a.markAsRemoved();
@@ -7518,12 +7729,17 @@ g.events.unlistenWithWrapper = function (a, c, d, e, f) {
     c.unlisten(a, d, e, f)
 };
 g.events.removeAll = function (a, c) {
-    if (!a)return 0;
-    if (g.events.Listenable.isImplementedBy(a))return a.removeAllListeners(c);
+    if (!a)
+        return 0;
+    if (g.events.Listenable.isImplementedBy(a))
+        return a.removeAllListeners(c);
     var d = g.events.getListenerMap_(a);
     if (!d)return 0;
     var e = 0, f = c && c.toString(), h;
-    for (h in d.listeners)if (!f || h == f)for (var l = d.listeners[h].concat(), m = 0; m < l.length; ++m)g.events.unlistenByKey(l[m]) && ++e;
+    for (h in d.listeners)
+        if (!f || h == f)
+            for (var l = d.listeners[h].concat(), m = 0; m < l.length; ++m)
+                g.events.unlistenByKey(l[m]) && ++e;
     return e
 };
 g.events.removeAllNativeListeners = function () {
@@ -7538,13 +7754,15 @@ g.events.getListener = function (a, c, d, e, f) {
     return g.events.Listenable.isImplementedBy(a) ? a.getListener(c, d, e, f) : a ? (a = g.events.getListenerMap_(a)) ? a.getListener(c, d, e, f) : null : null
 };
 g.events.hasListener = function (a, c, d) {
-    if (g.events.Listenable.isImplementedBy(a))return a.hasListener(c, d);
+    if (g.events.Listenable.isImplementedBy(a))
+        return a.hasListener(c, d);
     a = g.events.getListenerMap_(a);
     return!!a && a.hasListener(c, d)
 };
 g.events.expose = function (a) {
     var c = [], d;
-    for (d in a)a[d] && a[d].id ? c.push(d + " = " + a[d] + " (" + a[d].id + ")") : c.push(d + " = " + a[d]);
+    for (d in a)
+        a[d] && a[d].id ? c.push(d + " = " + a[d] + " (" + a[d].id + ")") : c.push(d + " = " + a[d]);
     return c.join("\n")
 };
 g.events.getOnString_ = function (a) {
@@ -7555,14 +7773,17 @@ g.events.fireListeners = function (a, c, d, e) {
 };
 g.events.fireListeners_ = function (a, c, d, e) {
     var f = 1;
-    if (a = g.events.getListenerMap_(a))if (c = a.listeners[c.toString()])for (c = c.concat(), a = 0; a < c.length; a++) {
-        var h = c[a];
-        h && h.capture == d && !h.removed && (f &= !1 !== g.events.fireListener(h, e))
-    }
+    if (a = g.events.getListenerMap_(a))
+        if (c = a.listeners[c.toString()])
+            for (c = c.concat(), a = 0; a < c.length; a++) {
+                var h = c[a];
+                h && h.capture == d && !h.removed && (f &= !1 !== g.events.fireListener(h, e))
+            }
     return Boolean(f)
 };
 g.events.fireListener = function (a, c) {
-    var d = a.listener, e = a.handler || a.src;
+    var d = a.listener,
+        e = a.handler || a.src;
     a.callOnce && g.events.unlistenByKey(a);
     return d.call(e, c)
 };
@@ -7577,16 +7798,23 @@ g.events.protectBrowserEventEntryPoint = function (a) {
     g.events.handleBrowserEvent_ = a.protectEntryPoint(g.events.handleBrowserEvent_)
 };
 g.events.handleBrowserEvent_ = function (a, c) {
-    if (a.removed)return!0;
+    if (a.removed)
+        return!0;
     if (!g.events.BrowserFeature.HAS_W3C_EVENT_SUPPORT) {
-        var d = c || g.getObjectByName("window.event"), e = new g.events.BrowserEvent(d, this), f = !0;
+        var d = c || g.getObjectByName("window.event"),
+            e = new g.events.BrowserEvent(d, this),
+            f = !0;
         if (g.events.CAPTURE_SIMULATION_MODE == g.events.CaptureSimulationMode.ON) {
             if (!g.events.isMarkedIeEvent_(d)) {
                 g.events.markIeEvent_(d);
-                for (var d = [], h = e.currentTarget; h; h = h.parentNode)d.push(h);
-                for (var h = a.type, l = d.length - 1; !e.propagationStopped_ && 0 <= l; l--)e.currentTarget = d[l], f &= g.events.fireListeners_(d[l],
-                    h, !0, e);
-                for (l = 0; !e.propagationStopped_ && l < d.length; l++)e.currentTarget = d[l], f &= g.events.fireListeners_(d[l], h, !1, e)
+                for (var d = [], h = e.currentTarget; h; h = h.parentNode)
+                    d.push(h);
+                for (var h = a.type, l = d.length - 1; !e.propagationStopped_ && 0 <= l; l--)
+                    e.currentTarget = d[l],
+                    f &= g.events.fireListeners_(d[l], h, !0, e);
+                for (l = 0; !e.propagationStopped_ && l < d.length; l++)
+                    e.currentTarget = d[l],
+                    f &= g.events.fireListeners_(d[l], h, !1, e)
             }
         } else f = g.events.fireListener(a, e);
         return f
@@ -7601,7 +7829,8 @@ g.events.markIeEvent_ = function (a) {
     } catch (d) {
         c = !0
     }
-    if (c || void 0 == a.returnValue)a.returnValue = !0
+    if (c || void 0 == a.returnValue)
+        a.returnValue = !0
 };
 g.events.isMarkedIeEvent_ = function (a) {
     return 0 > a.keyCode || void 0 != a.returnValue
@@ -7617,7 +7846,8 @@ g.events.getListenerMap_ = function (a) {
 g.events.LISTENER_WRAPPER_PROP_ = "__closure_events_fn_" + (1E9 * Math.random() >>> 0);
 g.events.wrapListener = function (a) {
     g.asserts.assert(a, "Listener can not be null.");
-    if (g.isFunction(a))return a;
+    if (g.isFunction(a))
+        return a;
     g.asserts.assert(a.handleEvent, "An object listener must have handleEvent method.");
     a[g.events.LISTENER_WRAPPER_PROP_] || (a[g.events.LISTENER_WRAPPER_PROP_] = function (c) {
         return a.handleEvent(c)
@@ -7651,7 +7881,8 @@ b.dispatchEvent = function (a) {
     var c, d = this.getParentEventTarget();
     if (d) {
         c = [];
-        for (var e = 1; d; d = d.getParentEventTarget())c.push(d), g.asserts.assert(++e < g.events.EventTarget.MAX_ANCESTORS_, "infinite loop")
+        for (var e = 1; d; d = d.getParentEventTarget())
+            c.push(d), g.asserts.assert(++e < g.events.EventTarget.MAX_ANCESTORS_, "infinite loop")
     }
     return g.events.EventTarget.dispatchEventInternal_(this.actualEventTarget_, a, c)
 };
@@ -7881,9 +8112,60 @@ g.net.ErrorCode.getDebugMessage = function (a) {
             return"Unrecognized error code"
     }
 };
-g.net.EventType = {COMPLETE: "complete", SUCCESS: "success", ERROR: "error", ABORT: "abort", READY: "ready", READY_STATE_CHANGE: "readystatechange", TIMEOUT: "timeout", INCREMENTAL_DATA: "incrementaldata", PROGRESS: "progress"};
-g.net.HttpStatus = {CONTINUE: 100, SWITCHING_PROTOCOLS: 101, OK: 200, CREATED: 201, ACCEPTED: 202, NON_AUTHORITATIVE_INFORMATION: 203, NO_CONTENT: 204, RESET_CONTENT: 205, PARTIAL_CONTENT: 206, MULTIPLE_CHOICES: 300, MOVED_PERMANENTLY: 301, FOUND: 302, SEE_OTHER: 303, NOT_MODIFIED: 304, USE_PROXY: 305, TEMPORARY_REDIRECT: 307, BAD_REQUEST: 400, UNAUTHORIZED: 401, PAYMENT_REQUIRED: 402, FORBIDDEN: 403, NOT_FOUND: 404, METHOD_NOT_ALLOWED: 405, NOT_ACCEPTABLE: 406, PROXY_AUTHENTICATION_REQUIRED: 407, REQUEST_TIMEOUT: 408, CONFLICT: 409, GONE: 410, LENGTH_REQUIRED: 411,
-    PRECONDITION_FAILED: 412, REQUEST_ENTITY_TOO_LARGE: 413, REQUEST_URI_TOO_LONG: 414, UNSUPPORTED_MEDIA_TYPE: 415, REQUEST_RANGE_NOT_SATISFIABLE: 416, EXPECTATION_FAILED: 417, INTERNAL_SERVER_ERROR: 500, NOT_IMPLEMENTED: 501, BAD_GATEWAY: 502, SERVICE_UNAVAILABLE: 503, GATEWAY_TIMEOUT: 504, HTTP_VERSION_NOT_SUPPORTED: 505, QUIRK_IE_NO_CONTENT: 1223};
+g.net.EventType = {
+    COMPLETE: "complete",
+    SUCCESS: "success",
+    ERROR: "error",
+    ABORT: "abort",
+    READY: "ready",
+    READY_STATE_CHANGE: "readystatechange",
+    TIMEOUT: "timeout",
+    INCREMENTAL_DATA: "incrementaldata",
+    PROGRESS: "progress"
+};
+g.net.HttpStatus = {
+    CONTINUE: 100,
+    SWITCHING_PROTOCOLS: 101,
+    OK: 200,
+    CREATED: 201,
+    ACCEPTED: 202,
+    NON_AUTHORITATIVE_INFORMATION: 203,
+    NO_CONTENT: 204,
+    RESET_CONTENT: 205,
+    PARTIAL_CONTENT: 206,
+    MULTIPLE_CHOICES: 300,
+    MOVED_PERMANENTLY: 301,
+    FOUND: 302,
+    SEE_OTHER: 303,
+    NOT_MODIFIED: 304,
+    USE_PROXY: 305,
+    TEMPORARY_REDIRECT: 307,
+    BAD_REQUEST: 400,
+    UNAUTHORIZED: 401,
+    PAYMENT_REQUIRED: 402,
+    FORBIDDEN: 403,
+    NOT_FOUND: 404,
+    METHOD_NOT_ALLOWED: 405,
+    NOT_ACCEPTABLE: 406,
+    PROXY_AUTHENTICATION_REQUIRED: 407,
+    REQUEST_TIMEOUT: 408,
+    CONFLICT: 409,
+    GONE: 410,
+    LENGTH_REQUIRED: 411,
+    PRECONDITION_FAILED: 412,
+    REQUEST_ENTITY_TOO_LARGE: 413,
+    REQUEST_URI_TOO_LONG: 414,
+    UNSUPPORTED_MEDIA_TYPE: 415,
+    REQUEST_RANGE_NOT_SATISFIABLE: 416,
+    EXPECTATION_FAILED: 417,
+    INTERNAL_SERVER_ERROR: 500,
+    NOT_IMPLEMENTED: 501,
+    BAD_GATEWAY: 502,
+    SERVICE_UNAVAILABLE: 503,
+    GATEWAY_TIMEOUT: 504,
+    HTTP_VERSION_NOT_SUPPORTED: 505,
+    QUIRK_IE_NO_CONTENT: 1223
+};
 g.net.HttpStatus.isSuccess = function (a) {
     switch (a) {
         case g.net.HttpStatus.OK:
@@ -7939,8 +8221,17 @@ g.net.XmlHttpDefines.ASSUME_NATIVE_XHR = !1;
 g.net.XmlHttp.getOptions = function () {
     return g.net.XmlHttp.factory_.getOptions()
 };
-g.net.XmlHttp.OptionType = {USE_NULL_FUNCTION: 0, LOCAL_REQUEST_ERROR: 1};
-g.net.XmlHttp.ReadyState = {UNINITIALIZED: 0, LOADING: 1, LOADED: 2, INTERACTIVE: 3, COMPLETE: 4};
+g.net.XmlHttp.OptionType = {
+    USE_NULL_FUNCTION: 0,
+    LOCAL_REQUEST_ERROR: 1
+};
+g.net.XmlHttp.ReadyState = {
+    UNINITIALIZED: 0,
+    LOADING: 1,
+    LOADED: 2,
+    INTERACTIVE: 3,
+    COMPLETE: 4
+};
 g.net.XmlHttp.setFactory = function (a, c) {
     g.net.XmlHttp.setGlobalFactory(new g.net.WrapperXmlHttpFactory(g.asserts.assert(a), g.asserts.assert(c)))
 };
@@ -8024,7 +8315,8 @@ g.net.XhrIo.prototype.setWithCredentials = function (a) {
     this.withCredentials_ = a
 };
 g.net.XhrIo.prototype.send = function (a, c, d, e) {
-    if (this.xhr_)throw Error("[goog.net.XhrIo] Object is active with another request=" + this.lastUri_ + "; newUri=" + a);
+    if (this.xhr_)
+        throw Error("[goog.net.XhrIo] Object is active with another request=" + this.lastUri_ + "; newUri=" + a);
     c = c ? c.toUpperCase() : "GET";
     this.lastUri_ = a;
     this.lastError_ = "";
@@ -8099,16 +8391,20 @@ b.onReadyStateChangeEntryPoint_ = function () {
     this.onReadyStateChangeHelper_()
 };
 b.onReadyStateChangeHelper_ = function () {
-    if (this.active_ && "undefined" != typeof g)if (this.xhrOptions_[g.net.XmlHttp.OptionType.LOCAL_REQUEST_ERROR] && this.getReadyState() == g.net.XmlHttp.ReadyState.COMPLETE && 2 == this.getStatus())g.log.fine(this.logger_, this.formatMsg_("Local request error detected and ignored")); else if (this.inSend_ && this.getReadyState() == g.net.XmlHttp.ReadyState.COMPLETE)g.Timer.callOnce(this.onReadyStateChange_, 0, this); else if (this.dispatchEvent(g.net.EventType.READY_STATE_CHANGE), this.isComplete()) {
-        g.log.fine(this.logger_,
-            this.formatMsg_("Request complete"));
-        this.active_ = !1;
-        try {
-            this.isSuccess() ? (this.dispatchEvent(g.net.EventType.COMPLETE), this.dispatchEvent(g.net.EventType.SUCCESS)) : (this.lastError_ = this.getStatusText() + " [" + this.getStatus() + "]", this.dispatchErrors_())
-        } finally {
-            this.cleanUpXhr_()
+    if (this.active_ && "undefined" != typeof g)
+        if (this.xhrOptions_[g.net.XmlHttp.OptionType.LOCAL_REQUEST_ERROR] && this.getReadyState() == g.net.XmlHttp.ReadyState.COMPLETE && 2 == this.getStatus())
+            g.log.fine(this.logger_, this.formatMsg_("Local request error detected and ignored"));
+        else if (this.inSend_ && this.getReadyState() == g.net.XmlHttp.ReadyState.COMPLETE)
+            g.Timer.callOnce(this.onReadyStateChange_, 0, this);
+        else if (this.dispatchEvent(g.net.EventType.READY_STATE_CHANGE), this.isComplete()) {
+            g.log.fine(this.logger_, this.formatMsg_("Request complete"));
+            this.active_ = !1;
+            try {
+                this.isSuccess() ? (this.dispatchEvent(g.net.EventType.COMPLETE), this.dispatchEvent(g.net.EventType.SUCCESS)) : (this.lastError_ = this.getStatusText() + " [" + this.getStatus() + "]", this.dispatchErrors_())
+            } finally {
+                this.cleanUpXhr_()
+            }
         }
-    }
 };
 b.cleanUpXhr_ = function (a) {
     if (this.xhr_) {
@@ -8220,6 +8516,8 @@ k.ApiQuery.prototype.executeQuery = function (a, c) {
 k.ApiQuery.prototype.handleQuery_ = function (a, c, d) {
     d.error ? (this.failedNumber_++, this.failedNumber_ <= this.maxRetryAttempts_ ? (d = k.ApiQuery.REPEAT_DELAY_ * this.failedNumber_, window.setTimeout(g.bind(this.executeQuery, this, a, c), d)) : 0 !== this.maxRetryAttempts_ && c && c(d.message)) : a(d)
 };
+
+
 k.RealTimeQuery = function (a, c) {
     this.viewId_ = a;
     this.pagePath_ = c
@@ -8235,6 +8533,8 @@ k.RealTimeQuery.prototype.queryHanlder_ = function (a, c) {
         a(d)
     }
 };
+
+
 k.MetricQuery = function (a, c, d, e) {
     this.viewId = a;
     this.segmentId = c;
@@ -8294,7 +8594,13 @@ b.handleTrends = function (a, c, d) {
     }
     a.containsSampledData && (this.results.sampledData = {sampleSize: a.sampleSize, sampleSpace: a.sampleSpace})
 };
-k.QueryType = {SITE_DATA: "SITE_DATA", CURRENT_TRENDS: "CURRENT_TRENDS", PREVIOUS_TRENDS: "PREVIOUS_TRENDS"};
+
+k.QueryType = {
+    SITE_DATA: "SITE_DATA",
+    CURRENT_TRENDS: "CURRENT_TRENDS",
+    PREVIOUS_TRENDS: "PREVIOUS_TRENDS"
+};
+
 k.ComparisonQuery = function (a, c, d, e, f) {
     k.MetricQuery.call(this, a, c, d, f);
     this.previousDateRange_ = e;
@@ -8318,6 +8624,7 @@ k.ComparisonQuery.prototype.resultsHandler = function (a, c) {
     this.responses++;
     2 == this.responses && this.callback(this.results)
 };
+
 k.RealTimeController = function () {
     this.tabId_ = this.queryCounter_ = this.timer_ = 0
 };
@@ -8346,6 +8653,8 @@ b.sendRealTimeMsg_ = function (a) {
     a = {type: k.MessageType.REAL_TIME, realTime: a};
     chrome.tabs.sendMessage(this.tabId_, a)
 };
+
+
 g.i18n.TimeZone = function () {
 };
 g.i18n.TimeZone.MILLISECONDS_PER_HOUR_ = 36E5;
@@ -8742,6 +9051,7 @@ g.i18n.DateTimePatterns_zh_CN = {YEAR_FULL: "y\u5e74", YEAR_FULL_WITH_ERA: "Gy\u
 g.i18n.DateTimePatterns_zh_HK = {YEAR_FULL: "y\u5e74", YEAR_FULL_WITH_ERA: "G y \u5e74", YEAR_MONTH_ABBR: "y \u5e74 M \u6708", YEAR_MONTH_FULL: "y \u5e74 M \u6708", MONTH_DAY_ABBR: "M\u6708d\u65e5", MONTH_DAY_FULL: "M\u6708dd\u65e5", MONTH_DAY_SHORT: "d/M", MONTH_DAY_MEDIUM: "M\u6708d\u65e5", MONTH_DAY_YEAR_MEDIUM: "y \u5e74 M \u6708 d \u65e5", WEEKDAY_MONTH_DAY_MEDIUM: "M\u6708d\u65e5 (EEE)", WEEKDAY_MONTH_DAY_YEAR_MEDIUM: "y \u5e74 M \u6708 d \u65e5 (EEE)", DAY_ABBR: "d\u65e5"};
 g.i18n.DateTimePatterns_zh_TW = {YEAR_FULL: "y\u5e74", YEAR_FULL_WITH_ERA: "G y \u5e74", YEAR_MONTH_ABBR: "y\u5e74M\u6708", YEAR_MONTH_FULL: "y\u5e74M\u6708", MONTH_DAY_ABBR: "M\u6708d\u65e5", MONTH_DAY_FULL: "M\u6708dd\u65e5", MONTH_DAY_SHORT: "M/d", MONTH_DAY_MEDIUM: "M\u6708d\u65e5", MONTH_DAY_YEAR_MEDIUM: "y\u5e74M\u6708d\u65e5", WEEKDAY_MONTH_DAY_MEDIUM: "M\u6708d\u65e5EEE", WEEKDAY_MONTH_DAY_YEAR_MEDIUM: "y\u5e74M\u6708d\u65e5EEE", DAY_ABBR: "d\u65e5"};
 g.i18n.DateTimePatterns_zu = {YEAR_FULL: "y", YEAR_FULL_WITH_ERA: "y G", YEAR_MONTH_ABBR: "MMM y", YEAR_MONTH_FULL: "MMMM y", MONTH_DAY_ABBR: "MMM d", MONTH_DAY_FULL: "MMMM dd", MONTH_DAY_SHORT: "M/d", MONTH_DAY_MEDIUM: "MMMM d", MONTH_DAY_YEAR_MEDIUM: "MMM d, y", WEEKDAY_MONTH_DAY_MEDIUM: "EEE, MMM d", WEEKDAY_MONTH_DAY_YEAR_MEDIUM: "EEE, MMM d, y", DAY_ABBR: "d"};
+
 g.i18n.DateTimePatterns = g.i18n.DateTimePatterns_en;
 "af" == g.LOCALE && (g.i18n.DateTimePatterns = g.i18n.DateTimePatterns_af);
 "am" == g.LOCALE && (g.i18n.DateTimePatterns = g.i18n.DateTimePatterns_am);
@@ -8845,6 +9155,8 @@ if ("zh_CN" == g.LOCALE || "zh-CN" == g.LOCALE)g.i18n.DateTimePatterns = g.i18n.
 if ("zh_HK" == g.LOCALE || "zh-HK" == g.LOCALE)g.i18n.DateTimePatterns = g.i18n.DateTimePatterns_zh_HK;
 if ("zh_TW" == g.LOCALE || "zh-TW" == g.LOCALE)g.i18n.DateTimePatterns = g.i18n.DateTimePatterns_zh_TW;
 "zu" == g.LOCALE && (g.i18n.DateTimePatterns = g.i18n.DateTimePatterns_zu);
+
+
 k.SiteOverlayQuery = function (a, c, d, e) {
     this.viewId_ = a;
     this.segmentId_ = c;
@@ -8861,6 +9173,7 @@ k.SiteOverlayQuery.prototype.execute = function (a, c) {
 k.SiteOverlayQuery.prototype.resultsHandler_ = function (a, c) {
     a(c)
 };
+
 k.LinkIdQuery = function (a, c, d, e) {
     this.viewId_ = a;
     this.segmentId_ = c;
@@ -8869,20 +9182,37 @@ k.LinkIdQuery = function (a, c, d, e) {
 };
 k.LinkIdQuery.HIDDEN_ID_PREFIX_ = "link__inpage_";
 k.LinkIdQuery.prototype.execute = function (a, c) {
-    var d = {ids: "ga:" + this.viewId_, dimensions: "ga:nextPagePath, ga:previousPageLinkId", metrics: "ga:pageviews", sort: "-ga:pageviews", filters: "ga:previousPagePath==" + this.pagePath_ + ";ga:previousPageLinkId!~^" + k.LinkIdQuery.HIDDEN_ID_PREFIX_, segment: "gaid::" + this.segmentId_, "start-date": this.dateRange_.getStartDate().toIsoString(!0), "end-date": this.dateRange_.getEndDate().toIsoString(!0), quotaUser: k.GAClient.getInstance().getClientId()}, d = new k.ApiQuery(gapi.client.analytics.data.ga.get,
-        d);
+    var d = {
+        ids: "ga:" + this.viewId_,
+        dimensions: "ga:nextPagePath, ga:previousPageLinkId",
+        metrics: "ga:pageviews",
+        sort: "-ga:pageviews",
+        filters: "ga:previousPagePath==" + this.pagePath_ + ";ga:previousPageLinkId!~^" + k.LinkIdQuery.HIDDEN_ID_PREFIX_,
+        segment: "gaid::" + this.segmentId_,
+        "start-date": this.dateRange_.getStartDate().toIsoString(!0),
+        "end-date": this.dateRange_.getEndDate().toIsoString(!0),
+        quotaUser: k.GAClient.getInstance().getClientId()},
+        d = new k.ApiQuery(gapi.client.analytics.data.ga.get, d);
     d.executeQuery(g.bind(this.resultsHandler_, this, a), c)
 };
 k.LinkIdQuery.prototype.resultsHandler_ = function (a, c) {
     a(c)
 };
+
 k.SiteOverlayAction = function () {
 };
 k.SiteOverlayAction.prototype.setSettings = function (a) {
     this.settings_ = a
 };
 k.SiteOverlayAction.prototype.queryData = function (a) {
-    var c = this, d = this.settings_.getSelectedSegments()[0], e = this.settings_.getSelectedView(), f = e.id, h = this.settings_.getPath(), l = this.settings_.getPrimaryDateRange(), m = this.settings_.getCompareDateRange(), n = [];
+    var c = this,
+        d = this.settings_.getSelectedSegments()[0],
+        e = this.settings_.getSelectedView(),
+        f = e.id,
+        h = this.settings_.getPath(),
+        l = this.settings_.getPrimaryDateRange(),
+        m = this.settings_.getCompareDateRange(),
+        n = [];
     n.push(new g.Promise(function (a, c) {
         var e = new k.SiteOverlayQuery(f, d.id, l, h);
         e.execute(a, c)
@@ -8905,33 +9235,51 @@ k.SiteOverlayAction.prototype.queryData = function (a) {
         m ? (h = [f[0], f[1]], f = [f[2], f[3]]) : (h = [f[0]], f = [f[1]]);
         h = c.generateViews_(h);
         c.generateLinkIds_(h, f);
-        h = {type: k.MessageType.SITE_OVERLAY, data: {view: e, filters: c.settings_.getFilters(), segment: d, minimumPercent: c.settings_.getMinimumPercent(), showBubbles: c.settings_.getShowBubbles(), showColors: c.settings_.getShowColors(), inPageData: h}};
+        h = {
+            type: k.MessageType.SITE_OVERLAY,
+            data: {
+                view: e,
+                filters: c.settings_.getFilters(),
+                segment: d,
+                minimumPercent: c.settings_.getMinimumPercent(),
+                showBubbles: c.settings_.getShowBubbles(),
+                showColors: c.settings_.getShowColors(),
+                inPageData: h
+            }
+        };
         a(h)
     })
 };
 k.SiteOverlayAction.prototype.generateViews_ = function (a) {
-    for (var c = {Metrics: [
-        {Name: "Clicks", ShortName: "Clicks"}
-    ], Views: {}, ViewNames: []}, d = 0; d < a.length; d++) {
-        var e = a[d], f = this.generateViewName_(e.query), e = this.generateView_(f, e);
+    for (var c = {Metrics: [{Name: "Clicks", ShortName: "Clicks"}], Views: {}, ViewNames: []}, d = 0; d < a.length; d++) {
+        var e = a[d],
+            f = this.generateViewName_(e.query),
+            e = this.generateView_(f, e);
         c.ViewNames.push(f);
         c.Views[f] = e
     }
     return c
 };
 k.SiteOverlayAction.prototype.generateViewName_ = function (a) {
-    var c = new g.i18n.DateTimeFormat(g.i18n.DateTimePatterns.MONTH_DAY_YEAR_MEDIUM), d = k.SiteOverlayAction.convertDate_(a["start-date"]), d = c.format(d);
+    var c = new g.i18n.DateTimeFormat(g.i18n.DateTimePatterns.MONTH_DAY_YEAR_MEDIUM),
+        d = k.SiteOverlayAction.convertDate_(a["start-date"]),
+        d = c.format(d);
     a = k.SiteOverlayAction.convertDate_(a["end-date"]);
     return d += " - " + c.format(a)
 };
 k.SiteOverlayAction.convertDate_ = function (a) {
     var c = a.split("-");
     a = parseInt(c[0], 10);
-    var d = parseInt(c[1], 10) - 1, c = parseInt(c[2], 10);
+    var d = parseInt(c[1], 10) - 1,
+        c = parseInt(c[2], 10);
     return new g.date.Date(a, d, c)
 };
 k.SiteOverlayAction.prototype.generateView_ = function (a, c) {
-    var d = {DisplayNames: [a], Links: {}, Totals: []};
+    var d = {
+        DisplayNames: [a],
+        Links: {},
+        Totals: []
+    };
     if (0 < c.totalResults) {
         var e = c.totalsForAllResults[k.Metric.PAGE_VIEW.id];
         d.Totals.push(e);
@@ -8945,7 +9293,8 @@ k.SiteOverlayAction.prototype.generateView_ = function (a, c) {
 k.SiteOverlayAction.prototype.generateLinkIds_ = function (a, c) {
     for (var d = 0; d < c.length; d++) {
         var e = c[d];
-        if (e && 0 !== e.totalResults)for (var f = this.generateViewName_(e.query), f = a.Views[f], h = 0; h < e.rows.length; h++) {
+        if (e && 0 !== e.totalResults)
+            for (var f = this.generateViewName_(e.query), f = a.Views[f], h = 0; h < e.rows.length; h++) {
             var l = e.rows[h], m = l[0], n = l[1], l = l[2];
             if (m = f.Links[m]) {
                 var p = m.Ids;
@@ -9255,7 +9604,11 @@ k.Management = function () {
     this.webPropertiesById_ = new g.structs.Map;
     this.webPropertiesByUrl_ = new g.structs.Map;
     this.segments_ = [];
-    this.cache_ = {accountFilters: {}, webPropertyViews: {}, viewFilters: {}}
+    this.cache_ = {
+        accountFilters: {},
+        webPropertyViews: {},
+        viewFilters: {}
+    }
 };
 k.Management.GOOGLE_DOMAIN_ = /^http(s)?:\/\/(www\.)?google\.com(\/)?$/;
 k.Management.ACCOUNT_FIELDS_ = "items(id,name)";
@@ -9348,12 +9701,15 @@ b.getViewFilterIds_ = function (a, c, d) {
         a && c && d || h(null);
         var l = e.cache_.viewFilters[d];
         l ? f(l) : gapi.client.analytics.management.profileFilterLinks.list({accountId: a, webPropertyId: c, profileId: d, fields: "items(filterRef(id))"}).execute(function (a) {
-            if (a.error)h(Error(a.message)); else {
+            if (a.error)
+                h(Error(a.message));
+            else {
                 var c = [];
-                if (a && a.items)for (var l = 0; l < a.items.length; l++) {
-                    var q = a.items[l];
-                    c.push(q.filterRef.id)
-                }
+                if (a && a.items)
+                    for (var l = 0; l < a.items.length; l++) {
+                        var q = a.items[l];
+                        c.push(q.filterRef.id)
+                    }
                 e.cache_.viewFilters[d] = c;
                 f(c)
             }
