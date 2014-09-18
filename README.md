@@ -48,6 +48,12 @@ Chrome Extensions配置清单文件。用于配置加载background、content_scr
 
 ![image](./res/elements-_generated_background_page.png) 
 
+##### background Resources视图
+
+![image](./res/resources-_generated_background_page1.png) 
+
+![image](./res/resources-_generated_background_page2.png) 
+
 ##### client:plusone 
 
 ![image]() 
