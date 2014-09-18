@@ -54,10 +54,18 @@ Chrome Extensions配置清单文件。用于配置加载background、content_scr
 
 
 #### content_script：
-根据登录和popup中的 Data Panel 位置信息，在页面中创建 Data Panel 
+根据登录和popup中的 Data Panel 位置信息，在页面中创建 Data Panel
+![image]() 
 
 #### popup：
 根据登录信息，呈现未显示 Data Panel 原因、登录或控制 Data Panel 位置信息
+
+Data Panel:
+![image](./res/iyp_spacer_top.png) 
+
+Real-time:
+![image](./res/iyp_tools.png) 
+
 
 
 参考
