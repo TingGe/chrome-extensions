@@ -10,6 +10,7 @@
 'use strict';
 var a, f = f || {};
 f.global = this;
+
 f.isDef = function (b) {
     return void 0 !== b
 };
@@ -18826,6 +18827,7 @@ a.handleMouseOver = function (b, c) {
 a.handleResize = function () {
     this.bubblePane_ && this.bubblePane_.handleResize()
 };
+
 k.ContentScript = function () {
     this.model_ = new k.Model
 };
