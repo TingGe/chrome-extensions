@@ -34,7 +34,7 @@ Chrome Extensions配置清单文件。用于配置加载background、content_scr
 #### background：
 后台网页。有三个作用：
 
-1. 用于验证Google+ 登录API，并在加载完 client:plusone.js（https://apis.google.com/js/client:plusone.js?onload=gaextOnGapiClientLoadCallback） 触发 onload 时调用回调方法 gaextOnGapiClientLoadCallback。
+1. 用于验证Google+ 登录API，并在加载完 client:plusone.js（https://apis.google.com/js/client:plusone.js?onload=gaextOnGapiClientLoadCallback） 时调用回调方法 gaextOnGapiClientLoadCallback。
 
 2. 读写storage存储。websiteSettings（Config）、ga-clientId(GAClient)
 
