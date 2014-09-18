@@ -50,7 +50,7 @@ Chrome Extensions配置清单文件。用于配置加载background、content_scr
 
 ##### client:plusone 
 
-![image](./res/elements-_generated_background_page.png) 
+![image]() 
 
 
 #### content_script：
