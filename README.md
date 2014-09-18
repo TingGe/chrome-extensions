@@ -65,12 +65,15 @@ Real-time:
 根据登录信息，呈现未显示 Data Panel 原因、登录或控制 Data Panel 位置信息
 
 未显示 Data Panel 原因:
+
 ![image](./res/reason.png) 
 
 登录:
+
 ![image](./res/signin.png) 
 
 设置 Data Panel 位置:
+
 ![image](./res/set-position.png) 
 
 参考
