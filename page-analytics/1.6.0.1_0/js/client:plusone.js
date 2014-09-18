@@ -71,7 +71,8 @@ gapi._bs = new Date().getTime();
             return a[_call][_apply](a[_bind], arguments)
         },
         Fa = function (a, b, c) {
-            if (!a)throw Error();
+            if (!a)
+                throw Error();
             if (2 < arguments[_length]) {
                 var d = _Array[_prototype][_slice][_call](arguments, 2);
                 return function () {
@@ -98,17 +99,22 @@ gapi._bs = new Date().getTime();
         return Ga(this, a)
     };
 
-    var Q = _window,
-        R = _document,
-        Ha = Q[_location],
-        Ia = function () {
+    var Win = _window,
+        Doc = _document,
+        Loc = Win[_location],
+        emptyFunction = function () {
         },
-        Ja = /\[native code\]/,
+        NativeCode = /\[native code\]/,
+
+        //初始化a[b]
         S = function (a, b, c) {
             return a[b] = a[b] || c
         },
+
         Ka = function (a) {
-            for (var b = 0; b < this[_length]; b++)if (this[b] === a)return b;
+            for (var b = 0; b < this[_length]; b++)
+                if (this[b] === a)
+                    return b;
             return-1
         },
         La = function (a) {
@@ -120,39 +126,50 @@ gapi._bs = new Date().getTime();
             }
             return b
         },
-        Ma = /&/g, Na = /</g, Oa = />/g, Pa = /"/g, Qa = /'/g, Ra = function (a) {
+        Ma = /&/g,
+        Na = /</g, Oa = />/g,
+        Pa = /"/g, Qa = /'/g,
+        Ra = function (a) {
             return _String(a)[_replace](Ma, "&amp;")[_replace](Na, "&lt;")[_replace](Oa, "&gt;")[_replace](Pa, "&quot;")[_replace](Qa, "&#39;")
         },
+        
+        //
         T = function () {
             var a;
-            if ((a = _Object.create) && Ja[_test](a))a = a(null); else {
+            if ((a = _Object.create) && NativeCode[_test](a))
+                a = a(null);
+            else {
                 a = {};
-                for (var b in a)a[b] = void 0
+                for (var b in a)
+                    a[b] = void 0
             }
             return a
         },
-        U = function (a, b) {
-            return _Object[_prototype].hasOwnProperty[_call](a, b)
+
+        //使用原型链上真正的 hasOwnProperty 方法,判断对象是否含有指定的自身属性
+        hasOwn = function (object, property) {
+            return _Object[_prototype].hasOwnProperty[_call](object, property)
         },
         Sa = function (a) {
-            if (Ja[_test](_Object.keys))return _Object.keys(a);
+            if (NativeCode[_test](_Object.keys))return _Object.keys(a);
             var b = [], c;
-            for (c in a)U(a, c) && b[_push](c);
+            for (c in a)
+                hasOwn(a, c) && b[_push](c);
             return b
         },
         V = function (a, b) {
             a = a || {};
-            for (var c in a)U(a, c) && (b[c] = a[c])
+            for (var c in a)hasOwn(a, c) && (b[c] = a[c])
         },
         Ta = function (a) {
             return function () {
-                Q.setTimeout(a, 0)
+                Win.setTimeout(a, 0)
             }
         },
         Ua = function (a, b) {
             if (!a)throw Error(b || "");
         },
-        W = S(Q, "gapi", {});
+        W = S(Win, "gapi", {});
 
     var X = function (a, b, c) {
         var d = new RegExp("([#].*&|[#])" + b + "=([^&#]*)", "g");
@@ -177,7 +194,7 @@ gapi._bs = new Date().getTime();
         },
         Ya = function (a, b) {
             var c = [];
-            if (a)for (var d in a)if (U(a, d) && null != a[d]) {
+            if (a)for (var d in a)if (hasOwn(a, d) && null != a[d]) {
                 var e = b ? b(a[d]) : a[d];
                 c[_push](_encodeURIComponent(d) +
                     "=" + _encodeURIComponent(e))
@@ -204,41 +221,49 @@ gapi._bs = new Date().getTime();
         ab = /^https?:\/\/[^\/%\\?#\s]+\/[^\s]*$/i;
 
     var bb = function (a, b, c, d) {
-        if (Q[c + "EventListener"])
-            Q[c + "EventListener"](a, b, !1);
-        else if (Q[d + "tachEvent"])
-            Q[d + "tachEvent"]("on" + a, b)
+        if (Win[c + "EventListener"])
+            Win[c + "EventListener"](a, b, !1);
+        else if (Win[d + "tachEvent"])
+            Win[d + "tachEvent"]("on" + a, b)
         },
         cb = function () {
-            var a = R.readyState;
+            var a = Doc.readyState;
             return"complete" === a || "interactive" === a && -1 == navigator.userAgent[_indexOf]("MSIE")
         },
         fb = function (a) {
             var b = db;
-            if (!cb())try {
-                b()
-            } catch (c) {
-            }
+            if (!cb())
+                try {
+                    b()
+                } catch (c) {}
             eb(a)
         },
         eb = function (a) {
-            if (cb())a(); else {
-                var b = !1, c = function () {
-                    if (!b)return b = !0, a[_apply](this, arguments)
-                };
-                Q.addEventListener ? (Q.addEventListener("load", c, !1), Q.addEventListener("DOMContentLoaded", c, !1)) : Q.attachEvent &&
-                    (Q.attachEvent("onreadystatechange", function () {
+            if (cb())
+                a();
+            else {
+                var b = !1,
+                    c = function () {
+                        if (!b)
+                            return b = !0, a[_apply](this, arguments)
+                    };
+                Win.addEventListener ? (Win.addEventListener("load", c, !1), Win.addEventListener("DOMContentLoaded", c, !1)) : Win.attachEvent &&
+                    (Win.attachEvent("onreadystatechange", function () {
                         cb() && c[_apply](this, arguments)
-                    }), Q.attachEvent("onload", c))
+                    }), Win.attachEvent("onload", c))
             }
         },
         gb = function (a) {
             for (; a.firstChild;)a[_removeChild](a.firstChild)
         },
-        hb = {button: !0, div: !0, span: !0};
+        hb = {
+            button: !0,
+            div: !0,
+            span: !0
+        };
 
         var Y;
-        Y = S(Q, "___jsl", T());
+        Y = S(Win, "___jsl", T());
         S(Y, "I", 0);
         S(Y, "hel", 10);
 
@@ -256,9 +281,12 @@ gapi._bs = new Date().getTime();
             var b = S(Y, "PQ", []);
             Y.PQ = [];
             var c = b[_length];
-            if (0 === c)a(); else for (var d = 0, e = function () {
-                ++d === c && a()
-            }, f = 0; f < c; f++)b[f](e)
+            if (0 === c)
+                a();
+            else
+                for (var d = 0, e = function () {
+                    ++d === c && a()
+                }, f = 0; f < c; f++)b[f](e)
         },
         nb = function (a) {
             return S(S(Y, "H", T()), a, T())
@@ -292,7 +320,7 @@ gapi._bs = new Date().getTime();
         };
 
     wb[_push](["jsl", function (a) {
-        for (var b in a)if (U(a, b)) {
+        for (var b in a)if (hasOwn(a, b)) {
             var c = a[b];
             "object" == typeof c ? Y[b] = S(Y, b, [])[_concat](c) : S(Y, b, c)
         }
@@ -375,7 +403,7 @@ gapi._bs = new Date().getTime();
         Db = /\/cb=/g,
         Cb = /\/\//g,
         Kb = function () {
-            var a = ib(Ha[_href]);
+            var a = ib(Loc[_href]);
             if (!a)
                 throw Error("Bad hint");
             return a
@@ -385,135 +413,143 @@ gapi._bs = new Date().getTime();
         (a = a[0]) || xb("missing_hint");
         return"https://apis.google.com" + Ib(a, b, c, d)
     };
-    var Lb = decodeURI("%73cript"),
+
+    var script = decodeURI("%73cript"),
         Mb = function (a, b) {
-        for (var c = [], d = 0; d < a[_length]; ++d) {
-            var e = a[d];
-            e && 0 > Ka[_call](b, e) && c[_push](e)
-        }
-        return c
-    },
-    Ob = function (a) {
-        "loading" != R.readyState ? Nb(a) : R.write("<" + Lb + ' src="' + encodeURI(a) + '"></' + Lb + ">")
-    },
-    Nb = function (a) {
-        var b = R[_createElement](Lb);
-        b[_setAttribute]("src", a);
-        b.async = "true";
-        (a = R[_getElementsByTagName](Lb)[0]) ? a[_parentNode].insertBefore(b, a) : (R.head || R.body || R.documentElement)[_appendChild](b)
-    },
-    Pb = function (a, b) {
-        var c = b && b._c;
-        if (c)
-            for (var d = 0; d < wb[_length]; d++) {
-                var e = wb[d][0], f = wb[d][1];
-                f && U(c, e) && f(c[e], a, b)
+            for (var c = [], d = 0; d < a[_length]; ++d) {
+                var e = a[d];
+                e && 0 > Ka[_call](b, e) && c[_push](e)
             }
-    },
-    Rb = function (a, b) {
-        Qb(function () {
-            var c;
-            c = b === ib(Ha[_href]) ? S(W, "_", T()) : T();
-            c = S(nb(b), "_", c);
-            a(c)
-        })
-    },
-    Tb = function (a, b) {
-        var c = b || {};
-        "function" == typeof b && (c = {}, c.callback = b);
-        Pb(a, c);
-        var d = a ? a[_split](":") : [], e = c.h || Kb(), f = S(Y, "ah", T());
-        if (f["::"] && d[_length]) {
-            for (var g = [], h = null; h = d[_shift]();) {
-                var l = h[_split]("."), l = f[h] || f[l[1] && "ns:" + l[0] || ""] || e, n = g[_length] && g[g[_length] - 1] || null, m = n;
-                n && n.hint == l || (m = {hint: l, M: []}, g[_push](m));
-                m.M[_push](h)
-            }
-            var p = g[_length];
-            if (1 < p) {
-                var w = c.callback;
-                w && (c.callback = function () {
-                    0 == --p && w()
-                })
-            }
-            for (; d = g[_shift]();)
-                Sb(d.M, c, d.hint)
-        } else
-            Sb(d || [], c, e)
-    },
-    Sb = function (a, b, c) {
-        a = La(a) || [];
-        var d = b.callback,
-            e = b.config,
-            f = b.timeout,
-            g = b.ontimeout,
-            h = null,
-            l = !1;
+            return c
+        },
 
-        if (f && !g || !f && g)
-            throw"Timeout requires both the timeout parameter and ontimeout parameter to be set";
-        var n = S(nb(c), "r", []).sort(),
-            m = S(nb(c), "L", []).sort(),
-            p = [][_concat](n),
-            w = function (a, b) {
-                if (l)
-                    return 0;
-                Q.clearTimeout(h);
-                m[_push][_apply](m, C);
-                var d = ((W || {}).config || {})[_update];
-                d ? d(e) : e && S(Y, "cu", [])[_push](e);
-                if (b) {
-                    ub("me0", a, p);
-                    try {
-                        Rb(b, c)
-                    } finally {
-                        ub("me1", a, p)
-                    }
+        //向页面添加js
+        addScripts = function (a) {
+            "loading" != Doc.readyState ? insertScript(a) : Doc.write("<" + script + ' src="' + encodeURI(a) + '"></' + script + ">")
+        },
+
+        //向页面异步插入js
+        insertScript = function (uri) {
+            var b = Doc[_createElement](script);
+            b[_setAttribute]("src", uri);
+            b.async = "true";
+            (a = Doc[_getElementsByTagName](script)[0]) ? a[_parentNode].insertBefore(b, a) : (Doc.head || Doc.body || Doc.documentElement)[_appendChild](b)
+        },
+
+        //
+        Pb = function (a, b) {
+            var c = b && b._c;
+            if (c)
+                for (var d = 0; d < wb[_length]; d++) {
+                    var e = wb[d][0],
+                        f = wb[d][1];
+                    f && hasOwn(c, e) && f(c[e], a, b)
                 }
-                return 1
-            };
-        0 < f && (h = Q.setTimeout(function () {
-            l = !0;
-            g()
-        }, f));
-
-        var C = Mb(a, m);
-        if (C[_length]) {
-            var C =
-                Mb(a, n), u = S(Y, "CP", []), J = u[_length];
-            u[J] = function (a) {
-                if (!a)return 0;
-                ub("ml1", C, p);
-                var b = function (b) {
-                    u[J] = null;
-                    w(C, a) && lb(function () {
-                        d && d();
-                        b()
+        },
+        Rb = function (a, b) {
+            Qb(function () {
+                var c;
+                c = b === ib(Loc[_href]) ? S(W, "_", T()) : T();
+                c = S(nb(b), "_", c);
+                a(c)
+            })
+        },
+        Tb = function (a, b) {
+            var c = b || {};
+            "function" == typeof b && (c = {}, c.callback = b);
+            Pb(a, c);
+            var d = a ? a[_split](":") : [], e = c.h || Kb(), f = S(Y, "ah", T());
+            if (f["::"] && d[_length]) {
+                for (var g = [], h = null; h = d[_shift]();) {
+                    var l = h[_split]("."), l = f[h] || f[l[1] && "ns:" + l[0] || ""] || e, n = g[_length] && g[g[_length] - 1] || null, m = n;
+                    n && n.hint == l || (m = {hint: l, M: []}, g[_push](m));
+                    m.M[_push](h)
+                }
+                var p = g[_length];
+                if (1 < p) {
+                    var w = c.callback;
+                    w && (c.callback = function () {
+                        0 == --p && w()
                     })
-                },
-                c = function () {
-                    var a = u[J + 1];
-                    a && a()
-                };
-                0 < J && u[J - 1] ? u[J] = function () {
-                    b(c)
-                } : b(c)
-            };
-            if (C[_length]) {
-                var mb = "loaded_" + Y.I++;
-                W[mb] = function (a) {
-                    u[J](a);
-                    W[mb] = null
-                };
-                a = Fb(c, C, "gapi." + mb, n);
-                n[_push][_apply](n, C);
-                ub("ml0", C, p);
-                b.sync || Q.___gapisync ? Ob(a) : Nb(a)
+                }
+                for (; d = g[_shift]();)
+                    Sb(d.M, c, d.hint)
             } else
-                u[J](Ia)
-        } else
-            w(C) && d && d()
-    };
+                Sb(d || [], c, e)
+        },
+        Sb = function (a, b, c) {
+            a = La(a) || [];
+            var d = b.callback,
+                e = b.config,
+                f = b.timeout,
+                g = b.ontimeout,
+                h = null,
+                l = !1;
+
+            if (f && !g || !f && g)
+                throw"Timeout requires both the timeout parameter and ontimeout parameter to be set";
+            var n = S(nb(c), "r", []).sort(),
+                m = S(nb(c), "L", []).sort(),
+                p = [][_concat](n),
+                w = function (a, b) {
+                    if (l)
+                        return 0;
+                    Win.clearTimeout(h);
+                    m[_push][_apply](m, C);
+                    var d = ((W || {}).config || {})[_update];
+                    d ? d(e) : e && S(Y, "cu", [])[_push](e);
+                    if (b) {
+                        ub("me0", a, p);
+                        try {
+                            Rb(b, c)
+                        } finally {
+                            ub("me1", a, p)
+                        }
+                    }
+                    return 1
+                };
+            0 < f && (h = Win.setTimeout(function () {
+                l = !0;
+                g()
+            }, f));
+
+            var C = Mb(a, m);
+            if (C[_length]) {
+                var C =
+                    Mb(a, n), u = S(Y, "CP", []), J = u[_length];
+                u[J] = function (a) {
+                    if (!a)return 0;
+                    ub("ml1", C, p);
+                    var b = function (b) {
+                        u[J] = null;
+                        w(C, a) && lb(function () {
+                            d && d();
+                            b()
+                        })
+                    },
+                    c = function () {
+                        var a = u[J + 1];
+                        a && a()
+                    };
+                    0 < J && u[J - 1] ? u[J] = function () {
+                        b(c)
+                    } : b(c)
+                };
+                if (C[_length]) {
+                    var mb = "loaded_" + Y.I++;
+                    W[mb] = function (a) {
+                        u[J](a);
+                        W[mb] = null
+                    };
+                    a = Fb(c, C, "gapi." + mb, n);
+                    n[_push][_apply](n, C);
+                    ub("ml0", C, p);
+                    b.sync || Win.___gapisync ? addScripts(a) : insertScript(a)
+                } else
+                    u[J](emptyFunction)
+            } else
+                w(C) && d && d()
+        };
 
     var Qb = function (a) {
         if (Y.hee && 0 < Y.hel)
@@ -795,11 +831,11 @@ gapi._bs = new Date().getTime();
 
     var Bc = function () {
         var a;
-        vc ? (a = new Q.Uint32Array(1), wc.getRandomValues(a), a = Number("0." + a[0])) : (a = xc, a += _parseInt(yc[_substr](0, 20), 16), yc = zc(yc), a /= Ac + Math.pow(16, 20));
+        vc ? (a = new Win.Uint32Array(1), wc.getRandomValues(a), a = Number("0." + a[0])) : (a = xc, a += _parseInt(yc[_substr](0, 20), 16), yc = zc(yc), a /= Ac + Math.pow(16, 20));
         return a
     },
-    wc = Q.crypto, vc = !1, Cc = 0, Dc = 0, xc = 1, Ac = 0, yc = "", Ec = function (a) {
-        a = a || Q.event;
+    wc = Win.crypto, vc = !1, Cc = 0, Dc = 0, xc = 1, Ac = 0, yc = "", Ec = function (a) {
+        a = a || Win.event;
         var b = a.screenX + a.clientX << 16, b = b + (a.screenY + a.clientY), b = (new Date)[_getTime]() % 1E6 * b;
         xc = xc * b % Ac;
         0 < Cc && ++Dc == Cc && bb("mousemove", Ec, "remove", "de")
@@ -827,7 +863,7 @@ gapi._bs = new Date().getTime();
     },
     vc = !!wc && "function" == typeof wc.getRandomValues;
 
-    vc || (Ac = 1E6 * (screen[_width] * screen[_width] + screen[_height]), yc = zc(R.cookie + "|" + R[_location] + "|" + (new Date)[_getTime]() + "|" + Math.random()), Cc = Z("random/maxObserveMousemove") || 0, 0 != Cc && bb("mousemove", Ec, "add", "at"));
+    vc || (Ac = 1E6 * (screen[_width] * screen[_width] + screen[_height]), yc = zc(Doc.cookie + "|" + Doc[_location] + "|" + (new Date)[_getTime]() + "|" + Math.random()), Cc = Z("random/maxObserveMousemove") || 0, 0 != Cc && bb("mousemove", Ec, "add", "at"));
     var Fc = function () {
         var a = Y.onl;
         if (!a) {
@@ -945,7 +981,7 @@ gapi._bs = new Date().getTime();
                         for (c = 0; c < d; c += 1)b[_push](Uc(a[c]) || "null");
                         return"[" + b[_join](",") + "]"
                     }
-                    for (c in a)!/___$/[_test](c) && U(a, c) && "string" === typeof c && (d = Uc(a[c])) && b[_push](Uc(c) + ":" + d);
+                    for (c in a)!/___$/[_test](c) && hasOwn(a, c) && "string" === typeof c && (d = Uc(a[c])) && b[_push](Uc(c) + ":" + d);
                     return"{" + b[_join](",") + "}"
             }
             return""
@@ -1004,7 +1040,7 @@ gapi._bs = new Date().getTime();
             (e = Z("iframes/" + e + "/url")) || (e = ":im_socialhost:/:session_prefix::im_prefix:_/widget/render/" + f + "?usegapi=1");
             for (var g in cd)
                 d[g] = g + "/" + (b[g] || cd[g]) + "/";
-            d = $a(R, e[_replace](Pc, Sc(d)));
+            d = $a(Doc, e[_replace](Pc, Sc(d)));
             g = "iframes/" + a + "/params/";
             f = {};
             V(b, f);
@@ -1014,7 +1050,7 @@ gapi._bs = new Date().getTime();
             if (g = Z(g + "location"))
                 for (e = 0; e < g[_length]; e++) {
                 var h = g[e];
-                f[h] = Q[_location][h]
+                f[h] = Win[_location][h]
             }
             switch (a) {
                 case "plus":
@@ -1053,16 +1089,16 @@ gapi._bs = new Date().getTime();
             l = /^#|^fr-/;
             c = {};
             for (var n in f)
-                U(f, n) && l[_test](n) && (c[n[_replace](l, "")] = f[n], delete f[n]);
+                hasOwn(f, n) && l[_test](n) && (c[n[_replace](l, "")] = f[n], delete f[n]);
             n = "q" == Z("iframes/" + a + "/params/si") ? f : c;
             l = ec();
             for (var m in l)
-                !U(l, m) || U(f, m) || U(c, m) || (n[m] = l[m]);
+                !hasOwn(l, m) || hasOwn(f, m) || hasOwn(c, m) || (n[m] = l[m]);
             m = [][_concat](fd);
             (n = Z("iframes/" +
-                a + "/methods")) && "object" === typeof n && Ja[_test](n[_push]) && (m = m[_concat](n));
+                a + "/methods")) && "object" === typeof n && NativeCode[_test](n[_push]) && (m = m[_concat](n));
             for (var p in b)
-                U(b, p) && /^on/[_test](p) && ("plus" != a || "onconnect" != p) && (m[_push](p), delete f[p]);
+                hasOwn(b, p) && /^on/[_test](p) && ("plus" != a || "onconnect" != p) && (m[_push](p), delete f[p]);
             delete f.callback;
             c._methods = m[_join](",");
             return Za(d, f, c)
@@ -1090,7 +1126,7 @@ gapi._bs = new Date().getTime();
                 if (a !== b.id && 4 != b.state && "share" != b[_type]) {
                     var c = b.id, d = b[_type], e = b.url;
                     b = b.userParams;
-                    var f = R[_getElementById](c);
+                    var f = Doc[_getElementById](c);
                     if (f) {
                         var g = hd(d, b, 0);
                         g ? (f = f[_parentNode], e[_replace](/\#.*/, "")[_replace](/(\?|&)ic=1/, "") !== g[_replace](/\#.*/, "")[_replace](/(\?|&)ic=1/, "") && (b.dontclear = !0, b.rd = !0, b.ri = !0, fa(b, d), ld(f, b), (d = $[f.lastChild.id]) && (d.oid = c), lc(c, 4))) : delete $[c]
@@ -1112,9 +1148,9 @@ gapi._bs = new Date().getTime();
     },
     ud = function (a, b, c, d) {
         sb("ps0", !0);
-        c = ("string" === typeof c ? _document[_getElementById](c) : c) || R;
+        c = ("string" === typeof c ? _document[_getElementById](c) : c) || Doc;
         var e;
-        e = R[_documentMode];
+        e = Doc[_documentMode];
         if (c.querySelectorAll && (!e || 8 < e)) {
             e = d ? [d] : Sa(nd)[_concat](Sa(od))[_concat](Sa(pd));
             for (var f = [], g = 0; g < e[_length]; g++) {
@@ -1206,7 +1242,7 @@ gapi._bs = new Date().getTime();
                 var g;
                 if (b[_parentNode]) {
                     for (var h in c) {
-                        if (f = U(c, h))
+                        if (f = hasOwn(c, h))
                             f = c[h], f = !!f && "object" === typeof f && (!f[_toString] || f[_toString] === _Object[_prototype][_toString] || f[_toString] === _Array[_prototype][_toString]);
                         if (f)
                             try {
@@ -1243,8 +1279,8 @@ gapi._bs = new Date().getTime();
                     Ua(!f.allowPost || !b.onload, "onload is not supported by post iframe");
                     h = b = n;
                     Oc[_test](b) && (h = Z("iframes/" + h[_substring](1) + "/url"), Ua(!!h, "Unknown iframe url config for - " + b));
-                    n = $a(R, h[_replace](Pc, Rc));
-                    b = c.ownerDocument || R;
+                    n = $a(Doc, h[_replace](Pc, Rc));
+                    b = c.ownerDocument || Doc;
                     m = 0;
                     do h = f.id || ["I", Lc++, "_", (new Date)[_getTime]()][_join](""); while (b[_getElementById](h) && 5 > ++m);
                     Ua(5 > m, "Error creating iframe id");
@@ -1339,7 +1375,7 @@ gapi._bs = new Date().getTime();
         if (d) {
             var e = {}, f;
             for (f in b)
-                U(b, f) && (e[f[_toLowerCase]()] = b[f]);
+                hasOwn(b, f) && (e[f[_toLowerCase]()] = b[f]);
             e.rd = 1;
             (f = !!e.ri) && delete e.ri;
             var g = [];
@@ -1354,7 +1390,7 @@ gapi._bs = new Date().getTime();
     var wd = function (a) {
         for (var b = ["_c", "jsl", "h"], c = 0; c < b[_length] && a; c++)
             a = a[b[c]];
-        b = ib(Ha[_href]);
+        b = ib(Loc[_href]);
         return!a || 0 != a[_indexOf]("n;") && 0 != b[_indexOf]("n;") && a !== b
     },
     zd = function (a, b) {
@@ -1391,7 +1427,7 @@ gapi._bs = new Date().getTime();
     var Hd = function (a) {
         a = (a = $[a]) ? a.oid : void 0;
         if (a) {
-            var b = R[_getElementById](a);
+            var b = Doc[_getElementById](a);
             b && b[_parentNode][_removeChild](b);
             delete $[a];
             Hd(a)
@@ -1419,7 +1455,7 @@ gapi._bs = new Date().getTime();
         }
 
         if (0 !== b[_length]) {
-            Kd = X(Ha[_href], "pfname", "");
+            Kd = X(Loc[_href], "pfname", "");
             var e = !0;
             bb("message", d, "add", "at");
             Tb(a, c)
@@ -1440,7 +1476,7 @@ gapi._bs = new Date().getTime();
         if (d.s && e && -1 != Ka[_call](b, e)) {
             if ("_renderstart" === d.s || d.s === Kd + "/" + e + "::_renderstart") {
                 var f = d.a && d.a[c ? 0 : 1],
-                    c = R[_getElementById](e);
+                    c = Doc[_getElementById](e);
                 lc(e, 2);
                 if (f && c && f[_width] && f[_height]) {
                     n:{
@@ -1498,7 +1534,8 @@ gapi._bs = new Date().getTime();
         this.C = c.path;
         this.S = c.X
     },
-    Od = /^[-+/_=.:|%&a-zA-Z0-9@]*$/, Pd = /^[A-Z_][A-Z0-9_]{0,63}$/;
+    Od = /^[-+/_=.:|%&a-zA-Z0-9@]*$/,
+    Pd = /^[A-Z_][A-Z0-9_]{0,63}$/;
 
     Nd[_prototype].write = function (a, b) {
         if (!Pd[_test](this.B))throw"Invalid cookie name";
@@ -1633,7 +1670,7 @@ gapi._bs = new Date().getTime();
     be = function () {
         var a = Yd(), b = a && a.Q || null, c = a && a.t;
         Tb("auth", {callback: function () {
-            var a = Q.gapi.auth,
+            var a = Win.gapi.auth,
                 e = {
                     client_id: c,
                     session_state: b
@@ -1643,7 +1680,9 @@ gapi._bs = new Date().getTime();
                 b = Z("debug/forceIm") ? !1 : c && b || !c && !b;
                 if (h = h != b)$b("isLoggedIn", b), jc(), md(), b || ((b = a.signOut) ? b() : (b = a.setToken) && b(null));
                 b = ec();
-                var l = Z("savedUserState"), c = a._guss(b.cookiepolicy), l = l != c && "undefined" != typeof l;
+                var l = Z("savedUserState"),
+                    c = a._guss(b.cookiepolicy),
+                    l = l != c && "undefined" != typeof l;
                 $b("savedUserState", c);
                 (h || l) && fc(b) && !Z("disableRealtimeCallback") && a._pimf(b, !0)
             })

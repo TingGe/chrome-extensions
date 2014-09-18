@@ -10,7 +10,6 @@
 'use strict';
 var b, g = g || {};
 g.global = this;
-
 g.isDef = function (a) {
     return void 0 !== a
 };
@@ -6830,7 +6829,14 @@ g.debug.exposeException = function (a, c) {
 };
 g.debug.normalizeErrorObject = function (a) {
     var c = g.getObjectByName("window.location.href");
-    if (g.isString(a))return{message: a, name: "Unknown error", lineNumber: "Not available", fileName: c, stack: "Not available"};
+    if (g.isString(a))
+        return{
+            message: a,
+            name: "Unknown error",
+            lineNumber: "Not available",
+            fileName: c,
+            stack: "Not available"
+        };
     var d, e, f = !1;
     try {
         d = a.lineNumber || a.line || "Not available"

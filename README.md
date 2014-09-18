@@ -40,6 +40,19 @@ Chrome Extensions配置清单文件。用于配置加载background、content_scr
 
 3. 读写cookie。APISID、SAPISID(Background的Auth)
 
+##### 网络视图
+
+![image](./res/network-_generated_background_page.png) 
+
+##### background Elements视图
+
+![image](./res/elements-_generated_background_page.png) 
+
+##### client:plusone 
+
+![image](./res/elements-_generated_background_page.png) 
+
+
 #### content_script：
 根据登录和popup中的 Data Panel 位置信息，在页面中创建 Data Panel 
 
