@@ -5372,6 +5372,7 @@ g.labs.userAgent.engine.getVersionForKey_ = function (a, c) {
     });
     return d && d[1] || ""
 };
+
 g.userAgent = {};
 g.userAgent.ASSUME_IE = !1;
 g.userAgent.ASSUME_GECKO = !1;
@@ -5459,6 +5460,7 @@ if (u && g.userAgent.IE) {
 } else t = void 0;
 g.userAgent.DOCUMENT_MODE = t;
 
+/*------------------------------- uri Start --------------------------------------------*/
 g.uri = {};
 g.uri.utils = {};
 g.uri.utils.CharCode_ = {AMPERSAND: 38, EQUAL: 61, HASH: 35, QUESTION: 63};
@@ -6014,7 +6016,7 @@ b.extend = function (a) {
         }, this)
     }
 };
-
+/*------------------------------- uri End --------------------------------------------*/
 
 k.UrlRewriteResolver = function (a, c) {
     this.view_ = a;
@@ -7177,6 +7179,7 @@ g.debug.LogManager.createLogger_ = function (a) {
     }
     return g.debug.LogManager.loggers_[a] = c
 };
+
 g.log = {};
 g.log.ENABLED = g.debug.LOGGING_ENABLED;
 g.log.ROOT_LOGGER_NAME = g.debug.Logger.ROOT_LOGGER_NAME;
@@ -7266,7 +7269,11 @@ g.disposable.IDisposable = function () {
 g.Disposable = function () {
     g.Disposable.MONITORING_MODE != g.Disposable.MonitoringMode.OFF && (g.Disposable.instances_[g.getUid(this)] = this)
 };
-g.Disposable.MonitoringMode = {OFF: 0, PERMANENT: 1, INTERACTIVE: 2};
+g.Disposable.MonitoringMode = {
+    OFF: 0,
+    PERMANENT: 1,
+    INTERACTIVE: 2
+};
 g.Disposable.MONITORING_MODE = 0;
 g.Disposable.INCLUDE_STACK_ON_CREATION = !0;
 g.Disposable.instances_ = {};
@@ -7954,6 +7961,8 @@ g.events.EventTarget.dispatchEventInternal_ = function (a, c, d) {
         l < d.length; l++)h = c.currentTarget = d[l], f = h.fireListeners(e, !1, c) && f;
     return f
 };
+
+
 g.json = {};
 g.json.USE_NATIVE_JSON = !1;
 g.json.isValid = function (a) {
@@ -8090,6 +8099,7 @@ g.Timer.callOnce = function (a, c, d) {
 g.Timer.clear = function (a) {
     g.Timer.defaultTimerObject.clearTimeout(a)
 };
+
 g.net = {};
 g.net.ErrorCode = {NO_ERROR: 0, ACCESS_DENIED: 1, FILE_NOT_FOUND: 2, FF_SILENT_ERROR: 3, CUSTOM_ERROR: 4, EXCEPTION: 5, HTTP_ERROR: 6, ABORT: 7, TIMEOUT: 8, OFFLINE: 9};
 g.net.ErrorCode.getDebugMessage = function (a) {
@@ -8285,7 +8295,13 @@ g.net.XhrIo = function (a) {
     this.useXhr2Timeout_ = this.withCredentials_ = !1
 };
 g.inherits(g.net.XhrIo, g.events.EventTarget);
-g.net.XhrIo.ResponseType = {DEFAULT: "", TEXT: "text", DOCUMENT: "document", BLOB: "blob", ARRAY_BUFFER: "arraybuffer"};
+g.net.XhrIo.ResponseType = {
+    DEFAULT: "",
+    TEXT: "text",
+    DOCUMENT: "document",
+    BLOB: "blob",
+    ARRAY_BUFFER: "arraybuffer"
+};
 g.net.XhrIo.prototype.logger_ = g.log.getLogger("goog.net.XhrIo");
 g.net.XhrIo.CONTENT_TYPE_HEADER = "Content-Type";
 g.net.XhrIo.HTTP_SCHEME_PATTERN = /^https?$/i;
@@ -8656,7 +8672,10 @@ b.makeQuery_ = function (a, c) {
     d.execute(g.bind(this.sendRealTimeMsg_, this))
 };
 b.sendRealTimeMsg_ = function (a) {
-    a = {type: k.MessageType.REAL_TIME, realTime: a};
+    a = {
+        type: k.MessageType.REAL_TIME,
+        realTime: a
+    };
     chrome.tabs.sendMessage(this.tabId_, a)
 };
 

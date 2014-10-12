@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles_min.css" />
+    <title>Options for the Google Tag Assistant Extension</title>
+  </head>
+  <body>
+    <div id="options-header">
+      <div class="options-header-text">
+        <span>Tag Assistant by</span>
+        <img class="google-icon" src="images/google_icon.png" alt="Google_icon">
+      </div>
+    </div>
+    <div id="status" class="status-hidden"></div>
+    <div class="options-appbar">
+      <div class="goog-inline-block jfk-button jfk-button-standard" id="reset">
+        Reset to default
+     </div>
+     <div class="goog-inline-block jfk-button jfk-button-standard" id="list-checks">
+       List checks
+     </div>
+      <div role="button"
+           id="back"
+           class="goog-inline-block jfk-button jfk-button-standard jfk-button-img"
+           style="-webkit-user-select: none; display:none">
+          <div class="goog-inline-block img-back">Back</div>
+      </div>
+    </div>
+    <div id="options-title">Options</div>
+    <div id="options-list">
+      <div class="options-section">
+        <div class="options-section-header"></div>
+        <div class="options-description-title">
+          Global options
+        </div>
+        <div class="options-help">
+          <dl>
+            <dt class="options-description-title">Validate all pages</dt>
+            <dd>
+              If checked all pages will be analyzed automatically. Otherwise
+              the automatic analysis may be restricted to specific domains or
+              can be triggered manually.
+            </dd>
+            <dt class="options-description-title">Parsing external scripts</dt>
+            <dd>
+              The extension will analyze scripts loaded from this page for any
+              tags in the background. It may take more than 10 seconds for the
+              results to show up.
+            </dd>
+          </dl>
+        </div>
+        <form class="options-controls" id="options-controls">
+          <div id="validate-all-pages"></div>
+          <input type="checkbox"
+                 name="IgnoreExternalScripts"
+                 id="IgnoreExternalScripts">
+            <span class="options-category">Ignore external scripts</span><br>
+        </form>
+        <form class="options-controls" id="debugging-controls"></form>
+      </div>
+      <div id="permissions-check" class="options-section" display="none">
+        <div class="options-help">
+          <dl>
+            <dt class="options-description-title">Extension checking</dt>
+            <dd>
+              Some extensions may block tags, in which case the Tag Assistant
+              will show an error. With granting Tag Assistant access it will
+              check for know extensions and flag them in the popup.
+            </dd>
+          </dl>
+        </div>
+        <div class="options-section-header"></div>
+        <div class="options-description-title">
+          Additional permissions requested
+        </div>
+        <form class="options-controls" id="permissions-controls">
+          <div class="permissions-check-buttons">
+            <div role="button" id="permissions-check-button"
+                 class="goog-inline-block jfk-button jfk-button-action">
+              Allow
+            </div>
+          </div>
+          <div class="permissions-check-message">
+            Check if other extensions are blocking tags
+          </div>
+        </form>
+      </div>
+      <div class="options-section">
+        <div class="options-section-header"></div>
+        <div class="options-description-title">Level of Detail</div>
+        <form class="options-controls" id="categories-controls">
+          <div id="categories"></div>
+        </form>
+      </div>
+      <div class="options-section">
+        <div class="options-section-header"></div>
+        <div class="options-description-title">
+          Advanced Options
+        </div>
+        <form class="options-controls" id="advanced-controls">
+          <div class="options-help">
+            <dl>
+              <dt class="options-description-title">
+                Linking to Google Analytics
+              </dt>
+              <dd>
+                Get the accounts IDs from Google Analytics to enable direct
+                links into the Google Analytics Frontend for the accounts you
+                are managing. This can also be used to restrict the tag
+                analysis to only those domains.
+              </dd>
+            </dl>
+          </div>
+          <div class="goog-inline-block jfk-button jfk-button-standard"
+               id="link-google-analytics">
+            Get Google Analytics Accounts
+          </div>
+          <div class="goog-inline-block jfk-button jfk-button-standard"
+               id="logout"  style="display:none;">
+            Logout
+          </div>
+          <div id="analytics-accounts"></div>
+        </form>
+      </div>
+    </div>
+    <div id="checksTable" style="display:none;">
+      <div class="options-section">
+        <div id="checksControls"> </div>
+        <div class="options-section-header">
+          <div id="templates" class="options-templates">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reset-storage hide">
+      <a href="#">Reset to welcome screen (only available in the internal version)</a>
+    </div>
+    <script src="options_compiled.js"></script>
+  </body>
+</html>
