@@ -226,7 +226,8 @@ f.now = f.TRUSTED_SITE && Date.now || function () {
 };
 f.globalEval = function (b) {
     if (f.global.execScript)f.global.execScript(b, "JavaScript"); else if (f.global.eval)if (null == f.evalWorksForGlobals_ && (f.global.eval("var _et_ = 1;"), "undefined" != typeof f.global._et_ ? (delete f.global._et_, f.evalWorksForGlobals_ = !0) : f.evalWorksForGlobals_ = !1), f.evalWorksForGlobals_)f.global.eval(b); else {
-        var c = f.global.document, d = c.createElement("script");
+        var c = f.global.document,
+            d = c.createElement("script");
         d.type = "text/javascript";
         d.defer = !1;
         d.appendChild(c.createTextNode(b));
@@ -1964,6 +1965,8 @@ f.functions.cacheReturnValue = function (b) {
         return d
     }
 };
+
+/*------------------------------- math Start --------------------------------------------*/
 f.math = {};
 f.math.randomInt = function (b) {
     return Math.floor(Math.random() * b)
@@ -2066,6 +2069,8 @@ f.math.safeCeil = function (b, c) {
     f.asserts.assert(!f.isDef(c) || 0 < c);
     return Math.ceil(b - (c || 2E-15))
 };
+/*------------------------------- math End --------------------------------------------*/
+
 f.iter = {};
 f.iter.StopIteration = "StopIteration"in f.global ? f.global.StopIteration : Error("StopIteration");
 f.iter.Iterator = function () {
@@ -4200,6 +4205,8 @@ f.events.EventType = {CLICK: "click", RIGHTCLICK: "rightclick", DBLCLICK: "dblcl
     MSGOTPOINTERCAPTURE: "MSGotPointerCapture", MSINERTIASTART: "MSInertiaStart", MSLOSTPOINTERCAPTURE: "MSLostPointerCapture", MSPOINTERCANCEL: "MSPointerCancel", MSPOINTERDOWN: "MSPointerDown", MSPOINTERENTER: "MSPointerEnter", MSPOINTERHOVER: "MSPointerHover", MSPOINTERLEAVE: "MSPointerLeave", MSPOINTERMOVE: "MSPointerMove", MSPOINTEROUT: "MSPointerOut", MSPOINTEROVER: "MSPointerOver", MSPOINTERUP: "MSPointerUp", TEXTINPUT: "textinput", COMPOSITIONSTART: "compositionstart", COMPOSITIONUPDATE: "compositionupdate", COMPOSITIONEND: "compositionend",
     EXIT: "exit", LOADABORT: "loadabort", LOADCOMMIT: "loadcommit", LOADREDIRECT: "loadredirect", LOADSTART: "loadstart", LOADSTOP: "loadstop", RESPONSIVE: "responsive", SIZECHANGED: "sizechanged", UNRESPONSIVE: "unresponsive", VISIBILITYCHANGE: "visibilitychange", STORAGE: "storage", DOMSUBTREEMODIFIED: "DOMSubtreeModified", DOMNODEINSERTED: "DOMNodeInserted", DOMNODEREMOVED: "DOMNodeRemoved", DOMNODEREMOVEDFROMDOCUMENT: "DOMNodeRemovedFromDocument", DOMNODEINSERTEDINTODOCUMENT: "DOMNodeInsertedIntoDocument", DOMATTRMODIFIED: "DOMAttrModified",
     DOMCHARACTERDATAMODIFIED: "DOMCharacterDataModified"};
+
+/*------------------------------- math Start --------------------------------------------*/
 f.math.Coordinate = function (b, c) {
     this.x = f.isDef(b) ? b : 0;
     this.y = f.isDef(c) ? c : 0
@@ -4300,6 +4307,9 @@ a.scale = function (b, c) {
     this.height *= d;
     return this
 };
+/*------------------------------- math End --------------------------------------------*/
+
+/*------------------------------- dom Start --------------------------------------------*/
 f.dom.BrowserFeature = {CAN_ADD_NAME_OR_TYPE_ATTRIBUTES: !f.userAgent.IE || f.userAgent.isDocumentModeOrHigher(9), CAN_USE_CHILDREN_ATTRIBUTE: !f.userAgent.GECKO && !f.userAgent.IE || f.userAgent.IE && f.userAgent.isDocumentModeOrHigher(9) || f.userAgent.GECKO && f.userAgent.isVersionOrHigher("1.9.1"), CAN_USE_INNER_TEXT: f.userAgent.IE && !f.userAgent.isVersionOrHigher("9"), CAN_USE_PARENT_ELEMENT_PROPERTY: f.userAgent.IE || f.userAgent.OPERA || f.userAgent.WEBKIT, INNER_HTML_NEEDS_SCOPED_ELEMENT: f.userAgent.IE, LEGACY_IE_RANGES: f.userAgent.IE && !f.userAgent.isDocumentModeOrHigher(9)};
 f.dom.TagName = {A: "A", ABBR: "ABBR", ACRONYM: "ACRONYM", ADDRESS: "ADDRESS", APPLET: "APPLET", AREA: "AREA", ARTICLE: "ARTICLE", ASIDE: "ASIDE", AUDIO: "AUDIO", B: "B", BASE: "BASE", BASEFONT: "BASEFONT", BDI: "BDI", BDO: "BDO", BIG: "BIG", BLOCKQUOTE: "BLOCKQUOTE", BODY: "BODY", BR: "BR", BUTTON: "BUTTON", CANVAS: "CANVAS", CAPTION: "CAPTION", CENTER: "CENTER", CITE: "CITE", CODE: "CODE", COL: "COL", COLGROUP: "COLGROUP", COMMAND: "COMMAND", DATA: "DATA", DATALIST: "DATALIST", DD: "DD", DEL: "DEL", DETAILS: "DETAILS", DFN: "DFN", DIALOG: "DIALOG", DIR: "DIR", DIV: "DIV",
     DL: "DL", DT: "DT", EM: "EM", EMBED: "EMBED", FIELDSET: "FIELDSET", FIGCAPTION: "FIGCAPTION", FIGURE: "FIGURE", FONT: "FONT", FOOTER: "FOOTER", FORM: "FORM", FRAME: "FRAME", FRAMESET: "FRAMESET", H1: "H1", H2: "H2", H3: "H3", H4: "H4", H5: "H5", H6: "H6", HEAD: "HEAD", HEADER: "HEADER", HGROUP: "HGROUP", HR: "HR", HTML: "HTML", I: "I", IFRAME: "IFRAME", IMG: "IMG", INPUT: "INPUT", INS: "INS", ISINDEX: "ISINDEX", KBD: "KBD", KEYGEN: "KEYGEN", LABEL: "LABEL", LEGEND: "LEGEND", LI: "LI", LINK: "LINK", MAP: "MAP", MARK: "MARK", MATH: "MATH", MENU: "MENU", META: "META", METER: "METER",
@@ -4923,6 +4933,8 @@ a.isNodeList = f.dom.isNodeList;
 a.getAncestorByTagNameAndClass = f.dom.getAncestorByTagNameAndClass;
 a.getAncestorByClass = f.dom.getAncestorByClass;
 a.getAncestor = f.dom.getAncestor;
+/*------------------------------- dom End --------------------------------------------*/
+
 f.debug.entryPointRegistry = {};
 f.debug.EntryPointMonitor = function () {
 };
@@ -15281,7 +15293,8 @@ a.addAccountPanel = function (b) {
     b.render(this.getElementByClass("panel-header-account-panel"))
 };
 a.setGALink = function (b) {
-    var c = this.getElementByClass("view-in-ga-link"), d = this.getElementByClass("view-in-ga-link-logo");
+    var c = this.getElementByClass("view-in-ga-link"),
+        d = this.getElementByClass("view-in-ga-link-logo");
     c.href = b;
     d.href = b
 };
@@ -17197,6 +17210,7 @@ f.ui.registry.setDecoratorByClassName("goog-select", function () {
 f.ui.ToolbarSelect = function (b, c, d, e) {
     f.ui.Select.call(this, b, c, d || f.ui.ToolbarMenuButtonRenderer.getInstance(), e)
 };
+
 f.inherits(f.ui.ToolbarSelect, f.ui.Select);
 f.ui.registry.setDecoratorByClassName("goog-toolbar-select", function () {
     return new f.ui.ToolbarSelect(null)

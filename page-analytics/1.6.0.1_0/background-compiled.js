@@ -5615,8 +5615,10 @@ g.uri.utils.hasParam = function (a, c) {
     return 0 <= g.uri.utils.findParam_(a, 0, c, a.search(g.uri.utils.hashOrEndRe_))
 };
 g.uri.utils.getParamValue = function (a, c) {
-    var d = a.search(g.uri.utils.hashOrEndRe_), e = g.uri.utils.findParam_(a, 0, c, d);
-    if (0 > e)return null;
+    var d = a.search(g.uri.utils.hashOrEndRe_),
+        e = g.uri.utils.findParam_(a, 0, c, d);
+    if (0 > e)
+        return null;
     var f = a.indexOf("&", e);
     if (0 > f || f > d)f = d;
     e += c.length + 1;
@@ -5625,7 +5627,8 @@ g.uri.utils.getParamValue = function (a, c) {
 g.uri.utils.getParamValues = function (a, c) {
     for (var d = a.search(g.uri.utils.hashOrEndRe_), e = 0, f, h = []; 0 <= (f = g.uri.utils.findParam_(a, e, c, d));) {
         e = a.indexOf("&", f);
-        if (0 > e || e > d)e = d;
+        if (0 > e || e > d)
+            e = d;
         f += c.length + 1;
         h.push(g.string.urlDecode(a.substr(f, e - f)))
     }
