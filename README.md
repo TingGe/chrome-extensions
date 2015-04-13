@@ -32,7 +32,7 @@ _metadata目录是将扩展上传到Chrome web store时，由Google添加进crx�
 Chrome Extensions配置清单文件。用于配置加载background、content_scripts、popup等。
 
 #### background：
-后台网页。有三个作用：
+背景页。有三个作用：
 
 1. 用于验证Google+ 登录API，并在加载完 client:plusone.js（https://apis.google.com/js/client:plusone.js?onload=gaextOnGapiClientLoadCallback） 时调用回调方法 gaextOnGapiClientLoadCallback。
 
