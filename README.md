@@ -99,3 +99,4 @@ Real-time:
 
 - [Google+ Platform JavaScript API](https://developers.google.com/+/web/api/javascript?hl=zh-cn)
 
+- [浏览器兼容性检测工具开发文档一节](https://github.com/TingGe/compatibility-detector/blob/master/README.md)
