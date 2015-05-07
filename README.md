@@ -100,3 +100,7 @@ Real-time:
 - [Google+ Platform JavaScript API](https://developers.google.com/+/web/api/javascript?hl=zh-cn)
 
 - [浏览器兼容性检测工具文档](https://github.com/TingGe/compatibility-detector/blob/master/README.md)
+
+- [Bookmarklet实例:front-end performance heatmap-Perfmap](https://github.com/TingGe/perfmap)
+
+- [Chrome插件官方Native Client开发文档](https://developer.chrome.com/native-client) 
