@@ -1,14 +1,16 @@
-
-网站分析——浏览器工具
+Chrome Extensions 和 Bookmarklet
 ==========================
 
+> 14年至15年，陆续做一些 Chrome 扩展和浏览器书签脚本 Bookmarklet 的小工具。一般来说，优先选择 Bookmarklet 方案，涉及网络报文操作时采用 Chrome 扩展方案。
+
+在此，记录些逆向 Google 工具的代码。
 
 调研
 ---------------
 
 - [Page Analytics (by Google)](https://chrome.google.com/webstore/detail/page-analytics-by-google/fnbdnhhicmebfgdgglcdacdapkcihcoh?hl=en)，一款用于查看用户与你的网页互动的 Chrome 扩展。
 
-- [Tag Assistant (by Google)](https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk?utm_source=chrome-ntp-icon)，效率型的小助理，用于验证谷歌追踪码的安装状态，包括Google Analytics, Adwords Conversion Tracking, Google Tag Manager 等。
+- [Tag Assistant (by Google)](https://chrome.google.com/webstore/detail/tag-assistant-by-google/kejbdjndbnbjgmefkgdddjlbokphdefk?utm_source=chrome-ntp-icon)，效率型的小助理，验证谷歌追踪码的安装状态，包括Google Analytics, Adwords Conversion Tracking, Google Tag Manager 等。
 
 - [Google Analytics Debugger](https://chrome.google.com/webstore/detail/google-analytics-debugger/jnkmfdileelhofjcijamephohjechhna?utm_source=chrome-ntp-icon)，主要是用來除错，在一些定制化的JavaScript处理上，可以用来检查 Google Analytics 数据是否成功发送。
 
@@ -16,8 +18,6 @@
 
 Chrome扩展开发案例——Page Analtics（by Google）代码逆向分析
 ---------------
-
-
 
 ### 目录结构
 
@@ -100,3 +100,5 @@ Real-time:
 - [Bookmarklet实例:front-end performance heatmap-Perfmap](https://github.com/TingGe/perfmap)
 - [Chrome插件官方Native Client开发文档](https://developer.chrome.com/native-client) 
 - [20100915 學習撰寫 Google Chrome Extension](http://www.slideshare.net/lis186/20100915-google-chrome-extension)
+- [从零开始写一个 Chrome 扩展](https://segmentfault.com/a/1190000005896962)
+
